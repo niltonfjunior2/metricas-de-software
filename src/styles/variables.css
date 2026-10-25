@@ -1,0 +1,65 @@
+:root {
+  /* Surfaces & Backgrounds */
+  --bg-main: #0B0F19;
+  --bg-header: #0D1322;
+  --bg-card: #151D2F;
+  --bg-card-hover: #1A243B;
+  --bg-card-inner: #0F172A;
+  --bg-neutral-box: #090E17;
+  --bg-control: #1E293B;
+  --bg-control-hover: #334155;
+  --border-color: #2D3A54;
+  --border-inner: #334155;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Shadows */
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --card-shadow-hover: 0 20px 35px -5px rgba(0, 0, 0, 0.7), 0 10px 15px -5px rgba(56, 189, 248, 0.15);
+  --glow-cyan: 0 0 20px rgba(6, 182, 212, 0.25);
+
+  /* Typography Colors */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --text-title: #FFFFFF;
+  --text-desc: #CBD5E1;
+
+  /* Brand & Accents */
+  --accent-blue: #38BDF8;
+  --accent-cyan: #06B6D4;
+  --accent-cyan-bg: rgba(6, 182, 212, 0.12);
+  --accent-cyan-border: rgba(6, 182, 212, 0.3);
+
+  /* Semantic Metric Colors */
+  --color-recursos: #F59E0B;
+  --color-recursos-glow: rgba(245, 158, 11, 0.35);
+  --color-recursos-bg: rgba(245, 158, 11, 0.15);
+  --color-recursos-text: #FFFFFF;
+  --color-recursos-tag: #FDE68A;
+
+  --color-processo: #10B981;
+  --color-processo-glow: rgba(16, 185, 129, 0.35);
+  --color-processo-bg: rgba(16, 185, 129, 0.15);
+  --color-processo-text: #FFFFFF;
+  --color-processo-tag: #A7F3D0;
+
+  --color-produto: #3B82F6;
+  --color-produto-glow: rgba(59, 130, 246, 0.35);
+  --color-produto-bg: rgba(59, 130, 246, 0.15);
+  --color-produto-text: #FFFFFF;
+  --color-produto-tag: #93C5FD;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Dimensions */
+  --header-height: 64px;
+  --sidebar-width: 280px;
+  --max-content-width: 1200px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}

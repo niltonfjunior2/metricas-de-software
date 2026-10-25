@@ -1,0 +1,245 @@
+/* Audit Activity Styles */
+
+.audit-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Scenario Card */
+.scenario-stage-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 18px;
+  padding: 2.25rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: border-color var(--transition-normal);
+}
+
+.scenario-stage-card.revealed {
+  border-color: var(--accent-cyan-border);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+}
+
+.scenario-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.scenario-objective-banner {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.05));
+  border: 1px solid var(--accent-cyan-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+}
+
+.scenario-objective-banner h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.scenario-objective-banner p {
+  color: var(--text-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Narrative Box */
+.narrative-box {
+  background-color: var(--bg-neutral-box);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.narrative-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.narrative-text {
+  color: var(--text-desc);
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+/* Challenge Banner */
+.challenge-banner {
+  background-color: rgba(30, 41, 59, 0.5);
+  border: 1px solid var(--border-inner);
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.challenge-banner strong {
+  color: var(--text-title);
+}
+
+/* Waiting / Reveal Trigger */
+.waiting-reveal-btn {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(6, 182, 212, 0.15));
+  border: 2px dashed var(--accent-cyan-border);
+  border-radius: 12px;
+  color: var(--accent-blue);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.waiting-reveal-btn:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(6, 182, 212, 0.25));
+  border-color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+/* Revealed Metrics Grid */
+.audit-reveal-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.audit-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.audit-metric-card {
+  background-color: var(--bg-card-inner);
+  border: 1px solid var(--border-inner);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  position: relative;
+  transition: transform var(--transition-fast);
+}
+
+.audit-metric-card:hover {
+  transform: translateY(-2px);
+}
+
+.audit-metric-card.border-recursos {
+  border-top: 4px solid var(--color-recursos);
+}
+
+.audit-metric-card.border-processo {
+  border-top: 4px solid var(--color-processo);
+}
+
+.audit-metric-card.border-produto {
+  border-top: 4px solid var(--color-produto);
+}
+
+.audit-metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.audit-metric-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-title);
+  line-height: 1.35;
+}
+
+.audit-metric-value {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  background-color: var(--bg-neutral-box);
+  border: 1px solid var(--border-inner);
+  display: inline-block;
+  color: var(--accent-cyan);
+}
+
+.audit-metric-justification {
+  font-size: 0.88rem;
+  color: var(--text-desc);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Ruídos do Cenário Box */
+.ruidos-box {
+  background-color: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ruidos-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #F87171;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.ruido-item {
+  background-color: rgba(15, 23, 42, 0.6);
+  border-left: 3px solid #EF4444;
+  border-radius: 6px;
+  padding: 0.85rem 1.15rem;
+}
+
+.ruido-target-name {
+  color: #FCA5A5;
+  font-size: 0.92rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.ruido-explanation {
+  color: var(--text-desc);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .audit-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classificação de Métricas • Engenharia de Software</title>
+<style>
+  :root {
+    /* Dark Theme (Default) */
+    --bg-main: #0B0F19;
+    --bg-header: #0D1322;
+    --bg-card: #151D2F;
+    --bg-card-inner: #0F172A;
+    --bg-neutral-box: #090E17;
+    --bg-reveal-box: #090E17;
+    --bg-footer: #0D1322;
+    --bg-control: #1E293B;
+    --bg-control-hover: #334155;
+    --bg-waiting: rgba(30, 41, 59, 0.6);
+    --bg-waiting-hover: rgba(30, 41, 59, 0.9);
+    --border-color: #2D3A54;
+    --border-inner: #334155;
+    --card-shadow: 0 20px 40px rgba(0,0,0,0.5);
+
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --text-title: #FFFFFF;
+    --text-desc: #CBD5E1;
+    --text-explanation: #E2E8F0;
+
+    --accent-blue: #38BDF8;
+    --accent-cyan: #06B6D4;
+    --accent-cyan-bg: rgba(6, 182, 212, 0.12);
+    --accent-cyan-border: rgba(6, 182, 212, 0.3);
+
+    --color-recursos: #F59E0B;
+    --color-recursos-glow: rgba(245, 158, 11, 0.35);
+    --color-recursos-bg: rgba(245, 158, 11, 0.15);
+    --color-recursos-text: #FFFFFF;
+    --color-recursos-tag: #FDE68A;
+    --color-recursos-sub: #FEF3C7;
+
+    --color-processo: #10B981;
+    --color-processo-glow: rgba(16, 185, 129, 0.35);
+    --color-processo-bg: rgba(16, 185, 129, 0.15);
+    --color-processo-text: #FFFFFF;
+    --color-processo-tag: #A7F3D0;
+    --color-processo-sub: #D1FAE5;
+
+    --color-produto: #3B82F6;
+    --color-produto-glow: rgba(59, 130, 246, 0.35);
+    --color-produto-bg: rgba(59, 130, 246, 0.15);
+    --color-produto-text: #FFFFFF;
+    --color-produto-tag: #93C5FD;
+    --color-produto-sub: #BFDBFE;
+
+    --kbd-bg: #334155;
+    --kbd-text: #F1F5F9;
+  }
+
+  /* Light Theme */
+  [data-theme="light"] {
+    --bg-main: #F1F5F9;
+    --bg-header: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-card-inner: #F8FAFC;
+    --bg-neutral-box: #F1F5F9;
+    --bg-reveal-box: #F8FAFC;
+    --bg-footer: #FFFFFF;
+    --bg-control: #E2E8F0;
+    --bg-control-hover: #CBD5E1;
+    --bg-waiting: rgba(226, 232, 240, 0.7);
+    --bg-waiting-hover: rgba(203, 213, 225, 0.85);
+    --border-color: #CBD5E1;
+    --border-inner: #E2E8F0;
+    --card-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+    --text-primary: #0F172A;
+    --text-secondary: #334155;
+    --text-muted: #64748B;
+    --text-title: #0F172A;
+    --text-desc: #334155;
+    --text-explanation: #1E293B;
+
+    --accent-blue: #0284C7;
+    --accent-cyan: #0891B2;
+    --accent-cyan-bg: rgba(8, 145, 178, 0.1);
+    --accent-cyan-border: rgba(8, 145, 178, 0.3);
+
+    --color-recursos: #D97706;
+    --color-recursos-glow: rgba(217, 119, 6, 0.25);
+    --color-recursos-bg: rgba(245, 158, 11, 0.12);
+    --color-recursos-text: #B45309;
+    --color-recursos-tag: #92400E;
+    --color-recursos-sub: #78350F;
+
+    --color-processo: #059669;
+    --color-processo-glow: rgba(5, 150, 105, 0.25);
+    --color-processo-bg: rgba(16, 185, 129, 0.12);
+    --color-processo-text: #047857;
+    --color-processo-tag: #065F46;
+    --color-processo-sub: #064E3B;
+
+    --color-produto: #2563EB;
+    --color-produto-glow: rgba(37, 99, 235, 0.25);
+    --color-produto-bg: rgba(59, 130, 246, 0.12);
+    --color-produto-text: #1D4ED8;
+    --color-produto-tag: #1E40AF;
+    --color-produto-sub: #172554;
+
+    --kbd-bg: #E2E8F0;
+    --kbd-text: #0F172A;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    user-select: none;
+  }
+
+  /* Header */
+  header {
+    background: var(--bg-header);
+    border-bottom: 1px solid var(--border-color);
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--accent-blue);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .header-tag {
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: var(--bg-control);
+    padding: 6px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+  }
+
+  .theme-toggle-btn {
+    background: var(--bg-control);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 999px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s ease;
+  }
+
+  .theme-toggle-btn:hover {
+    background: var(--bg-control-hover);
+    transform: translateY(-1px);
+  }
+
+  /* Main Stage for Projection */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 32px;
+    max-width: 1320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Metric Display Box */
+  .metric-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 24px;
+    padding: 34px 44px;
+    width: 100%;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    position: relative;
+  }
+
+  .metric-badge-label {
+    display: inline-block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--accent-cyan);
+    margin-bottom: 14px;
+    background: var(--accent-cyan-bg);
+    padding: 6px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-cyan-border);
+  }
+
+  .metric-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text-title);
+    margin-bottom: 20px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Neutral Description Box */
+  .neutral-description-box {
+    background: var(--bg-neutral-box);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px 24px;
+    margin-bottom: 26px;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .neutral-desc-icon {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+
+  .neutral-desc-content h5 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--accent-blue);
+    margin-bottom: 4px;
+  }
+
+  .neutral-desc-content p {
+    font-size: 1.18rem;
+    line-height: 1.5;
+    color: var(--text-desc);
+  }
+
+  /* 3 Categories Badges - Ordered: RECURSOS -> PROCESSO -> PRODUTO */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 24px;
+  }
+
+  .cat-pill {
+    background: var(--bg-card-inner);
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+    padding: 18px 14px;
+    text-align: center;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    opacity: 0.85;
+  }
+
+  .cat-pill .pill-tag {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    color: var(--text-muted);
+  }
+
+  .cat-pill .pill-title {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .cat-pill .pill-question {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* Active/Revealed State of Pill */
+  .cat-pill.winner-recursos {
+    opacity: 1;
+    background: var(--color-recursos-bg);
+    border-color: var(--color-recursos);
+    box-shadow: 0 0 35px var(--color-recursos-glow);
+    transform: scale(1.04);
+  }
+  .cat-pill.winner-recursos .pill-tag { color: var(--color-recursos-tag); }
+  .cat-pill.winner-recursos .pill-title { color: var(--color-recursos-text); }
+  .cat-pill.winner-recursos .pill-question { color: var(--color-recursos-sub); font-weight: 700; }
+
+  .cat-pill.winner-processo {
+    opacity: 1;
+    background: var(--color-processo-bg);
+    border-color: var(--color-processo);
+    box-shadow: 0 0 35px var(--color-processo-glow);
+    transform: scale(1.04);
+  }
+  .cat-pill.winner-processo .pill-tag { color: var(--color-processo-tag); }
+  .cat-pill.winner-processo .pill-title { color: var(--color-processo-text); }
+  .cat-pill.winner-processo .pill-question { color: var(--color-processo-sub); font-weight: 700; }
+
+  .cat-pill.winner-produto {
+    opacity: 1;
+    background: var(--color-produto-bg);
+    border-color: var(--color-produto);
+    box-shadow: 0 0 35px var(--color-produto-glow);
+    transform: scale(1.04);
+  }
+  .cat-pill.winner-produto .pill-tag { color: var(--color-produto-tag); }
+  .cat-pill.winner-produto .pill-title { color: var(--color-produto-text); }
+  .cat-pill.winner-produto .pill-question { color: var(--color-produto-sub); font-weight: 700; }
+
+  .cat-pill.dimmed {
+    opacity: 0.3;
+    transform: scale(0.97);
+  }
+
+  /* Reveal Pane */
+  .reveal-pane {
+    display: none;
+    background: var(--bg-reveal-box);
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px 30px;
+    margin-top: 8px;
+    text-align: left;
+    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal-pane.visible {
+    display: block;
+  }
+
+  .explanation-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .explanation-row:last-child {
+    margin-bottom: 0;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border-color);
+  }
+
+  .row-icon {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+
+  .row-content h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 5px;
+  }
+
+  .row-content p {
+    font-size: 1.2rem;
+    line-height: 1.48;
+    color: var(--text-explanation);
+  }
+
+  .title-justificativa { color: var(--accent-blue); }
+  .title-exemplo { color: #D97706; }
+  [data-theme="dark"] .title-exemplo { color: #FBBF24; }
+
+  /* Prompt banner when waiting */
+  .waiting-banner {
+    padding: 16px;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--bg-waiting);
+    border-radius: 12px;
+    border: 1px dashed var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .waiting-banner:hover {
+    background: var(--bg-waiting-hover);
+    border-color: var(--accent-blue);
+    color: var(--text-primary);
+  }
+
+  .pulse-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--color-processo);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-processo);
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.7; }
+  }
+
+  /* Footer Controls */
+  footer {
+    background: var(--bg-footer);
+    border-top: 1px solid var(--border-color);
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  button {
+    background: var(--bg-control);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 24px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s ease;
+  }
+
+  button:hover:not(:disabled) {
+    background: var(--bg-control-hover);
+    transform: translateY(-1px);
+  }
+
+  button:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .btn-reveal {
+    background: #2563EB !important;
+    border-color: #3B82F6 !important;
+    color: #FFFFFF !important;
+    font-size: 1.15rem;
+    padding: 12px 32px;
+  }
+
+  .btn-reveal:hover:not(:disabled) {
+    background: #1D4ED8 !important;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+
+  select {
+    background: var(--bg-control);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    max-width: 320px;
+    text-overflow: ellipsis;
+  }
+
+  .shortcut-hints {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .shortcut-hints kbd {
+    background: var(--kbd-bg);
+    padding: 3px 7px;
+    border-radius: 6px;
+    color: var(--kbd-text);
+    font-weight: 700;
+    margin: 0 2px;
+    border: 1px solid var(--border-color);
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="header-title">
+      <span>📊</span>
+      <span>Engenharia de Software • Dinâmica de Métricas</span>
+    </div>
+    <div class="header-right">
+      <div class="header-tag">Decisão Técnica Baseada em Dados</div>
+      <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar entre modo claro e escuro (Tecla T)">
+        <span id="themeIcon">☀️</span>
+        <span id="themeLabel">Modo Claro</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="metric-card" id="clickableStage">
+      <div class="metric-badge-label" id="metricNumber">MÉTRICA EM ANÁLISE</div>
+      <div class="metric-title" id="metricTitle">Carregando métrica...</div>
+
+      <!-- Neutral operational explanation box -->
+      <div class="neutral-description-box">
+        <div class="neutral-desc-icon">🔍</div>
+        <div class="neutral-desc-content">
+          <h5>O que esta métrica avalia (Definição Operacional):</h5>
+          <p id="neutralDescText">Carregando explicação neutra...</p>
+        </div>
+      </div>
+
+      <!-- 3 Categories Grid: RECURSOS -> PROCESSO -> PRODUTO -->
+      <div class="categories-grid">
+        <div class="cat-pill" id="pill-Recursos">
+          <div class="pill-tag">Lente 1</div>
+          <div class="pill-title">🧪 RECURSOS</div>
+          <div class="pill-question">"Quais insumos usamos?"</div>
+        </div>
+        <div class="cat-pill" id="pill-Processo">
+          <div class="pill-tag">Lente 2</div>
+          <div class="pill-title">🔄 PROCESSO</div>
+          <div class="pill-question">"Como desenvolvemos?"</div>
+        </div>
+        <div class="cat-pill" id="pill-Produto">
+          <div class="pill-tag">Lente 3</div>
+          <div class="pill-title">🖥️ PRODUTO</div>
+          <div class="pill-question">"O que entregamos?"</div>
+        </div>
+      </div>
+
+      <!-- State 1: Waiting for Class discussion -->
+      <div class="waiting-banner" id="waitingBanner" onclick="revealCurrentAnswer()">
+        <span class="pulse-dot"></span>
+        <span>Aguardando o posicionamento da turma... <strong>[Clique aqui ou aperte Espaço para revelar]</strong></span>
+      </div>
+
+      <!-- State 2: Answer Revealed -->
+      <div class="reveal-pane" id="revealPane">
+        <div class="explanation-row">
+          <div class="row-icon">📌</div>
+          <div class="row-content">
+            <h4 class="title-justificativa">Justificativa Oficial</h4>
+            <p id="justificativaText">Texto da justificativa...</p>
+          </div>
+        </div>
+        <div class="explanation-row">
+          <div class="row-icon">💡</div>
+          <div class="row-content">
+            <h4 class="title-exemplo">Exemplo Prático & Desambiguação</h4>
+            <p id="exemploText">Texto do exemplo prático...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="btn-group">
+      <button id="btnPrev" onclick="navigate(-1)">⬅ Anterior</button>
+      <button class="btn-reveal" id="btnReveal" onclick="toggleReveal()">Revelar Resposta</button>
+      <button id="btnNext" onclick="navigate(1)">Próxima ➡</button>
+    </div>
+
+    <div class="shortcut-hints">
+      Atalhos: <kbd>Espaço</kbd> revelar | <kbd>←</kbd> <kbd>→</kbd> navegar | <kbd>T</kbd> alternar tema | <kbd>F</kbd> tela cheia
+    </div>
+
+    <div class="btn-group">
+      <select id="jumpSelect" onchange="jumpTo(this.value)">
+        <!-- Options populated dynamically -->
+      </select>
+      <button onclick="toggleFullScreen()">⛶ Tela Cheia</button>
+    </div>
+  </footer>
+
+  <script>
+    const metricsData = [{"id": 1, "metrica": "Tempo de execução da suíte de testes automatizados", "categoria": "Processo", "descricao_neutra": "Cronometra o intervalo de tempo necessário para que a bateria de testes automatizados (unitários, integração e ponta a ponta) execute completamente e retorne o relatório de validação.", "justificativa": "Mede a agilidade e a eficiência de uma etapa interna do fluxo de engenharia (como o software é verificado e validado).", "exemplo": "Se a suíte de testes passa de 40 minutos para 3 minutos após otimização, o software em si não mudou, mas o processo de validação da equipe tornou-se consideravelmente mais ágil."}, {"id": 2, "metrica": "Custo financeiro mensal com infraestrutura em nuvem", "categoria": "Recursos", "descricao_neutra": "Totaliza a quantia em dinheiro gasta mensalmente para contratar e manter instâncias de processamento, bancos de dados, tráfego de rede e serviços em provedores cloud (ex.: AWS, Azure, GCP).", "justificativa": "Mede o consumo de insumos monetários e materiais necessários para suportar o ecossistema ativo do projeto.", "exemplo": "A fatura mensal de R$ 8.000 em nuvem é um recurso financeiro consumido para operar o projeto. Não avalia a lógica interna do código nem a agilidade do time."}, {"id": 3, "metrica": "Taxa de sucesso dos usuários na conclusão de tarefas", "categoria": "Produto", "descricao_neutra": "Percentual de usuários que conseguem iniciar e concluir com êxito um fluxo operacional pretendido no sistema (ex.: efetuar um pagamento, cadastrar um cliente) sem desistir ou recorrer ao suporte.", "justificativa": "Avalia um atributo intrínseco de usabilidade, navegabilidade e eficácia da aplicação entregue diretamente ao usuário.", "exemplo": "Medir se 95% dos clientes concluem a compra no aplicativo sem encontrar erros avalia a qualidade e ergonomia do próprio software entregue."}, {"id": 4, "metrica": "Volume de defeitos identificados por etapa do desenvolvimento", "categoria": "Processo", "descricao_neutra": "Contagem quantitativa de bugs e falhas detectados em cada uma das fases do ciclo de vida (análise de requisitos, codificação, testes internos, homologação ou pré-produção).", "justificativa": "Mapeia gargalos e a capacidade de filtragem de cada etapa do fluxo de trabalho antes da liberação final.", "exemplo": "Identificar que a maioria dos erros só aparece na etapa de homologação aponta que as fases anteriores estão falhando no filtro da esteira de trabalho."}, {"id": 5, "metrica": "Volume de armazenamento consumido por backups", "categoria": "Recursos", "descricao_neutra": "Quantidade em gigabytes ou terabytes de espaço em disco ou repositório de dados ocupada pelas cópias de segurança do sistema e do banco de dados ao longo do tempo.", "justificativa": "Quantifica o consumo de capacidade física ou infraestrutura de armazenamento alocada para sustentação do ambiente.", "exemplo": "Saber que os backups ocupam 6 Terabytes por mês mede a alocação de insumos físicos/computacionais de suporte, essencial para estimativa de capacidade e custos."}, {"id": 6, "metrica": "Tempo médio de resolução de defeitos (MTTR)", "categoria": "Processo", "descricao_neutra": "Intervalo médio decorrido desde o momento em que um erro é reportado ou diagnosticado até o instante em que a solução é construída, testada e disponibilizada.", "justificativa": "Avalia a agilidade, capacidade diagnóstica e tempo de reação da equipe durante o fluxo operacional de manutenção.", "exemplo": "Se o time leva em média 4 horas para investigar, corrigir e validar uma falha relatada, estamos mensurando a eficiência operacional da dinâmica de manutenção."}, {"id": 7, "metrica": "Quantidade de indisponibilidades e falhas em produção", "categoria": "Produto", "descricao_neutra": "Número de vezes em que o sistema apresentou quedas não planejadas, travamentos críticos ou paradas de serviço após ter sido disponibilizado aos clientes finais.", "justificativa": "Reflete a estabilidade, robustez e confiabilidade técnica do software colocado em operação.", "exemplo": "Se o sistema sofreu 4 interrupções de serviço durante o expediente no mês, o software entregue demonstrou baixa confiabilidade operacional perante os clientes."}, {"id": 8, "metrica": "Investimento financeiro em treinamento e capacitação técnica", "categoria": "Recursos", "descricao_neutra": "Montante total em dinheiro desembolsado pela organização em cursos, certificações profissionais, workshops e eventos de qualificação para os colaboradores técnicos.", "justificativa": "Quantifica o insumo financeiro aportado no desenvolvimento e qualificação do capital humano do projeto.", "exemplo": "Destinar R$ 20.000 para treinar a equipe em arquitetura de microsserviços é a alocação de um insumo financeiro para capacitar a mão de obra."}, {"id": 9, "metrica": "Tempo de resposta (latência) da API de autenticação", "categoria": "Produto", "descricao_neutra": "Intervalo de tempo (geralmente em milissegundos) que o serviço leva para processar os parâmetros recebidos e retornar a resposta ao cliente solicitante.", "justificativa": "Mede a performance técnica e a velocidade de execução de uma funcionalidade específica do software.", "exemplo": "A rota `/login` responder em 180 milissegundos é uma especificação técnica de desempenho e agilidade do artefato de software em execução."}, {"id": 10, "metrica": "Taxa de requisições com erro no servidor (HTTP 5xx)", "categoria": "Produto", "descricao_neutra": "Proporção de chamadas recebidas pelo sistema que resultam em falhas internas de processamento no servidor (status 500, 502, 503) em relação ao total de requisições processadas.", "justificativa": "Mede o grau de tolerância a falhas e a integridade funcional do sistema perante as requisições recebidas.", "exemplo": "Ter 1,2% de requisições respondendo com erro interno indica falha na robustez e consistência técnica do software que está em execução."}, {"id": 11, "metrica": "Quantidade de servidores e máquinas virtuais ativas", "categoria": "Recursos", "descricao_neutra": "Contagem numérica de nós computacionais físicos, servidores virtuais dedicados ou instâncias em nuvem alocadas para manter a aplicação em funcionamento.", "justificativa": "Quantifica os ativos de infraestrutura de hardware e computação provisionados para suportar o ambiente.", "exemplo": "Manter 12 instâncias de servidores virtuais ativas representa o volume de recursos materiais/computacionais alocados para sustentar o sistema."}, {"id": 12, "metrica": "Volume de funcionalidades entregues por ciclo (Vazão / Throughput)", "categoria": "Processo", "descricao_neutra": "Quantidade de histórias de usuário, requisitos funcionais ou pacotes de entrega finalizados e aprovados pela equipe ao término de uma iteração ou sprint.", "justificativa": "Avalia o ritmo de produção, cadência e capacidade de entrega contínua da equipe ao longo do ciclo de vida ágil.", "exemplo": "A squad concluir 7 histórias de usuário aprovadas por sprint avalia a velocidade e o fluxo de trabalho com que o time executa suas atividades."}, {"id": 13, "metrica": "Tempo transcorrido entre o commit e o deploy (Lead Time)", "categoria": "Processo", "descricao_neutra": "Cronometragem do tempo que decorre desde o envio das alterações de código para o repositório até sua disponibilização efetiva no ambiente de produção.", "justificativa": "Mede a eficiência, fluidez e o grau de automatização do fluxo de integração e entrega contínua (CI/CD).", "exemplo": "O desenvolvedor finalizar a alteração e, em 25 minutos, ela estar testada e instalada em produção evidencia a eficiência da esteira de automação do time."}, {"id": 14, "metrica": "Total de desenvolvedores alocados na equipe", "categoria": "Recursos", "descricao_neutra": "Número absoluto de engenheiros, programadores e técnicos designados com dedicação formal para construir e manter o sistema.", "justificativa": "Representa o contingente de mão de obra (capital humano) disponibilizado para a construção da solução.", "exemplo": "Uma equipe composta por 6 programadores quantifica o recurso humano dedicado ao projeto, sem indicar se eles são rápidos ou se o código é estável."}, {"id": 15, "metrica": "Tamanho físico do pacote executável (.apk ou bundle final)", "categoria": "Produto", "descricao_neutra": "Tamanho em megabytes ou gigabytes ocupado pelo artefato final compilado e empacotado que é distribuído para instalação ou download pelos usuários.", "justificativa": "Representa uma propriedade física e estrutural do artefato de software final construído e entregue aos clientes.", "exemplo": "Um aplicativo mobile que pesa 45 MB contra um de 180 MB possui uma característica intrínseca do software gerado que impacta o dispositivo do usuário."}, {"id": 16, "metrica": "Taxa de sucesso na suíte de testes de regressão", "categoria": "Processo", "descricao_neutra": "Percentual de testes automatizados de regressão que executam com sucesso e sem falhas após modificações ou acréscimo de novos recursos no código.", "justificativa": "Avalia a eficácia das rotinas de controle de qualidade em blindar o sistema contra quebras após mudanças.", "exemplo": "Alcançar 99% de aprovação na esteira de integração contínua indica que a rotina de validação e verificação do time é sólida e eficaz."}, {"id": 17, "metrica": "Duração média da etapa de revisão de código (Code Review)", "categoria": "Processo", "descricao_neutra": "Média de horas ou dias que uma solicitação de mesclagem (pull request) aguarda pela análise técnica, comentários e aprovação dos pares da equipe.", "justificativa": "Mede o tempo gasto em uma atividade de colaboração e garantia de conformidade técnica durante o fluxo de desenvolvimento.", "exemplo": "Se um Pull Request fica parado aguardando revisão por 3 dias, há um gargalo no fluxo de colaboração da equipe, reduzindo a agilidade da entrega."}, {"id": 18, "metrica": "Total de horas de trabalho dedicadas pela equipe no ciclo", "categoria": "Recursos", "descricao_neutra": "Soma de todas as horas brutas de jornada ou esforço despendidas pelos membros do time para executar as demandas durante um intervalo de tempo.", "justificativa": "Quantifica o esforço humano bruto despendido no intervalo de tempo do projeto.", "exemplo": "A squad registrar 280 horas de trabalho no mês é a mensuração da quantidade de esforço/trabalho humano consumido para realizar as tarefas."}, {"id": 19, "metrica": "Proporção de funcionalidades ativamente utilizadas pelos clientes", "categoria": "Produto", "descricao_neutra": "Percentual de recursos, telas ou opções disponíveis no sistema que são acionadas e utilizadas com regularidade pelo público-alvo.", "justificativa": "Avalia a aderência prática, a utilidade real e a relevância das partes que compõem o software entregue.", "exemplo": "Constatar que apenas 30% das telas do sistema são acessadas pelos usuários finais reflete a adequação e relevância do software construído."}, {"id": 20, "metrica": "Tempo de carregamento inicial da interface no navegador", "categoria": "Produto", "descricao_neutra": "Tempo medido em segundos até que os componentes visuais, imagens e scripts da página principal estejam prontos para interação direta com o usuário.", "justificativa": "Mede o desempenho e a velocidade percebida na interação direta do usuário com o sistema.", "exemplo": "O painel principal carregar em 1,1 segundo reflete a otimização de assets e scripts do software gerado."}, {"id": 21, "metrica": "Custo de aquisição de licenças de ferramentas de apoio", "categoria": "Recursos", "descricao_neutra": "Valor financeiro despendido na contratação ou renovação de ferramentas de apoio ao trabalho (como ambientes de desenvolvimento, plataformas de gestão e repositórios).", "justificativa": "Representa os insumos financeiros destinados a prover ferramentas de trabalho para a equipe.", "exemplo": "Pagar R$ 1.500 mensais por licenças do Jira, GitHub Enterprise e Figma é um custo material/financeiro para viabilizar as atividades da equipe."}, {"id": 22, "metrica": "Taxa de retrabalho (tarefas reprovadas e devolvidas para correção)", "categoria": "Processo", "descricao_neutra": "Percentual de tarefas ou funcionalidades que, após passarem pela fase de teste ou homologação, são rejeitadas por inconsistências e retornam para ajuste.", "justificativa": "Mede a precisão e clareza do fluxo de trabalho, revelando desperdício e deficiência na especificação ou execução.", "exemplo": "Uma tarefa ser devolvida 3 vezes pelo setor de testes para o programador reflete deficiências na dinâmica de comunicação e critérios de aceite da esteira."}, {"id": 23, "metrica": "Linhas de código-fonte (LOC) por componente do sistema", "categoria": "Produto", "descricao_neutra": "Contagem volumétrica do total de linhas de instrução de código escritas que formam determinado módulo, classe ou subsistema do programa.", "justificativa": "Mede o tamanho físico e a extensão estrutural do código-fonte entregue.", "exemplo": "Desambiguação essencial: Contar que um módulo possui 1.200 linhas mede a extensão do artefato construído (Produto), e NÃO o esforço do programador (Recurso) nem a velocidade de desenvolvimento (Processo)."}, {"id": 24, "metrica": "Custo orçamentário consolidado do projeto", "categoria": "Recursos", "descricao_neutra": "Montante financeiro agregado de todos os custos acumulados (salários, infraestrutura, consultorias e materiais) desde o início do desenvolvimento até o momento atual.", "justificativa": "Consolida a totalidade dos insumos financeiros consumidos no projeto.", "exemplo": "O projeto consumir R$ 180.000 ao longo de 6 meses resume o gasto financeiro agregado de todos os recursos aplicados na operação."}, {"id": 25, "metrica": "Consumo de memória RAM pelo aplicativo em execução", "categoria": "Produto", "descricao_neutra": "Quantidade de memória volátil (em megabytes ou gigabytes) alocada e ocupada pelo software durante seu ciclo de operação nos dispositivos dos usuários ou servidores.", "justificativa": "Mede a eficiência e a pegada técnica do próprio software ao operar nos ambientes de execução.", "exemplo": "Um aplicativo desktop consumir 250 MB de RAM em repouso é um atributo de eficiência computacional do software construído."}, {"id": 26, "metrica": "Quantidade média de telas visitadas por sessão de usuário", "categoria": "Produto", "descricao_neutra": "Número médio de telas, páginas ou seções distintas percorridas por um usuário ao longo de uma sessão contínua de interação com o sistema.", "justificativa": "Indica a estrutura navegacional e os padrões de interação do usuário com a interface construída.", "exemplo": "Saber que o cliente navega por 5 telas diferentes até encontrar um produto reflete a arquitetura de informação do software entregue."}, {"id": 27, "metrica": "Horas dedicadas pela equipe em reuniões e alinhamentos", "categoria": "Recursos", "descricao_neutra": "Soma das horas de trabalho despendidas pelos integrantes do time participando de reuniões operacionais, cerimônias de planejamento, retrospectivas e alinhamentos.", "justificativa": "Mede o tempo e a dedicação da equipe (insumo humano) consumidos em cerimônias e comunicação.", "exemplo": "A equipe despender 25 horas semanais em reuniões indica o consumo de tempo dos profissionais para fins de coordenação organizacional."}, {"id": 28, "metrica": "Taxa de cumprimento dos prazos planejados nas entregas", "categoria": "Processo", "descricao_neutra": "Percentual de funcionalidades, pacotes de entrega ou marcos do projeto que foram finalizados dentro das datas estimadas e acordadas no planejamento.", "justificativa": "Avalia a previsibilidade, consistência de estimativas e maturidade do fluxo de trabalho da equipe.", "exemplo": "Cumprir 90% das entregas nas datas acordadas evidencia a maturidade e confiabilidade da esteira de planejamento e desenvolvimento."}, {"id": 29, "metrica": "Taxa de quebra/falha na esteira automatizada de integração contínua", "categoria": "Processo", "descricao_neutra": "Proporção de execuções automatizadas do pipeline de build e integração que terminam em erro ou rejeição devido a falhas de compilação ou testes quebrados.", "justificativa": "Mede a estabilidade do fluxo de integração e a disciplina da equipe ao consolidar novos códigos.", "exemplo": "Se 30% das tentativas de integração quebram os builds automatizados, o processo de consolidação de código da equipe está desorganizado."}, {"id": 30, "metrica": "Tempo despendido no preenchimento de ferramentas de apontamento de horas", "categoria": "Recursos", "descricao_neutra": "Total de horas gastas pelos profissionais registrando manualmente tarefas executadas, preenchendo planilhas de controle ou alimentando sistemas de timesheet.", "justificativa": "Quantifica o dispêndio de esforço humano em rotinas administrativas e instrumentais de controle.", "exemplo": "A equipe gastar 30 horas no mês apenas preenchendo planilhas de timesheet reflete o consumo de tempo de trabalho em ferramentas de governança."}];
+    let currentIndex = 0;
+    let isRevealed = false;
+    let currentTheme = 'dark';
+
+    // Theme Management
+    function initTheme() {
+      const savedTheme = localStorage.getItem('metrics_theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+        setTheme('dark');
+      }
+    }
+
+    function setTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('metrics_theme', theme);
+
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      if (theme === 'light') {
+        icon.textContent = '🌙';
+        label.textContent = 'Modo Escuro';
+      } else {
+        icon.textContent = '☀️';
+        label.textContent = 'Modo Claro';
+      }
+    }
+
+    function toggleTheme() {
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    }
+
+    // Web Audio API Sound feedback
+    function playBeep(type) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        
+        if (type === 'reveal') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(440, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.18);
+          gain.gain.setValueAtTime(0.12, ctx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.22);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.22);
+        } else if (type === 'nav') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(320, ctx.currentTime);
+          gain.gain.setValueAtTime(0.06, ctx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.08);
+        }
+      } catch(e) {
+        // audio might be blocked if no user gesture yet, fail silently
+      }
+    }
+
+    function init() {
+      initTheme();
+
+      const select = document.getElementById('jumpSelect');
+      metricsData.forEach((m, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx;
+        opt.textContent = m.metrica.length > 40 ? m.metrica.substring(0, 40) + '...' : m.metrica;
+        select.appendChild(opt);
+      });
+      render();
+    }
+
+    function render() {
+      const item = metricsData[currentIndex];
+      isRevealed = false;
+
+      // Update contents
+      document.getElementById('metricNumber').textContent = "MÉTRICA EM ANÁLISE";
+      document.getElementById('metricTitle').textContent = item.metrica;
+      document.getElementById('neutralDescText').textContent = item.descricao_neutra;
+      document.getElementById('jumpSelect').value = currentIndex;
+
+      // Update explanations
+      document.getElementById('justificativaText').textContent = item.justificativa;
+      document.getElementById('exemploText').textContent = item.exemplo;
+
+      // Reset styles
+      document.getElementById('waitingBanner').style.display = 'flex';
+      document.getElementById('revealPane').classList.remove('visible');
+
+      ['Recursos', 'Processo', 'Produto'].forEach(cat => {
+        const pill = document.getElementById(`pill-${cat}`);
+        pill.className = 'cat-pill';
+      });
+
+      document.getElementById('btnReveal').textContent = 'Revelar Resposta';
+      document.getElementById('btnPrev').disabled = (currentIndex === 0);
+      document.getElementById('btnNext').disabled = (currentIndex === metricsData.length - 1);
+    }
+
+    function revealCurrentAnswer() {
+      if (isRevealed) return;
+      isRevealed = true;
+      playBeep('reveal');
+
+      const item = metricsData[currentIndex];
+      const correctCategory = item.categoria;
+
+      // Highlight winner pill and dim others
+      ['Recursos', 'Processo', 'Produto'].forEach(cat => {
+        const pill = document.getElementById(`pill-${cat}`);
+        if (cat === correctCategory) {
+          pill.classList.add(`winner-${cat.toLowerCase()}`);
+        } else {
+          pill.classList.add('dimmed');
+        }
+      });
+
+      document.getElementById('waitingBanner').style.display = 'none';
+      document.getElementById('revealPane').classList.add('visible');
+      document.getElementById('btnReveal').textContent = 'Ocultar Resposta';
+    }
+
+    function hideAnswer() {
+      isRevealed = false;
+      document.getElementById('waitingBanner').style.display = 'flex';
+      document.getElementById('revealPane').classList.remove('visible');
+      ['Recursos', 'Processo', 'Produto'].forEach(cat => {
+        const pill = document.getElementById(`pill-${cat}`);
+        pill.className = 'cat-pill';
+      });
+      document.getElementById('btnReveal').textContent = 'Revelar Resposta';
+    }
+
+    function toggleReveal() {
+      if (isRevealed) {
+        hideAnswer();
+      } else {
+        revealCurrentAnswer();
+      }
+    }
+
+    function navigate(delta) {
+      const target = currentIndex + delta;
+      if (target >= 0 && target < metricsData.length) {
+        currentIndex = target;
+        playBeep('nav');
+        render();
+      }
+    }
+
+    function jumpTo(idx) {
+      currentIndex = parseInt(idx, 10);
+      playBeep('nav');
+      render();
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'SELECT') return;
+
+      if (e.code === 'Space' || e.code === 'Enter') {
+        e.preventDefault();
+        toggleReveal();
+      } else if (e.code === 'ArrowRight' || e.code === 'PageDown') {
+        e.preventDefault();
+        navigate(1);
+      } else if (e.code === 'ArrowLeft' || e.code === 'PageUp') {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullScreen();
+      } else if (e.key === 't' || e.key === 'T') {
+        toggleTheme();
+      }
+    });
+
+    // Init on load
+    init();
+  </script>
+</body>
+</html>
