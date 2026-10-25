@@ -111,6 +111,42 @@ Organizado por valor de negócio, derivado do [PROJECT_DNA.md](file:///c:/Users/
 * **Critérios de Aceite:**
   1. [x] Arquivo de configuração `vercel.json` com rotas SPA, clean URLs, cache imutável de 1 ano para assets estáticos e headers de segurança.
   2. [x] Scripts no `package.json` para `build`, `preview`, `lint` e `test`.
-  3. [x] Suíte de testes unitários automatizados (24 testes passando com 100% de sucesso).
+  3. [x] Suíte de testes unitários automatizados (27 testes passando com 100% de sucesso).
 * **Dependências:** Todas as anteriores.
 * **Prioridade:** Must Have.
+
+---
+
+## EPIC 6: Acessibilidade Visual, Conformidade e Identidade Acadêmica
+**Objetivo:** Oferecer personalização de visualização com alternância de tema claro/escuro, documentar a autoria acadêmica e conformidade jurídica/privacidade, e higienizar navegação externa.  
+**Status do Épico:** `[CONCLUÍDO]`
+
+### Feature 6.1: Alternância Claro/Escuro (Light/Dark Mode)
+* **Status:** `[CONCLUÍDO]`
+* **User Story:** Como usuário, quero alternar entre modo claro e modo escuro a qualquer momento com persistência no navegador, para que eu possa estudar no ambiente visual mais confortável para a minha visão.
+* **Critérios de Aceite:**
+  1. [x] Tokens semânticos completos definidos para `[data-theme="light"]` e `[data-theme="dark"]`.
+  2. [x] Botão na Navbar com ícones dinâmicos (Sol/Lua) e suporte ao atalho de teclado `T`.
+  3. [x] Persistência da preferência no `localStorage` sob a chave `metrics_theme`.
+
+### Feature 6.2: Página Sobre com Autoria Acadêmica
+* **Status:** `[CONCLUÍDO]`
+* **User Story:** Como visitante, quero conhecer os responsáveis e a autoria do projeto com links para portfólio e projetos correlatos, como feito em https://tabela-hash.vercel.app/sobre.html.
+* **Critérios de Aceite:**
+  1. [x] Seção "O Foco na Educação" destacando objetivos pedagógicos e acesso aberto.
+  2. [x] Card de perfil do Prof. Nilton F. Junior com biografia e competências.
+  3. [x] Links para o portfólio oficial e simuladores correlatos (Simulador de Criptografia e Laboratório de Tabela Hash).
+
+### Feature 6.3: Páginas de Termos de Uso e Política de Privacidade
+* **Status:** `[CONCLUÍDO]`
+* **User Story:** Como usuário, quero consultar os termos de uso educacionais e a política de privacidade da plataforma no rodapé, para ter certeza de que meus dados e direitos estão protegidos.
+* **Critérios de Aceite:**
+  1. [x] Rota e view `#/termos` com termos de uso educacionais completos, licença e responsabilidades.
+  2. [x] Rota e view `#/privacidade` com declaração de zero coleta de dados, processamento 100% client-side, ausência de cookies de rastreamento e princípios da LGPD.
+  3. [x] Links no rodapé acessíveis em todas as páginas.
+
+### Feature 6.4: Higienização de Links Externos
+* **Status:** `[CONCLUÍDO]`
+* **Critérios de Aceite:**
+  1. [x] Remoção definitiva do link do GitHub do rodapé e de todo o código da plataforma.
+

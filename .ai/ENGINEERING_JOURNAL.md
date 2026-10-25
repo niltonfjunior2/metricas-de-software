@@ -51,3 +51,13 @@ Este diário consolida os desafios de engenharia enfrentados, soluções aplicad
   * *Motivo:* Priorizou-se o princípio da privacidade absoluta (zero cookies/dados) e simplicidade de entrega.
   * *Prioridade:* Baixa.
   * *Plano de Tratamento:* Adicionar um adaptador de `LocalStorage` opcional na próxima fase caso os usuários desejem acompanhar seu progresso histórico entre sessões.
+
+---
+
+## 5. Registro de Mudanças Recentes — Ciclo 6 (Acessibilidade & Governança)
+* **ADR 4: Alternância de Tema Claro/Escuro (CSS Custom Properties Tokens):**
+  * *Decisão:* Adotar `data-theme="light"` na raiz `<html>` com transições suaves em CSS e sincronização com `localStorage` (`metrics_theme`).
+  * *Motivo:* Preservar as regras de acessibilidade e o trabalho de cores já consolidado nas atividades legadas, sem bibliotecas pesadas de terceiros.
+* **ADR 5: Zero-Tracking e Conformidade LGPD por Design:**
+  * *Decisão:* Plataforma opera estritamente client-side, sem coleta de telemetria, sem cookies analíticos e com links institucionais claros de Termos de Uso e Política de Privacidade.
+

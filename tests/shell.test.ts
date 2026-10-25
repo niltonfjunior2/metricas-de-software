@@ -14,6 +14,9 @@ describe('Layout Shell Components', () => {
     const toggleBtn = navbar.querySelector<HTMLButtonElement>('#menu-toggle');
     expect(toggleBtn).not.toBeNull();
 
+    const themeBtn = navbar.querySelector<HTMLButtonElement>('#theme-toggle-btn');
+    expect(themeBtn).not.toBeNull();
+
     toggleBtn?.click();
     expect(onToggle).toHaveBeenCalledTimes(1);
   });
@@ -31,9 +34,11 @@ describe('Layout Shell Components', () => {
     expect(sectionTitles[1].textContent).toBe('Atividades Interativas');
   });
 
-  it('Footer deve renderizar referências acadêmicas e link para GitHub', () => {
+  it('Footer deve renderizar referências acadêmicas, Termos de Uso, Política de Privacidade e não conter GitHub', () => {
     const footer = createFooter();
     expect(footer.textContent).toContain('Métricas de Software');
-    expect(footer.querySelector('a[href*="github.com"]')).not.toBeNull();
+    expect(footer.querySelector('a[href*="github.com"]')).toBeNull();
+    expect(footer.querySelector('a[href="#/termos"]')).not.toBeNull();
+    expect(footer.querySelector('a[href="#/privacidade"]')).not.toBeNull();
   });
 });

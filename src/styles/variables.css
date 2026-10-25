@@ -1,4 +1,5 @@
-:root {
+:root,
+[data-theme="dark"] {
   /* Surfaces & Backgrounds */
   --bg-main: #0B0F19;
   --bg-header: #0D1322;
@@ -6,6 +7,7 @@
   --bg-card-hover: #1A243B;
   --bg-card-inner: #0F172A;
   --bg-neutral-box: #090E17;
+  --bg-footer: #0D1322;
   --bg-control: #1E293B;
   --bg-control-hover: #334155;
   --border-color: #2D3A54;
@@ -62,4 +64,53 @@
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-main: #F1F5F9;
+  --bg-header: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8FAFC;
+  --bg-card-inner: #F8FAFC;
+  --bg-neutral-box: #F1F5F9;
+  --bg-footer: #FFFFFF;
+  --bg-control: #E2E8F0;
+  --bg-control-hover: #CBD5E1;
+  --border-color: #CBD5E1;
+  --border-inner: #E2E8F0;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 15px 30px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(2, 132, 199, 0.15);
+  --glow-cyan: 0 0 20px rgba(8, 145, 178, 0.2);
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-title: #0F172A;
+  --text-desc: #334155;
+
+  --accent-blue: #0284C7;
+  --accent-cyan: #0891B2;
+  --accent-cyan-bg: rgba(8, 145, 178, 0.1);
+  --accent-cyan-border: rgba(8, 145, 178, 0.3);
+
+  --color-recursos: #D97706;
+  --color-recursos-glow: rgba(217, 119, 6, 0.25);
+  --color-recursos-bg: rgba(245, 158, 11, 0.12);
+  --color-recursos-text: #B45309;
+  --color-recursos-tag: #92400E;
+
+  --color-processo: #059669;
+  --color-processo-glow: rgba(5, 150, 105, 0.25);
+  --color-processo-bg: rgba(16, 185, 129, 0.12);
+  --color-processo-text: #047857;
+  --color-processo-tag: #065F46;
+
+  --color-produto: #2563EB;
+  --color-produto-glow: rgba(37, 99, 235, 0.25);
+  --color-produto-bg: rgba(59, 130, 246, 0.12);
+  --color-produto-text: #1D4ED8;
+  --color-produto-tag: #1E40AF;
 }

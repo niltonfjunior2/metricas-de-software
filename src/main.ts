@@ -3,12 +3,18 @@ import { createNavbar } from './components/Navbar';
 import { createSidebar } from './components/Sidebar';
 import { createFooter } from './components/Footer';
 import { router } from './utils/router';
+import { initTheme, toggleTheme } from './utils/theme';
 import { renderHomeView } from './views/HomeView';
 import { renderTheoryView } from './views/TheoryView';
 import { renderActivitiesView } from './views/ActivitiesView';
 import { renderAboutView } from './views/AboutView';
+import { renderTermsView } from './views/TermsView';
+import { renderPrivacyView } from './views/PrivacyView';
 
 function initializeApp(): void {
+  // Initialize Theme from localStorage or system preference
+  initTheme();
+
   const appElement = document.getElementById('app');
   if (!appElement) return;
 
@@ -94,6 +100,12 @@ function initializeApp(): void {
     .on('/sobre', () => {
       setView(renderAboutView());
     })
+    .on('/termos', () => {
+      setView(renderTermsView());
+    })
+    .on('/privacidade', () => {
+      setView(renderPrivacyView());
+    })
     .notFound(() => {
       const notFoundElement = document.createElement('div');
       notFoundElement.style.textAlign = 'center';
@@ -105,6 +117,15 @@ function initializeApp(): void {
       `;
       setView(notFoundElement);
     });
+
+  // Global keyboard shortcut to toggle theme ('t' or 'T' when not inside inputs)
+  window.addEventListener('keydown', (e: KeyboardEvent) => {
+    const activeEl = document.activeElement;
+    const isEditing = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || (activeEl as HTMLElement).isContentEditable);
+    if (!isEditing && (e.key === 't' || e.key === 'T')) {
+      toggleTheme();
+    }
+  });
 
   // Initial routing resolution
   router.resolve();
