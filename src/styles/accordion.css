@@ -130,7 +130,7 @@
   color: var(--text-desc);
   font-size: 0.94rem;
   line-height: 1.7;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid var(--border-inner);
   padding-top: 1rem;
 }
 
@@ -146,21 +146,21 @@
 }
 
 .callout-tip {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: var(--callout-tip-bg);
   border-left: 4px solid var(--color-processo);
-  color: #D1FAE5;
+  color: var(--callout-tip-text);
 }
 
 .callout-warning {
-  background-color: rgba(245, 158, 11, 0.1);
+  background-color: var(--callout-warning-bg);
   border-left: 4px solid var(--color-recursos);
-  color: #FEF3C7;
+  color: var(--callout-warning-text);
 }
 
 .callout-info {
-  background-color: rgba(56, 189, 248, 0.1);
+  background-color: var(--callout-info-bg);
   border-left: 4px solid var(--accent-blue);
-  color: #E0F2FE;
+  color: var(--callout-info-text);
 }
 
 /* Markdown table styling */

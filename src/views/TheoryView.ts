@@ -80,7 +80,7 @@ export function renderTheoryView(moduleId?: string): HTMLElement {
     <div id="accordion-host"></div>
 
     <!-- Call to action to linked activity -->
-    <div class="card" style="margin-top: 2.5rem; background: linear-gradient(135deg, rgba(21, 29, 47, 0.95), rgba(15, 23, 42, 0.95)); border-color: var(--accent-cyan-border); padding: 1.75rem;">
+    <div class="card" style="margin-top: 2.5rem; background: var(--bg-card-inner); border-color: var(--accent-cyan-border); padding: 1.75rem;">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
         <div>
           <span class="badge badge-recursos" style="margin-bottom: 0.5rem;">Prática Recomendada</span>

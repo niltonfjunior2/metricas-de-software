@@ -86,7 +86,7 @@ export function renderHomeView(): HTMLElement {
     </section>
 
     <section>
-      <div class="card" style="background: linear-gradient(135deg, rgba(21, 29, 47, 0.9), rgba(15, 23, 42, 0.9)); border-color: var(--border-inner); padding: 2rem;">
+      <div class="card" style="background: var(--bg-card-inner); border-color: var(--border-color); padding: 2rem;">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
           <div style="max-width: 600px;">
             <span class="badge badge-processo" style="margin-bottom: 0.75rem;">Auto-Instrucional</span>

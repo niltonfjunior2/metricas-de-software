@@ -31,3 +31,7 @@ Thumbs.db
 
 # Test coverage
 coverage/
+
+# AI Artifacts & Raw Source Content
+.ai/
+conteudos/

@@ -31,9 +31,7 @@ export function renderAboutView(): HTMLElement {
         <h3 class="card-title" style="margin-bottom: 1.25rem;">Quem Sou Eu</h3>
         
         <div style="display: flex; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;">
-          <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-cyan), var(--color-produto)); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.75rem; color: #FFFFFF; box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35); flex-shrink: 0;">
-            NJ
-          </div>
+          <img src="/NJ.png" alt="Logo NJ - Prof. Nilton F. Junior" style="width: 90px; height: 90px; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 4px 12px rgba(6, 182, 212, 0.25));" />
           <div style="flex: 1; min-width: 260px;">
             <h4 style="font-size: 1.25rem; font-weight: 800; color: var(--text-title); margin-bottom: 0.5rem;">
               Prof. Nilton F. Junior
