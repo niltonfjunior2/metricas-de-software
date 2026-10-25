@@ -1,6 +1,6 @@
 # Métricas de Software • Plataforma Educacional Interativa
 
-Plataforma web moderna, aberta e auto-instrucional voltada para o ensino prático de **Métricas de Software** em Engenharia de Software. O projeto substitui textos longos por **conteúdos teóricos sintetizados em acordeões dinâmicos** integrados a **simuladores interativos de classificação e auditoria de cenários reais**.
+Plataforma web moderna, aberta e auto-instrucional voltada para o ensino prático de **Métricas de Software** em Engenharia de Software. O projeto destaca **atividades interativas e simuladores práticos de classificação e auditoria de cenários reais**, integrados a **conteúdos teóricos sintetizados em acordeões dinâmicos**.
 
 ---
 
@@ -69,7 +69,7 @@ Para adicionar um novo módulo:
    ```
 3. Estruture o conteúdo utilizando cabeçalhos de segundo nível (`##`):
    * Cada cabeçalho `##` torna-se automaticamente uma lâmina retrátil do Acordeão.
-   * Evite parágrafos longos; utilize listas com marcadores, tabelas comparativas e caixas de destaque (`callouts`).
+   * Mantenha parágrafos objetivos; utilize listas com marcadores, tabelas comparativas e caixas de destaque (`callouts`).
 4. O parser de Markdown lerá, converterá e sanitizará o conteúdo automaticamente para a visualização teórica.
 
 ---

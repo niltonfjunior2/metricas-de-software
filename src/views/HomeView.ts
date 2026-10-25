@@ -10,7 +10,7 @@ export function renderHomeView(): HTMLElement {
         Engenharia de Software • Medição Prática
       </div>
       <h1 class="hero-title">
-        Aprenda <span class="hero-title-gradient">Métricas de Software</span> sem textos longos
+        Aprenda <span class="hero-title-gradient">Métricas de Software</span> com Atividades Interativas
       </h1>
       <p class="hero-subtitle">
         Plataforma interativa com conteúdos conceituais sintetizados em acordeões dinâmicos e simuladores práticos de classificação e auditoria de métricas reais.

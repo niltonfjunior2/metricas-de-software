@@ -4,7 +4,7 @@
 Prover uma plataforma web moderna, aberta, auto-instrucional e de alto impacto visual para aprendizado de Métricas de Software em Engenharia de Software. O projeto combina teoria concisa em formato de acordeões dinâmicos com atividades práticas e imersivas de classificação e auditoria de métricas, permitindo tanto um fluxo de estudo guiado e modular quanto a exploração livre de exercícios.
 
 ## 2. Objetivos
-* **Objetivo Pedagógico Primário:** Permitir que estudantes universitários, desenvolvedores em capacitação e profissionais de TI assimilem fundamentos de métricas de software de forma rápida, visual e prática, sem atrito de textos longos.
+* **Objetivo Pedagógico Primário:** Permitir que estudantes universitários, desenvolvedores em capacitação e profissionais de TI assimilem fundamentos de métricas de software de forma rápida, visual e prática, tendo como expoente central as atividades interativas e simuladores aplicados.
 * **Objetivo de Conteúdo:** Consolidar os conceitos de introdução, identificação e classificação de métricas (Recursos, Processo, Produto; Diretas e Indiretas), com suporte a expansão contínua.
 * **Objetivo de Interatividade:** Reconstruir e incorporar nativamente no design system da aplicação atividades ricas (classificação e auditoria de cenários com mecânicas de gamificação e feedback imediato).
 * **Objetivo Operacional:** Custo zero de infraestrutura e dependência backend, versionamento 100% via Git e entrega contínua na Vercel.
@@ -31,7 +31,7 @@ Definição de prioridade relativa acordada:
 | **D2: Domínio de Negócio** | Módulos temáticos de métricas (Recursos, Processo, Produto, Métricas Diretas/Indiretas, Auditoria e GQM) | Domínio clássico de Engenharia de Software estruturado em trilha modular. |
 | **D3: Restrições** | JAMstack estático na Vercel integrado ao GitHub | Alinhado à simplicidade de custo zero e deploy automatizado por git push. |
 | **D4: Atores e Segurança** | Acesso 100% anônimo e público. Sem cookies, sem dados sensíveis, Content Security Policy rígida | Reduz a superfície de ataque a zero e dispensa infraestrutura de segurança complexa. |
-| **D5: Experiência de Uso** | Dark Mode imersivo, tipografia limpa (Inter/JetBrains Mono), Acordeões para tópicos teóricos, cartões visuais | Resolve o requisito de não apresentar textos longos, permitindo leitura sob demanda. |
+| **D5: Experiência de Uso** | Dark Mode imersivo, tipografia limpa (Inter/JetBrains Mono), Acordeões para tópicos teóricos, cartões visuais | Foco central nas atividades práticas interativas e leitura modular sob demanda. |
 | **D6: Dados** | Conteúdos em Markdown local estruturado com frontmatter; estado de atividades volátil em memória (ou LocalStorage para progresso local opcional da sessão) | Garante manutenibilidade direta no repositório sem necessidade de banco de dados. |
 | **D7: Processamento** | Compilação estática em tempo de build (SSG / Client-side Router estático) | Todo o processamento pesado ocorre no build; entrega para o usuário é instantânea. |
 | **D8: Resiliência** | 100% Edge CDN (Vercel) com funcionamento offline suportável via Service Worker (PWA-ready) | Zero ponto único de falha de servidor central de aplicação. |

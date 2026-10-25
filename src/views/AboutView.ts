@@ -22,7 +22,7 @@ export function renderAboutView(): HTMLElement {
       <div class="card">
         <h3 class="card-title" style="margin-bottom: 0.75rem;">O Foco na Educação</h3>
         <p style="color: var(--text-desc); line-height: 1.7; font-size: 0.95rem;">
-          Métricas de software são fundamentais para o gerenciamento de projetos, controle de qualidade e melhoria contínua de processos. No entanto, o estudo dessa disciplina frequentemente sofre com textos excessivamente prolixos e teoria desconectada da tomada de decisão real. Esta plataforma foi concebida para quebrar essa barreira, apresentando <strong>conceitos sintetizados em tópicos expansíveis</strong> acompanhados de <strong>simuladores práticos e imediatos</strong> de classificação e auditoria.
+          Métricas de software são fundamentais para o gerenciamento de projetos, controle de qualidade e melhoria contínua de processos. O ponto central desta plataforma são as <strong>atividades interativas e simuladores práticos</strong> de classificação e auditoria de cenários reais, complementados por <strong>conteúdos conceituais sintetizados em tópicos expansíveis</strong> para enriquecer a tomada de decisão.
         </p>
       </div>
 

@@ -22,7 +22,7 @@ Organizado por valor de negócio, derivado do [PROJECT_DNA.md](file:///c:/Users/
 ---
 
 ## EPIC 2: Motor de Conteúdo Teórico em Acordeões
-**Objetivo:** Permitir a leitura ágil de conceitos de métricas de software sem sobrecarga de textos extensos, estruturados via Markdown.  
+**Objetivo:** Permitir a leitura ágil e modular de conceitos de métricas de software estruturados via Markdown, servindo de apoio direto às atividades práticas.  
 **Status do Épico:** `[CONCLUÍDO]` (Sprint 2)
 
 ### Feature 2.1: Parser e Renderizador de Markdown com Formato Accordion
