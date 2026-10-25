@@ -9,6 +9,7 @@ describe('Layout Shell Components', () => {
     const navbar = createNavbar(onToggle);
 
     expect(navbar.querySelector('.navbar-brand')).not.toBeNull();
+    expect(navbar.querySelector('img[src="/logo.png"]')).not.toBeNull();
     expect(navbar.querySelectorAll('.nav-link').length).toBe(4);
 
     const toggleBtn = navbar.querySelector<HTMLButtonElement>('#menu-toggle');
@@ -34,9 +35,10 @@ describe('Layout Shell Components', () => {
     expect(sectionTitles[1].textContent).toBe('Atividades Interativas');
   });
 
-  it('Footer deve renderizar referências acadêmicas, Termos de Uso, Política de Privacidade e não conter GitHub', () => {
+  it('Footer deve renderizar referências acadêmicas, logo oficial, Termos de Uso, Política de Privacidade e não conter GitHub', () => {
     const footer = createFooter();
     expect(footer.textContent).toContain('Métricas de Software');
+    expect(footer.querySelector('img[src="/logo.png"]')).not.toBeNull();
     expect(footer.querySelector('a[href*="github.com"]')).toBeNull();
     expect(footer.querySelector('a[href="#/termos"]')).not.toBeNull();
     expect(footer.querySelector('a[href="#/privacidade"]')).not.toBeNull();

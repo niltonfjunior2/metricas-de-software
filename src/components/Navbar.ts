@@ -18,13 +18,7 @@ export function createNavbar(onToggleSidebar: () => void): HTMLElement {
         </svg>
       </button>
       <a href="#/" class="navbar-brand">
-        <div class="navbar-logo-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 20V10"></path>
-            <path d="M18 20V4"></path>
-            <path d="M6 20v-4"></path>
-          </svg>
-        </div>
+        <img src="/logo.png" alt="Logo Métricas de Software" class="navbar-logo-img" />
         <span>Métricas<span style="color: var(--accent-blue)">.ES</span></span>
       </a>
     </div>
