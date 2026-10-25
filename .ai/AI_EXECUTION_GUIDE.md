@@ -12,6 +12,7 @@ Este guia estabelece os padrões e restrições obrigatórios para qualquer agen
 4. **Respeito aos Dados Originais das Atividades:** As regras, cenários e feedbacks das atividades `classificacao_metricas.html` e `auditoria_metricas_cenarios.html` devem ser preservados integralmente em sua lógica de negócios e explicações técnicas.
 5. **Acessibilidade por Teclado:** Todas as atividades interativas devem manter atalhos de teclado (números ou letras) além da interação via clique/touch.
 6. **Desacoplamento de Conteúdo:** O conteúdo teórico deve permanecer em arquivos `.md` na pasta designada, e não hardcoded em strings dentro de componentes TypeScript.
+7. **Ciclo de Vida e Cleanup de Eventos:** Qualquer componente ou atividade que registre event listeners globais no `window` (como atalhos de teclado) deve obrigatoriamente retornar uma função de `cleanup` para ser executada pelo roteador ao desmontar a visão, evitando vazamento de memória e colisões entre rotas.
 
 ---
 
