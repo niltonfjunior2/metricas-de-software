@@ -1,9 +1,23 @@
-export function createSidebar(onCloseMobile: () => void): HTMLElement {
+export function createSidebar(
+  onCloseMobile: () => void,
+  onToggleCollapse?: () => void
+): HTMLElement {
   const sidebar = document.createElement('aside');
   sidebar.className = 'sidebar';
   sidebar.id = 'app-sidebar';
 
   sidebar.innerHTML = `
+    <div class="sidebar-header-row">
+      <span class="sidebar-main-title">Navegação</span>
+      <button class="sidebar-collapse-btn" id="sidebar-collapse-btn" title="Recuar barra lateral" aria-label="Recuar barra lateral">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="11 17 6 12 11 7"></polyline>
+          <polyline points="18 17 13 12 18 7"></polyline>
+        </svg>
+        <span class="collapse-label">Recuar</span>
+      </button>
+    </div>
+
     <div>
       <div class="sidebar-section-title">Trilha Teórica</div>
       <ul class="sidebar-menu">
@@ -17,6 +31,12 @@ export function createSidebar(onCloseMobile: () => void): HTMLElement {
           <a href="#/teoria/classificacao" class="sidebar-link" data-route="/teoria/classificacao">
             <span class="badge badge-produto" style="font-size: 0.65rem; padding: 0.15rem 0.45rem;">02</span>
             <span>Classificação & Tipos</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/teoria/techlead" class="sidebar-link" data-route="/teoria/techlead">
+            <span class="badge badge-recursos" style="font-size: 0.65rem; padding: 0.15rem 0.45rem;">03</span>
+            <span>Qualidade & Tech Lead</span>
           </a>
         </li>
       </ul>
@@ -63,6 +83,11 @@ export function createSidebar(onCloseMobile: () => void): HTMLElement {
       }
     });
   });
+
+  const collapseBtn = sidebar.querySelector<HTMLButtonElement>('#sidebar-collapse-btn');
+  if (collapseBtn && onToggleCollapse) {
+    collapseBtn.addEventListener('click', onToggleCollapse);
+  }
 
   return sidebar;
 }

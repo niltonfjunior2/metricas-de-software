@@ -110,6 +110,97 @@
   max-height: calc(100vh - var(--header-height));
   position: sticky;
   top: var(--header-height);
+  transition: width var(--transition-normal), padding var(--transition-normal), border var(--transition-normal);
+  flex-shrink: 0;
+}
+
+/* Sidebar Header & Collapse Controls */
+.sidebar-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-main-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.sidebar-collapse-btn {
+  background: var(--bg-control);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-collapse-btn:hover {
+  background: var(--bg-control-hover);
+  color: var(--text-primary);
+  border-color: var(--accent-blue);
+}
+
+@media (min-width: 901px) {
+  .sidebar.collapsed {
+    width: 0 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border-right: none !important;
+    overflow: hidden !important;
+    visibility: hidden;
+  }
+}
+
+/* Floating Expand Button when Sidebar is Collapsed */
+.sidebar-expand-btn {
+  position: fixed;
+  left: 0;
+  top: calc(var(--header-height) + 1.25rem);
+  z-index: 40;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  padding: 0.55rem 0.85rem;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-expand-btn:hover {
+  background: var(--bg-control-hover);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transform: translateX(2px);
+}
+
+.sidebar-expand-btn.visible {
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .sidebar-expand-btn {
+    display: none !important;
+  }
 }
 
 .sidebar-section-title {

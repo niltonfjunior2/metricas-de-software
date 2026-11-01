@@ -22,9 +22,10 @@ describe('Layout Shell Components', () => {
     expect(onToggle).toHaveBeenCalledTimes(1);
   });
 
-  it('Sidebar deve conter seções da Trilha Teórica e Atividades Interativas', () => {
+  it('Sidebar deve conter seções da Trilha Teórica, Atividades Interativas e botão de recuo', () => {
     const onCloseMobile = vi.fn();
-    const sidebar = createSidebar(onCloseMobile);
+    const onToggleCollapse = vi.fn();
+    const sidebar = createSidebar(onCloseMobile, onToggleCollapse);
 
     const links = sidebar.querySelectorAll('.sidebar-link');
     expect(links.length).toBeGreaterThanOrEqual(4);
@@ -33,6 +34,11 @@ describe('Layout Shell Components', () => {
     expect(sectionTitles.length).toBe(2);
     expect(sectionTitles[0].textContent).toBe('Trilha Teórica');
     expect(sectionTitles[1].textContent).toBe('Atividades Interativas');
+
+    const collapseBtn = sidebar.querySelector<HTMLButtonElement>('#sidebar-collapse-btn');
+    expect(collapseBtn).not.toBeNull();
+    collapseBtn?.click();
+    expect(onToggleCollapse).toHaveBeenCalledTimes(1);
   });
 
   it('Footer deve renderizar referências acadêmicas, logo oficial, Termos de Uso, Política de Privacidade e não conter GitHub', () => {

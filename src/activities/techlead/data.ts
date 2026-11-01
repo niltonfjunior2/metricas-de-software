@@ -86,38 +86,38 @@ export const techLeadCasesData: TechLeadCase[] = [
           "nome": "Custo com infraestrutura de testes",
           "valor": "R$ 10.000",
           "dimensao": "Recursos",
-          "justificativa": "Mede o insumo financeiro alocado para manter servidores e ambientes de teste ativos."
+          "justificativa": "Mede o dinheiro gasto para manter servidores e ambientes de teste funcionando."
         },
         {
           "nome": "Taxa de aprovação em testes de regressão",
           "valor": "98%",
           "dimensao": "Processo",
-          "justificativa": "Avalia a robustez do fluxo automatizado de verificação da qualidade do código."
+          "justificativa": "Avalia a eficácia dos testes automáticos em garantir que o código novo não quebre o que já funcionava."
         },
         {
           "nome": "Funcionalidades entregues no prazo",
           "valor": "90%",
           "dimensao": "Processo",
-          "justificativa": "Mede a previsibilidade e cadência do fluxo de trabalho da equipe de desenvolvimento."
+          "justificativa": "Mede o ritmo e a pontualidade da equipe de desenvolvimento nas entregas acordadas."
         },
         {
           "nome": "Número de falhas críticas em produção",
           "valor": "2 falhas",
           "dimensao": "Produto",
-          "justificativa": "Reflete a estabilidade e qualidade intrínseca do software em uso pelos operadores do armazém."
+          "justificativa": "Reflete a estabilidade e a qualidade real do software em uso pelos operadores do armazém."
         },
         {
           "nome": "Horas-homem totais da equipe",
           "valor": "640 horas",
           "dimensao": "Recursos",
-          "justificativa": "Quantifica o insumo humano bruto (esforço da equipe) consumido no mês de trabalho."
+          "justificativa": "Mede o esforço humano total (tempo trabalhado pelos desenvolvedores) no mês."
         }
       ],
-      "diagnostico_inicial": "Situação Controlada e Saudável: A equipe trabalha dentro da jornada nominal (640h para ~4 desenvolvedores), a esteira de validação é sólida (98% de aprovação), 90% das entregas são pontuais e apenas 2 falhas pontuais atingiram a produção, o que é um patamar aceitável para um sistema corporativo ativo."
+      "diagnostico_inicial": "Situação Controlada e Saudável: A equipe trabalha dentro da jornada normal (~4 desenvolvedores), os testes automáticos funcionam bem (98% de aprovação), 90% das entregas são pontuais e apenas 2 falhas pontuais atingiram a produção, o que é um nível aceitável."
     },
     "fase2_dilema": {
       "periodo": "Mês 2 (Outubro) - O Dilema da Diretoria",
-      "dilema_texto": "A diretoria executiva impôs duas diretrizes imediatas sem consulta técnica: 1) Cortar o orçamento da infraestrutura de testes pela metade (R$ 5.000) para 'conter custos'; 2) Dobrar a meta de funcionalidades entregues para 'acelerar o negócio'. Você alertou sobre o risco iminente, mas as decisões foram mantidas. Ao término de Outubro, o painel comparativo é consolidado.",
+      "dilema_texto": "A diretoria executiva impôs duas metas imediatas sem consultar a equipe técnica: 1) Cortar o orçamento de testes pela metade (R$ 5.000) para economizar; 2) Dobrar a quantidade de funções entregues para acelerar o negócio. Ao término de Outubro, o novo painel comparativo é consolidado.",
       "tabela_comparativa": [
         {
           "metrica": "Custo com infraestrutura de testes",
@@ -162,34 +162,34 @@ export const techLeadCasesData: TechLeadCase[] = [
       ],
       "colunas_tabela": [
         "Indicador (Métrica)",
-        "Setembro (Ref.)",
-        "Outubro (Atual)",
+        "Setembro (Antes)",
+        "Outubro (Depois)",
         "Variação",
         "Dimensão"
       ]
     },
     "fase3_desafio": {
-      "enunciado": "A diretoria convocou uma reunião de emergência porque o cliente principal ameaça rescindir o contrato devido às constantes paralisações no armazém. Como Tech Lead, formule:",
+      "enunciado": "A diretoria convocou uma reunião de emergência porque o cliente principal ameaça cancelar o contrato pelas constantes paralisações no armazém. Como Tech Lead, formule:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como o corte em Recursos impactou o Processo e destruiu o Produto?",
-        "2. Proposição de Ação Tática (Curto Prazo): Qual a intervenção imediata para estancar o sangramento operacional hoje?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Qual decisão estrutural deve ser firmada com a diretoria para restaurar a saúde do projeto?"
+        "1. Diagnóstico de Causa e Efeito: Como o corte em Recursos (testes) prejudicou o Processo e gerou defeitos no Produto final?",
+        "2. Proposição de Ação Tática (Curto Prazo): Qual a decisão emergencial que o Tech Lead deve tomar hoje para conter as falhas?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Qual acordo estrutural deve ser firmado com a diretoria para recuperar a qualidade?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "O corte arbitrário de 50% em Recursos (infraestrutura de testes) inviabilizou a execução completa da suíte automatizada de validação, derrubando o Processo de homologação (queda de 98% para 65% na aprovação). Esse processo quebrado operou como uma peneira esburacada, permitindo a fuga em massa de defeitos que arruinaram a qualidade do Produto (aumento de 650% nas falhas críticas em produção).",
-      "acao_tatica": "Deploy Freeze Imediato: Congelar 100% da entrega de novas funcionalidades (reduzir meta de entrega temporariamente a 0%) e direcionar toda a capacidade técnica da equipe para conter e corrigir os 15 incidentes críticos, restabelecendo a operação do armazém.",
-      "acao_estrategica": "Recompor integralmente o orçamento de R$ 10.000 de infraestrutura de testes (Recurso), reajustar metas de cadência a patamares de capacidade real e institucionalizar no painel o indicador de retrabalho para blindar a engenharia contra cortes cegos.",
-      "metrica_oculta": "O salto de 180 horas-homem (de 640h para 820h) não gerou avanço real de software: esse esforço foi integralmente desperdiçado em horas extras de sobreaviso para 'apagar incêndios' em produção, custando mais caro em folha salarial do que a 'economia' de R$ 5.000 em testes.",
-      "nova_metrica_proposta": "Percentual de horas-homem gastas em manutenção corretiva vs. novo desenvolvimento (evidencia o custo do código defeituoso).",
+      "diagnostico_causa_efeito": "O corte arbitrário de 50% em Recursos (orçamento para testes) prejudicou o Processo de verificação da qualidade (a taxa de aprovação caiu de 98% para 65%). Como a esteira de testes não conseguiu validar o sistema por completo, muitos defeitos passaram batidos e atingiram o Produto em uso real (as falhas graves em produção dispararam de 2 para 15, um aumento de 650%).",
+      "acao_tatica": "Pausa Emergencial nas Publicações (Deploy Freeze): Suspender temporariamente a entrega de novas funções e direcionar toda a equipe técnica para corrigir as 15 falhas graves que estão paralisando o armazém.",
+      "acao_estrategica": "Restabelecer integralmente o orçamento de R$ 10.000 para testes (Recursos), definir metas de entrega compatíveis com a capacidade real do time e incluir o indicador de retrabalho no painel gerencial para evitar novos cortes cegos.",
+      "metrica_oculta": "O aumento de 180 horas no trabalho da equipe (de 640h para 820h) não representou avanço real: esse tempo foi todo consumido por horas extras para apagar incêndios e corrigir defeitos, custando em folha de pagamento muito mais do que a falsa economia de R$ 5.000.",
+      "nova_metrica_proposta": "Percentual de tempo gasto em correções vs. desenvolvimento novo (evidencia com clareza o custo do retrabalho).",
       "ruidos_cenario": [
         {
-          "item": "Cumprimento de entregas subindo ligeiramente de 90% para 95%",
-          "motivo": "Ruído de falsa produtividade: O aumento de 5% no cumprimento do prazo mascarou a entrega de software defeituoso; entregar no prazo um código que paralisa o cliente gera prejuízo operacional líquido."
+          "item": "Entregas no prazo subindo ligeiramente de 90% para 95%",
+          "motivo": "Ruído de falsa produtividade: entregar no prazo um software cheio de erros não ajuda o negócio; apenas acelera a entrega de problemas para os usuários."
         },
         {
-          "item": "'Exigência de acelerar e cortar simultaneamente'",
-          "motivo": "Ruído de retórica política da gestão: Viola as leis fundamentais de capacidade produtiva e equilíbrio entre triângulo de ferro (escopo, custo e prazo)."
+          "item": "Exigência de acelerar e cortar gastos ao mesmo tempo",
+          "motivo": "Ruído de gestão irrealista: não é possível cortar os recursos essenciais e ao mesmo tempo exigir mais rapidez sem que a qualidade do produto desmorone."
         }
       ],
       "painel_pos_acao": {
@@ -206,7 +206,7 @@ export const techLeadCasesData: TechLeadCase[] = [
             "metrica": "Taxa de aprovação em testes de regressão",
             "anterior": "65%",
             "projetado": "97%",
-            "impacto": "Blindagem restabelecida (+49%)",
+            "impacto": "Proteção restabelecida (+49%)",
             "dimensao": "Processo"
           },
           {
@@ -231,7 +231,7 @@ export const techLeadCasesData: TechLeadCase[] = [
             "dimensao": "Recursos"
           }
         ],
-        "conclusao": "A recomposição dos Recursos restabeleceu o filtro do Processo, reduzindo as falhas em produção em 93% e eliminando a sobrecarga de horas extras da equipe."
+        "conclusao": "Ao recuperar o investimento em Recursos (testes), o Processo voltou a filtrar os erros, reduzindo os defeitos graves no Produto em 93% e eliminando a sobrecarga de horas extras da equipe."
       }
     }
   },
@@ -241,38 +241,38 @@ export const techLeadCasesData: TechLeadCase[] = [
     "nivel": "Nível 2 • Fundamental: Validação de Hipótese e Tomada de Decisão Positiva",
     "fase1_cenario_inicial": {
       "periodo": "Linha de Base: Checkout Padrão em 5 Etapas (Grupo A)",
-      "contexto": "Um e-commerce de alto tráfego opera com um funil de checkout tradicional estruturado em 5 etapas sequenciais (carrinho, identificação, entrega, pagamento e confirmação). A equipe de produto suspeita que a fricção do fluxo longo afasta compradores.",
+      "contexto": "Um e-commerce de alto tráfego opera com um funil de compras tradicional em 5 etapas (carrinho, identificação, entrega, pagamento e confirmação). A equipe suspeita que tantas etapas cansam os clientes e causam desistência.",
       "metricas": [
         {
           "nome": "Custo de infraestrutura por transação",
           "valor": "R$ 0,02",
           "dimensao": "Recursos",
-          "justificativa": "Mede o consumo unitário de insumo computacional em nuvem por venda processada."
+          "justificativa": "Mede quanto custa em servidores de nuvem processar cada compra de um cliente."
         },
         {
           "nome": "Tempo médio do fluxo de compra",
           "valor": "3 minutos",
           "dimensao": "Processo",
-          "justificativa": "Mede a duração do processo operacional de preenchimento e navegação executado pelo cliente."
+          "justificativa": "Mede o tempo que o cliente gasta preenchendo formulários e telas até pagar."
         },
         {
           "nome": "Taxa de sucesso na transação",
           "valor": "99,5%",
           "dimensao": "Produto",
-          "justificativa": "Atributo de integridade e confiabilidade da comunicação com adquirentes e gateways."
+          "justificativa": "Mede se a comunicação com os cartões e bancos ocorre sem falhas técnicas."
         },
         {
           "nome": "Taxa de abandono de carrinho",
           "valor": "40%",
           "dimensao": "Produto",
-          "justificativa": "Mede o comportamento de conversão e eficácia da experiência de compra gerada pelo produto."
+          "justificativa": "Mede quantos clientes desistem antes de concluir o pagamento."
         }
       ],
-      "diagnostico_inicial": "Situação Funcional mas Subótima: O sistema é tecnicamente estável e barato para operar, mas perde 40% das vendas potenciais por atrito no processo de checkout, indicando uma oportunidade de otimização de produto."
+      "diagnostico_inicial": "Situação Funcional mas Subótima: O sistema é estável e barato para operar, mas perde 40% das vendas porque o processo de compra é longo e cansativo."
     },
     "fase2_dilema": {
-      "periodo": "O Experimento: Teste A/B com 10% da Base Ativa",
-      "dilema_texto": "A equipe desenvolveu o 'Checkout Expresso' (fluxo em 1 etapa única) e submeteu 10% dos usuários a um teste A/B rigoroso durante 30 dias. Havia receio de que o carregamento consolidado aumentasse o custo de nuvem ou gerasse falhas transacionais. Os dados consolidados do teste chegaram para sua decisão.",
+      "periodo": "O Experimento: Teste Comparativo (A/B) com 10% dos Clientes",
+      "dilema_texto": "A equipe desenvolveu o Checkout Expresso (compra em etapa única) e liberou para 10% dos compradores durante 30 dias. Havia receio de que a tela nova pudesse dar erros no pagamento ou aumentar custos de servidor. Os resultados consolidados chegaram para sua decisão.",
       "tabela_comparativa": [
         {
           "metrica": "Custo de infraestrutura por transação",
@@ -316,62 +316,62 @@ export const techLeadCasesData: TechLeadCase[] = [
       ]
     },
     "fase3_desafio": {
-      "enunciado": "Diante da validação empírica do teste A/B, a diretoria pergunta se a nova solução deve ser descartada, mantida em teste ou expandida. Como Tech Lead, defina:",
+      "enunciado": "Diante dos dados do teste comparativo, a diretoria pergunta se a nova solução deve ser descartada, mantida em teste ou liberada para todos. Como Tech Lead, defina:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como a redução no tempo do Processo alavancou o resultado do Produto sem elevar Recursos?",
-        "2. Proposição de Ação Tática (Curto Prazo): Qual é o plano de migração imediato da base de usuários?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Como a engenharia deve capitalizar o retorno financeiro comprovado?"
+        "1. Diagnóstico de Causa e Efeito: Como a redução no tempo do Processo melhorou os resultados do Produto sem gastar mais Recursos?",
+        "2. Proposição de Ação Tática (Curto Prazo): Qual é o plano seguro para migrar todos os usuários para o novo checkout?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Como a empresa deve aproveitar esse resultado para continuar melhorando o sistema?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "A simplificação da interface reduziu o tempo de Processo em 75% (de 3 min para 45s). Esse ganho ergonômico eliminou atritos cognitivos no Produto, provocando uma queda expressiva no abandono de carrinho (de 40% para 15%, um aumento de 25 pontos percentuais em conversão líquida) sem qualquer acréscimo no consumo de Recursos de infraestrutura (R$ 0,02 estável).",
-      "acao_tatica": "Rollout Progressivo para 100%: Migrar 50% dos usuários na primeira semana e 100% na segunda semana para o Checkout Expresso, mantendo o checkout tradicional apenas como contingência oculta com desativação em 15 dias.",
-      "acao_estrategica": "Expandir o investimento em Recursos (alocar 2 novos desenvolvedores e orçamento de pesquisa) para criar uma squad permanente de Otimização de Conversão (CRO), aplicando testes A/B nas etapas de catálogo e busca.",
-      "metrica_oculta": "A manutenção rigorosa da taxa de sucesso de 99,6% comprova que a aceleração da interface não gerou concorrência de concorrência no banco nem falhas nos gateways de pagamento.",
-      "nova_metrica_proposta": "GMV Incremental Estimado (Volume bruto de vendas em reais gerado exclusivamente pela redução de abandono).",
+      "diagnostico_causa_efeito": "A simplificação da tela reduziu o tempo de Processo em 75% (de 3 minutos para apenas 45 segundos). Essa melhora na facilidade de uso do Produto eliminou barreiras para o cliente, fazendo o abandono despencar de 40% para 15% (um ganho de 25 pontos percentuais em vendas concluídas), mantendo o gasto com Recursos de servidores perfeitamente estável (R$ 0,02 por venda).",
+      "acao_tatica": "Liberação Gradual para Todos (Rollout Progressivo): Ativar o Checkout Expresso para 50% dos clientes na primeira semana e para 100% na segunda semana, mantendo a tela antiga apenas como plano B temporário em caso de imprevisto.",
+      "acao_estrategica": "Alocar Recursos (programadores e designers) para criar uma equipe focada na melhoria da facilidade de compra, aplicando testes comparativos semelhantes em outras áreas da loja virtual (como a barra de busca e a vitrine de produtos).",
+      "metrica_oculta": "A estabilidade da taxa de sucesso de pagamento (99,6%) comprova que agilizar a tela não causou sobrecarga nos servidores nem erros com os bancos parceiros.",
+      "nova_metrica_proposta": "Faturamento Adicional Estimado (volume de dinheiro a mais que a loja faturou apenas por ter menos desistências de compra).",
       "ruidos_cenario": [
         {
-          "item": "Variação de 99,5% para 99,6% na taxa de sucesso",
-          "motivo": "Ruído de variação estatística marginal: Indica que o sistema permaneceu estável, mas não é o indicador que justifica a aprovação executiva da nova funcionalidade."
+          "item": "Pequena variação de 99,5% para 99,6% no pagamento",
+          "motivo": "Ruído de oscilação comum: mostra que tudo continua seguro, mas o fator determinante do sucesso foi a grande redução na desistência dos clientes."
         },
         {
-          "item": "Amostragem em 10% da base",
-          "motivo": "Parâmetro do desenho metodológico do teste A/B, não um indicador de desempenho operacional."
+          "item": "Amostragem em 10% dos clientes",
+          "motivo": "Critério de segurança do teste: testar com uma pequena parcela antes de liberar para todos é uma boa prática para evitar riscos, não um problema de desempenho."
         }
       ],
       "painel_pos_acao": {
-        "titulo": "Painel Projetado Pós-Migração de 100% da Base",
+        "titulo": "Painel Projetado Pós-Migração de 100% dos Clientes",
         "tabela": [
           {
             "metrica": "Custo de infraestrutura por transação",
             "anterior": "R$ 0,02",
             "projetado": "R$ 0,02",
-            "impacto": "Custo mantido em escala",
+            "impacto": "Custo mantido baixo",
             "dimensao": "Recursos"
           },
           {
             "metrica": "Tempo médio do fluxo de compra",
             "anterior": "3 min",
             "projetado": "45 seg",
-            "impacto": "Experiência consolidada (-75%)",
+            "impacto": "Experiência ágil mantida (-75%)",
             "dimensao": "Processo"
           },
           {
             "metrica": "Taxa de sucesso na transação",
             "anterior": "99,5%",
             "projetado": "99,6%",
-            "impacto": "Confiabilidade íntegra",
+            "impacto": "Pagamentos totalmente confiáveis",
             "dimensao": "Produto"
           },
           {
             "metrica": "Taxa de abandono de carrinho",
             "anterior": "40%",
             "projetado": "14,8%",
-            "impacto": "Ganho consolidado de 25,2%",
+            "impacto": "Ganho permanente de 25,2%",
             "dimensao": "Produto"
           }
         ],
-        "conclusao": "A expansão para 100% consolida a conversão recorde de compras com custo estável e sem riscos transacionais."
+        "conclusao": "A liberação da tela simplificada para todos os clientes aumentou as vendas finalizadas, mantendo o custo de servidores baixo e as transações perfeitamente seguras."
       }
     }
   },
@@ -381,41 +381,41 @@ export const techLeadCasesData: TechLeadCase[] = [
     "nivel": "Nível 3 • Intermediário: Desmistificando o Custo do Rigor Técnico",
     "fase1_cenario_inicial": {
       "periodo": "Diagnóstico de Governança: Equipe Alfa vs. Equipe Gama",
-      "contexto": "Você assumiu a liderança técnica corporativa e auditou duas squads com o mesmo investimento financeiro: Equipe Alfa (adota revisão rigorosa de código em pares e 100% de testes automatizados) e Equipe Gama (não possui revisão formal nem testes obrigatórios). A diretoria acreditava que Gama era mais rápida por 'não perder tempo com burocracia de testes'.",
+      "contexto": "Você assumiu a liderança técnica e auditou duas equipes com o mesmo orçamento financeiro: Equipe Alfa (faz revisão de código por colegas e testes automáticos) e Equipe Gama (não faz testes obrigatórios nem revisão formal). A diretoria acreditava que Gama era mais rápida por não perder tempo com burocracias de qualidade.",
       "metricas": [
         {
           "nome": "Custo total mensal da equipe",
           "valor": "R$ 50.000 (Alfa e Gama)",
           "dimensao": "Recursos",
-          "justificativa": "Mede o insumo financeiro total alocado para remuneração e infraestrutura de cada squad."
+          "justificativa": "Mede o dinheiro gasto em salários e computadores de cada time."
         },
         {
           "nome": "Horas gastas em retrabalho/correção",
           "valor": "Alfa: 20h | Gama: 120h",
           "dimensao": "Recursos",
-          "justificativa": "Quantifica o desperdício de esforço humano consumido para corrigir falhas do próprio time."
+          "justificativa": "Mede o tempo da equipe jogado fora para consertar erros que ela mesma cometeu."
         },
         {
           "nome": "Percentual de entregas no prazo",
           "valor": "Alfa: 95% | Gama: 90%",
           "dimensao": "Processo",
-          "justificativa": "Mede a consistência e previsibilidade da esteira de desenvolvimento de cada time."
+          "justificativa": "Mede a pontualidade e a previsibilidade das entregas de cada equipe."
         },
         {
           "nome": "Taxa de falhas operacionais em produção",
           "valor": "Alfa: 0,1% | Gama: 4,5%",
           "dimensao": "Produto",
-          "justificativa": "Reflete a robustez e integridade do código entregue em produção."
+          "justificativa": "Mede a qualidade e a solidez do código quando chega aos usuários."
         }
       ],
-      "diagnostico_inicial": "Paradoxo Aparente: As equipes custam o mesmo valor e ambas entregam a maioria das demandas no prazo, mas a qualidade em produção e o retrabalho interno divergem de maneira brutal."
+      "diagnostico_inicial": "Paradoxo Aparente: As equipes custam exatamente o mesmo valor e ambas entregam no prazo, mas a qualidade do software e as horas perdidas em retrabalho são extremamente desiguais."
     },
     "fase2_dilema": {
       "periodo": "O Confronto dos Dados de Engenharia",
-      "dilema_texto": "A diretoria planejava desativar a política de testes da Equipe Alfa para 'economizar tempo'. Você reúne os dados consolidados de desempenho das duas squads para defender a maturidade técnica perante o conselho.",
+      "dilema_texto": "A diretoria pretendia mandar a Equipe Alfa parar de fazer testes para economizar tempo. Você reuniu os dados consolidados das duas equipes para provar perante a diretoria que a qualidade técnica na verdade poupa tempo.",
       "tabela_comparativa": [
         {
-          "metrica": "Custo mensal da squad (Folha + Ferramentas)",
+          "metrica": "Custo mensal da equipe (Folha + Ferramentas)",
           "col1": "R$ 50.000",
           "col2": "R$ 50.000",
           "var": "0% (Empatado)",
@@ -424,8 +424,8 @@ export const techLeadCasesData: TechLeadCase[] = [
         },
         {
           "metrica": "Horas gastas em retrabalho e correções",
-          "col1": "20h (5% da jornada)",
-          "col2": "120h (30% da jornada)",
+          "col1": "20h (5% do mês)",
+          "col2": "120h (30% do mês)",
           "var": "+500% em Gama",
           "dimensao": "Recursos",
           "status_var": "danger"
@@ -449,34 +449,34 @@ export const techLeadCasesData: TechLeadCase[] = [
       ],
       "colunas_tabela": [
         "Indicador (Métrica)",
-        "Equipe Alfa (Com Processo)",
-        "Equipe Gama (Sem Processo)",
+        "Equipe Alfa (Com Testes)",
+        "Equipe Gama (Sem Testes)",
         "Resultado Comparativo",
         "Dimensão"
       ]
     },
     "fase3_desafio": {
-      "enunciado": "Utilize os dados empíricos para desconstruir o mito de que 'testes atrasam projetos' e estruture as ações do Tech Lead:",
+      "enunciado": "Utilize os dados práticos para desmistificar a crença de que testes e revisões atrasam projetos. Como Tech Lead, defina:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como a disciplina de Processo de Alfa economiza Recursos e protege o Produto?",
-        "2. Proposição de Ação Tática (Curto Prazo): Como provar à Equipe Gama que o rigor técnico economiza tempo útil?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Qual política de governança deve ser padronizada na organização?"
+        "1. Diagnóstico de Causa e Efeito: Como a disciplina de Processo da Equipe Alfa poupa Recursos humanos e protege o Produto?",
+        "2. Proposição de Ação Tática (Curto Prazo): Como ajudar os desenvolvedores de Gama a entender na prática os benefícios dos testes?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Qual regra de qualidade deve se tornar padrão para toda a empresa?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "A ausência de disciplina de Processo em Gama (sem testes nem code review) gera um Produto altamente frágil (45 vezes mais falhas em produção). Esse produto defeituoso drena o Recurso humano da própria equipe em retrabalho (120 horas jogadas fora corrigindo bugs), tornando a esteira menos pontual do que Alfa (90% vs 95%). O rigor de Alfa atua como poupança de tempo.",
-      "acao_tatica": "Pareamento Técnico Cruzado: Apresentar os dados de retrabalho aos desenvolvedores de Gama e instaurar pareamento imediato de 2 semanas onde engenheiros seniores de Alfa ensinam técnicas de testes automatizados e code review.",
-      "acao_estrategica": "Institucionalizar o 'Quality Gate Padrão' em toda a empresa: tornar obrigatória a suíte de testes e aprovação de pares antes do merge para todos os projetos, reservando 10% da sprint para capacitação técnica contínua.",
-      "metrica_oculta": "Pelo mesmo orçamento (R$ 50 mil), a Equipe Alfa ganha 100 horas úteis por mês para inovar, enquanto a Equipe Gama queima 30% da sua jornada útil corrigindo o próprio código mal testado.",
-      "nova_metrica_proposta": "Taxa de Escape de Defeitos (Defect Escape Rate) - percentual de defeitos descobertos em produção versus em testes internos.",
+      "diagnostico_causa_efeito": "A falta de disciplina de Processo na Equipe Gama (sem testes automáticos e sem revisão do código por outros colegas) gerou um Produto frágil (45 vezes mais defeitos em produção). Esse código quebrado drenou os Recursos humanos da própria equipe em retrabalho (120 horas jogadas fora consertando problemas), tornando o time menos pontual do que Alfa (90% contra 95%), pelo mesmo custo financeiro.",
+      "acao_tatica": "Trabalho em Dupla para Troca de Experiência (Pareamento): Mostrar os dados de retrabalho para a Equipe Gama e colocar profissionais experientes de Alfa para ensinar na prática como escrever testes úteis e revisar código em conjunto.",
+      "acao_estrategica": "Instituir um Padrão Mínimo de Qualidade para toda a empresa: exigir que todo código passe por testes e revisão antes de ir ao ar, reservando 10% da jornada dos desenvolvedores para capacitação contínua.",
+      "metrica_oculta": "Mesmo com o mesmo salário (R$ 50 mil), a Equipe Alfa ganha 100 horas úteis a mais no mês para criar novas funções, enquanto a Equipe Gama perde quase um terço do seu tempo apenas consertando os próprios erros.",
+      "nova_metrica_proposta": "Taxa de Erros que Escapam para Produção (Defect Escape Rate) - percentual de defeitos que só foram encontrados pelos clientes em vez de serem pegos pelos testes da equipe.",
       "ruidos_cenario": [
         {
-          "item": "'Equipe Alfa cuida de módulo crítico e Gama de módulo não-crítico'",
-          "motivo": "Ruído de justificativa cultural: Módulos secundários também geram custo de folha e atrito operacional quando falham."
+          "item": "Equipe Alfa cuida de módulo importante e Gama de módulo simples",
+          "motivo": "Ruído de justificativa: mesmo telas simples causam prejuízo e perda de tempo da equipe quando falham com frequência."
         },
         {
-          "item": "Custo de R$ 50.000 idêntico",
-          "motivo": "Variável de controle metodológico para demonstrar o retorno sobre o esforço investido."
+          "item": "Custo de R$ 50.000 idêntico entre os times",
+          "motivo": "Variável de controle do estudo: serve para provar que a diferença de resultado está na disciplina do trabalho, e não na quantidade de dinheiro gasto."
         }
       ],
       "painel_pos_acao": {
@@ -500,7 +500,7 @@ export const techLeadCasesData: TechLeadCase[] = [
             "metrica": "Percentual de entregas no prazo (Gama)",
             "anterior": "90%",
             "projetado": "96%",
-            "impacto": "Previsibilidade restaurada (+6%)",
+            "impacto": "Pontualidade recuperada (+6%)",
             "dimensao": "Processo"
           },
           {
@@ -511,7 +511,7 @@ export const techLeadCasesData: TechLeadCase[] = [
             "dimensao": "Produto"
           }
         ],
-        "conclusao": "A adoção do processo de qualidade reduziu o retrabalho em 70% e libertou 85 horas mensais para Gama focar em novas entregas."
+        "conclusao": "A adoção de testes e revisões reduziu o retrabalho em 70%, liberando 85 horas mensais para a equipe focar em novas entregas com qualidade."
       }
     }
   },
@@ -520,48 +520,48 @@ export const techLeadCasesData: TechLeadCase[] = [
     "titulo": "Microsserviços sob Pressão: A Ilusão da Frequência de Deploy",
     "nivel": "Nível 4 • Intermediário: A Ilusão de Produtividade vs. Degradação Distribuída",
     "fase1_cenario_inicial": {
-      "periodo": "Arquitetura Monolítica Estável (Linha de Base)",
-      "contexto": "Um banco digital operava sobre um monólito centralizado. Embora seguro, a diretoria considerava o tempo de compilação de 25 minutos no CI e a cadência de 2 deploys semanais lentos para a ambição de crescimento da fintech.",
+      "periodo": "Arquitetura Centralizada e Estável (Linha de Base)",
+      "contexto": "Um banco digital operava sobre um sistema único centralizado. Embora o aplicativo funcionasse sem erros para os clientes, a compilação no computador dos programadores demorava 25 minutos e ocorriam apenas 2 publicações por semana, o que a diretoria achava lento.",
       "metricas": [
         {
           "nome": "Fatura mensal de rede/telemetria",
           "valor": "R$ 4.000",
           "dimensao": "Recursos",
-          "justificativa": "Mede o consumo financeiro de tráfego de rede e comunicação interna."
+          "justificativa": "Mede o dinheiro gasto em tráfego de dados e comunicação entre servidores."
         },
         {
-          "nome": "Tempo de compilação e teste unitário no CI",
+          "nome": "Tempo de compilação e teste no servidor",
           "valor": "25 minutos",
           "dimensao": "Processo",
-          "justificativa": "Mede a agilidade do fluxo automatizado de integração e verificação de código."
+          "justificativa": "Mede quanto tempo os desenvolvedores esperam para saber se o código novo está pronto para publicação."
         },
         {
-          "nome": "Frequência de deploys em produção",
+          "nome": "Frequência de publicações em produção",
           "valor": "2 por semana",
           "dimensao": "Processo",
-          "justificativa": "Mede a cadência de liberação contínua de alterações em ambiente produtivo."
+          "justificativa": "Mede quantas vezes por semana novas versões do sistema vão ao ar para os clientes."
         },
         {
-          "nome": "Latência no percentil 99 (p99) de saldo",
+          "nome": "Tempo de resposta da consulta de saldo",
           "valor": "350ms",
           "dimensao": "Produto",
-          "justificativa": "Avalia o desempenho de resposta técnica percebido pelos clientes do aplicativo."
+          "justificativa": "Mede a velocidade percebida pelo correntista ao abrir o aplicativo (350 milissegundos)."
         },
         {
-          "nome": "Taxa de timeouts e erros HTTP 504",
+          "nome": "Taxa de telas travadas por erro de resposta",
           "valor": "0,05%",
           "dimensao": "Produto",
-          "justificativa": "Atributo de confiabilidade e disponibilidade das requisições bancárias."
+          "justificativa": "Mede a confiabilidade: percentual de vezes que o app trava por falta de resposta do servidor."
         }
       ],
-      "diagnostico_inicial": "Sistema Estável mas de Cadência Lenta: A experiência do correntista era veloz e sem erros, mas o tempo de build gerava gargalos na dinâmica dos desenvolvedores."
+      "diagnostico_inicial": "Sistema Estável mas de Ritmo Lento: A experiência do correntista era veloz e sem falhas, mas a demora para gerar versões travava a rotina interna dos programadores."
     },
     "fase2_dilema": {
-      "periodo": "A Mudança: Decomposição em 18 Microsserviços",
-      "dilema_texto": "Para 'ganhar agilidade', a engenharia desmembrou o monólito em 18 microsserviços. A diretoria comemorou os 14 deploys semanais, mas a central de suporte entrou em pânico com milhares de reclamações de telas congeladas e falhas de saldo no app.",
+      "periodo": "A Mudança: Divisão em 18 Serviços Independentes",
+      "dilema_texto": "Para agilizar o trabalho, o sistema foi fatiado em 18 pequenos serviços. A diretoria comemorou que agora são feitas 14 publicações por semana, mas o suporte a clientes começou a receber milhares de reclamações de telas congeladas e falhas de saldo no app.",
       "tabela_comparativa": [
         {
-          "metrica": "Fatura mensal de rede (Service Mesh)",
+          "metrica": "Fatura mensal de tráfego de rede entre servidores",
           "col1": "R$ 4.000",
           "col2": "R$ 21.000",
           "var": "+425%",
@@ -569,7 +569,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "danger"
         },
         {
-          "metrica": "Frequência de deploys em produção",
+          "metrica": "Frequência de publicações em produção",
           "col1": "2 / semana",
           "col2": "14 / semana",
           "var": "+600%",
@@ -577,7 +577,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "positive"
         },
         {
-          "metrica": "Tempo de build no CI",
+          "metrica": "Tempo de compilação e testes",
           "col1": "25 min",
           "col2": "4 min",
           "var": "-84%",
@@ -585,7 +585,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "positive"
         },
         {
-          "metrica": "Latência p99 (saldo e extrato)",
+          "metrica": "Tempo de resposta da consulta de saldo",
           "col1": "350ms",
           "col2": "2.800ms",
           "var": "+700%",
@@ -593,7 +593,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "danger"
         },
         {
-          "metrica": "Taxa de erros HTTP 504 (Timeout)",
+          "metrica": "Taxa de telas travadas por falta de resposta",
           "col1": "0,05%",
           "col2": "4,8%",
           "var": "+9.500%",
@@ -603,76 +603,76 @@ export const techLeadCasesData: TechLeadCase[] = [
       ],
       "colunas_tabela": [
         "Indicador (Métrica)",
-        "Monólito (Base)",
-        "Microsserviços (Atual)",
+        "Sistema Único (Antes)",
+        "18 Serviços (Depois)",
         "Variação",
         "Dimensão"
       ]
     },
     "fase3_desafio": {
-      "enunciado": "A liderança quer saber por que o app está quebrando se a equipe está 'mais rápida do que nunca'. Como Tech Lead, defina:",
+      "enunciado": "A liderança quer entender por que o aplicativo dos clientes está travando se a equipe está publicando código mais rápido do que nunca. Como Tech Lead, defina:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como a aceleração de deploys no Processo gerou um acoplamento destrutivo no Produto e Recursos?",
-        "2. Proposição de Ação Tática (Curto Prazo): Como blindar o aplicativo contra timeouts hoje mesmo?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Qual mudança arquitetural resolverá o encadeamento síncrono de chamadas?"
+        "1. Diagnóstico de Causa e Efeito: Como a aceleração de publicações no Processo acabou criando um Produto mais lento e encarecendo os Recursos?",
+        "2. Proposição de Ação Tática (Curto Prazo): O que fazer imediatamente hoje para evitar que o cliente fique com a tela travada esperando saldo?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Qual mudança na comunicação entre os serviços resolverá o problema de forma definitiva?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "A facilidade de compilação rápida (-84%) incentivou uma esteira de deploys frenética (+600%) que liberou microsserviços com dependências síncronas em cascata (chamadas HTTP aninhadas). Isso explodiu o consumo de Recursos de rede (+425%) e multiplicou a latência do Produto por 8 (2,8s), gerando quase 5% de timeouts nos clientes.",
-      "acao_tatica": "Implementar Circuit Breakers com fallback estático para consultas de saldo e aplicar cache distribuído (Redis) com TTL de 30 segundos nas rotas de leitura imediata.",
-      "acao_estrategica": "Desacoplar a arquitetura migrando de chamadas síncronas (REST) para arquitetura orientada a eventos (EDA via Apache Kafka/RabbitMQ) e adotar o padrão CQRS para consultas agregadas.",
-      "metrica_oculta": "A alta frequência de deploys tornou-se uma métrica de vaidade: o time entrega com frequência alterações que ampliam o congestionamento distribuído.",
-      "nova_metrica_proposta": "Profundidade Máxima de Chamadas Síncronas por Endpoint (Call Chain Depth).",
+      "diagnostico_causa_efeito": "A facilidade de compilar mais rápido (-84% do tempo) incentivou uma esteira de publicações apressadas que colocou no ar serviços com chamadas dependentes em cadeia (um serviço chama outro, que chama outro, e todos ficam esperando). Isso quadruplicou os Recursos gastos com rede (+425%) e multiplicou a lentidão do Produto por 8 (de 350ms para 2,8s), fazendo quase 5% dos clientes sofrerem com telas congeladas.",
+      "acao_tatica": "Instalar Travas de Proteção Automática (Circuit Breaker) e Armazenamento Rápido (Cache): Se um serviço demorar para responder, exibir instantaneamente o último saldo consultado guardado na memória, impedindo que o aplicativo do cliente fique congelado.",
+      "acao_estrategica": "Desacoplar a comunicação entre os serviços: em vez de fazer um serviço esperar o outro na mesma hora (chamada direta), fazer com que eles troquem mensagens em segundo plano e mantenham cópias prontas das informações mais consultadas.",
+      "metrica_oculta": "A alta frequência de 14 publicações por semana tornou-se uma métrica de vaidade: o time comemorava publicar mais vezes, mas na prática estava apenas colocando no ar alterações que pioravam o congestionamento do aplicativo.",
+      "nova_metrica_proposta": "Quantidade de Chamadas em Sequência por Ação (mede quantos serviços precisam ser consultados para responder a um único toque do cliente no aplicativo).",
       "ruidos_cenario": [
         {
-          "item": "Tempo de build no CI caindo para 4 minutos",
-          "motivo": "Ruído de agilidade interna: Excelente para os desenvolvedores, mas sem relevância quando o código resultante trava o cliente final."
+          "item": "Tempo de compilação caindo para 4 minutos",
+          "motivo": "Ruído interno: muito bom para o dia a dia dos programadores, mas sem utilidade se o aplicativo que chega aos clientes finais estiver travando."
         },
         {
-          "item": "Contagem de 18 microsserviços",
-          "motivo": "Decisão topológica de arquitetura, não um indicador de saúde sistêmica."
+          "item": "Quantidade de 18 serviços",
+          "motivo": "Decisão de organização técnica: ter mais serviços não é sinônimo de modernidade se a comunicação entre eles for desorganizada."
         }
       ],
       "painel_pos_acao": {
-        "titulo": "Painel Projetado Pós-Implantação de Circuit Breakers e Cache",
+        "titulo": "Painel Projetado Pós-Implantação de Proteções e Armazenamento em Memória",
         "tabela": [
           {
             "metrica": "Fatura mensal de tráfego de rede",
             "anterior": "R$ 21.000",
             "projetado": "R$ 7.500",
-            "impacto": "Queda de 64% no tráfego",
+            "impacto": "Queda de 64% no tráfego desnecessário",
             "dimensao": "Recursos"
           },
           {
-            "metrica": "Frequência de deploys em produção",
+            "metrica": "Frequência de publicações em produção",
             "anterior": "14 / semana",
             "projetado": "10 / semana",
-            "impacto": "Cadência sustentável com testes",
+            "impacto": "Cadência sustentável com testes seguros",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Tempo de build no CI",
+            "metrica": "Tempo de compilação e testes",
             "anterior": "4 min",
             "projetado": "5 min",
-            "impacto": "Inclusão de testes de contrato",
+            "impacto": "Pequeno acréscimo para testes de proteção",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Latência p99 de saldo",
+            "metrica": "Tempo de resposta da consulta de saldo",
             "anterior": "2.800ms",
             "projetado": "420ms",
-            "impacto": "Redução drástica de 85%",
+            "impacto": "Redução drástica de 85% na lentidão",
             "dimensao": "Produto"
           },
           {
-            "metrica": "Taxa de erros HTTP 504 (Timeout)",
+            "metrica": "Taxa de telas travadas por erro de resposta",
             "anterior": "4,8%",
             "projetado": "0,08%",
-            "impacto": "Normalização de confiabilidade",
+            "impacto": "Confiabilidade restaurada",
             "dimensao": "Produto"
           }
         ],
-        "conclusao": "O desacoplamento reduziu a latência em 85% e cortou R$ 13.500 em desperdício de tráfego em rede."
+        "conclusao": "A organização da comunicação entre serviços reduziu a lentidão em 85% e cortou R$ 13.500 em gastos de rede desperdiçados."
       }
     }
   },
@@ -682,47 +682,47 @@ export const techLeadCasesData: TechLeadCase[] = [
     "nivel": "Nível 5 • Avançado: Eficiência Econômica de Arquitetura em Nuvem",
     "fase1_cenario_inicial": {
       "periodo": "Operação Logística no Trimestre Passado (Linha de Base)",
-      "contexto": "Uma startup de logística rastreia encomendas com faturamento saudável. As instâncias em nuvem operavam com dimensionamento sob demanda adequado ao volume de 200.000 pacotes/mês.",
+      "contexto": "Uma startup de logística rastreia encomendas com faturamento saudável. Os servidores em nuvem operavam com contratação automática equilibrada para o volume de 200.000 pacotes/mês.",
       "metricas": [
         {
-          "nome": "Custo total mensal em nuvem (AWS)",
+          "nome": "Custo total mensal em nuvem (servidores)",
           "valor": "R$ 22.000",
           "dimensao": "Recursos",
-          "justificativa": "Mede o insumo financeiro total consumido para manter o ambiente computacional."
+          "justificativa": "Mede o dinheiro gasto para manter as máquinas da nuvem ligadas."
         },
         {
           "nome": "Custo computacional por pacote rastreado",
           "valor": "R$ 0,11",
           "dimensao": "Recursos",
-          "justificativa": "Mede a eficiência financeira unitária do consumo de recursos por transação."
+          "justificativa": "Mede o custo unitário em tecnologia para processar cada pacote da empresa."
         },
         {
-          "nome": "Tempo para provisionar novo nó elástico",
+          "nome": "Tempo para ligar um novo servidor em caso de pico",
           "valor": "12 minutos",
           "dimensao": "Processo",
-          "justificativa": "Mede a rapidez operacional do processo de escala da infraestrutura."
+          "justificativa": "Mede a rapidez operacional para disponibilizar novas máquinas quando o tráfego sobe."
         },
         {
-          "nome": "Taxa média de utilização real de CPU/RAM",
+          "nome": "Aproveitamento real dos computadores (CPU/RAM)",
           "valor": "55%",
           "dimensao": "Produto",
-          "justificativa": "Mede a densidade técnica e o aproveitamento computacional do software em execução."
+          "justificativa": "Mede quanto da capacidade dos computadores está sendo realmente utilizada para trabalho útil."
         },
         {
-          "nome": "Disponibilidade operacional do rastreamento",
+          "nome": "Disponibilidade do sistema de rastreamento",
           "valor": "99,9%",
           "dimensao": "Produto",
-          "justificativa": "Atributo de confiabilidade e tempo ativo percebido pelos clientes."
+          "justificativa": "Mede a confiabilidade: percentual do mês em que o sistema funcionou sem sair do ar."
         }
       ],
-      "diagnostico_inicial": "Operação Equilibrada: O custo unitário era saudável (R$ 0,11) e a densidade de processamento adequada (55%), mantendo alta disponibilidade."
+      "diagnostico_inicial": "Operação Equilibrada: O custo por pacote era saudável (R$ 0,11) e os computadores tinham um bom nível de aproveitamento (55%), mantendo o site sempre no ar."
     },
     "fase2_dilema": {
-      "periodo": "O Dilema: Acelerar Escala a Qualquer Custo",
-      "dilema_texto": "Para suportar um crescimento de 20% nas entregas, o time anterior reconfigurou as regras de autoscaling para provisionar máquinas em 3 minutos sob qualquer oscilação de tráfego. A fatura mensal saltou para R$ 68.200 (+210%), consumindo toda a margem de lucro da operação.",
+      "periodo": "O Dilema: Acelerar a Contratação a Qualquer Custo",
+      "dilema_texto": "Para suportar um aumento de 20% no envio de pacotes, a equipe anterior alterou as regras automáticas de nuvem para ligar novas máquinas em apenas 3 minutos diante de qualquer pequena oscilação de tráfego. A fatura mensal subiu para R$ 68.200 (+210%), consumindo todo o lucro da empresa.",
       "tabela_comparativa": [
         {
-          "metrica": "Custo total mensal da nuvem",
+          "metrica": "Custo total mensal em nuvem",
           "col1": "R$ 22.000",
           "col2": "R$ 68.200",
           "var": "+210%",
@@ -738,7 +738,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "danger"
         },
         {
-          "metrica": "Tempo para provisionar nó elástico",
+          "metrica": "Tempo para ligar novo servidor em picos",
           "col1": "12 min",
           "col2": "3 min",
           "var": "-75%",
@@ -746,7 +746,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "positive"
         },
         {
-          "metrica": "Utilização média de CPU/RAM",
+          "metrica": "Aproveitamento real dos computadores",
           "col1": "55%",
           "col2": "14%",
           "var": "-74% (Ocioso)",
@@ -771,31 +771,31 @@ export const techLeadCasesData: TechLeadCase[] = [
       ]
     },
     "fase3_desafio": {
-      "enunciado": "A diretoria exige corte imediato na fatura de nuvem, mas teme perder disponibilidade. Como Tech Lead, formule:",
+      "enunciado": "A diretoria exige reduzir imediatamente a conta da nuvem, mas teme que o sistema caia se cortarem máquinas. Como Tech Lead, formule:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como a histerese do autoscaling gerou ociosidade no Produto e dreno em Recursos?",
-        "2. Proposição de Ação Tática (Curto Prazo): Como cortar 40% dos custos sem risco de queda no sistema?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Qual arquitetura de FinOps garantirá escala sustentável?"
+        "1. Diagnóstico de Causa e Efeito: Como as regras automáticas mal configuradas deixaram os computadores ociosos e triplicaram os gastos de Recursos?",
+        "2. Proposição de Ação Tática (Curto Prazo): Como cortar quase metade dos custos sem correr risco de deixar o sistema fora do ar?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Qual modelo financeiro e técnico de nuvem (FinOps) garantirá economia sustentável?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "Para acelerar o Processo de subida de servidores (-75%), a regra de autoscaling foi configurada com gatilhos excessivamente sensíveis e sem políticas de desligamento rápido. Isso gerou um Produto com ociosidade severa (apenas 14% de CPU/RAM usada), triplicando o consumo de Recursos financeiros (+210%) para entregar um ganho imperceptível de 0,02% no uptime.",
-      "acao_tatica": "Ajuste Imediato de Thresholds: Elevar o gatilho de scale-up de 40% para 70% de CPU, aplicar scale-down automático em 10 minutos para máquinas sem carga e desligar ambientes de homologação fora do horário comercial.",
-      "acao_estrategica": "Implantar cultura FinOps com contratação de Savings Plans/Instâncias Reservadas para a carga de base e migração de workers de processamento de pacotes para arquitetura Serverless (AWS Lambda/Fargate).",
-      "metrica_oculta": "O custo unitário por pacote subiu 154% (de R$ 0,11 para R$ 0,28), provando que o sistema sofreu de deseconomia de escala por pura ineficiência de provisionamento.",
-      "nova_metrica_proposta": "Cloud Waste Ratio (Percentual de gasto financeiro alocado em capacidade computacional ociosa não utilizada).",
+      "diagnostico_causa_efeito": "Para fazer o Processo ligar servidores muito rápido (-75% do tempo), as regras automáticas foram configuradas com gatilhos excessivamente sensíveis e sem regras de desligamento ágil. Isso criou um Produto com servidores quase vazios (apenas 14% de uso real), triplicando o consumo de Recursos financeiros (+210%) apenas para gerar um ganho imperceptível de 0,02% no tempo no ar.",
+      "acao_tatica": "Ajuste Imediato dos Gatilhos de Contratação e Desligamento: Configurar para ligar novos servidores apenas quando o uso passar de 70% da capacidade, desligar máquinas ociosas após 10 minutos sem carga e desligar servidores de teste fora do horário comercial.",
+      "acao_estrategica": "Implantar Gestão Financeira de Nuvem (FinOps): contratar planos de longo prazo com desconto para a quantidade de servidores que a empresa usa o ano todo e usar tecnologias que cobram apenas pelos segundos exatos em que cada pacote é processado.",
+      "metrica_oculta": "O custo de processar cada pacote subiu 154% (de R$ 0,11 para R$ 0,28), provando que o crescimento da empresa estava ficando mais caro em vez de mais eficiente devido ao desperdício de máquinas ligadas à toa.",
+      "nova_metrica_proposta": "Índice de Desperdício em Nuvem (percentual do dinheiro gasto com servidores que ficaram ligados sem processar nada útil).",
       "ruidos_cenario": [
         {
-          "item": "Aumento de 99,9% para 99,92% no Uptime",
-          "motivo": "Ruído de justificativa: Métrica usada para disfarçar o desperdício; um ganho de 0,02% não possui valor de negócio que compense R$ 46.000 a mais por mês."
+          "item": "Aumento de 99,9% para 99,92% no tempo em que o site ficou no ar",
+          "motivo": "Ruído de justificativa: um ganho mínimo de 0,02% não traz benefício prático para o cliente que compense gastar R$ 46.000 a mais por mês."
         },
         {
           "item": "Crescimento de 20% no volume de entregas",
-          "motivo": "Indicador de negócio que torna o desperdício ainda mais evidente (fatura subiu 210% para 20% de novos pedidos)."
+          "motivo": "Dado de negócio: as entregas subiram apenas 20%, o que torna o aumento de 210% na conta de computadores ainda mais injustificável."
         }
       ],
       "painel_pos_acao": {
-        "titulo": "Painel Projetado 30 Dias Pós-Calibração de FinOps",
+        "titulo": "Painel Projetado 30 Dias Pós-Calibração de Regras de Nuvem",
         "tabela": [
           {
             "metrica": "Custo total mensal em nuvem",
@@ -808,21 +808,21 @@ export const techLeadCasesData: TechLeadCase[] = [
             "metrica": "Custo computacional por pacote",
             "anterior": "R$ 0,28",
             "projetado": "R$ 0,12",
-            "impacto": "Eficiência unitária restaurada",
+            "impacto": "Custo unitário saudável restabelecido",
             "dimensao": "Recursos"
           },
           {
-            "metrica": "Tempo para provisionar nó elástico",
+            "metrica": "Tempo para ligar novo servidor em picos",
             "anterior": "3 min",
             "projetado": "4 min",
-            "impacto": "Tempo equilibrado e seguro",
+            "impacto": "Tempo seguro e equilibrado",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Utilização média de CPU/RAM",
+            "metrica": "Aproveitamento real dos computadores",
             "anterior": "14%",
             "projetado": "62%",
-            "impacto": "Fim do desperdício ocioso",
+            "impacto": "Fim do desperdício de máquinas ociosas",
             "dimensao": "Produto"
           },
           {
@@ -833,7 +833,7 @@ export const techLeadCasesData: TechLeadCase[] = [
             "dimensao": "Produto"
           }
         ],
-        "conclusao": "A calibração do autoscaling cortou 56% da fatura (economia de R$ 38.700/mês) mantendo o sistema em 99,91% de disponibilidade."
+        "conclusao": "A calibração das regras automáticas cortou 56% da fatura (economia de R$ 38.700/mês) mantendo o sistema em excelentes 99,91% de funcionamento contínuo."
       }
     }
   },
@@ -843,44 +843,44 @@ export const techLeadCasesData: TechLeadCase[] = [
     "nivel": "Nível 6 • Avançado: Gestão de Risco Operacional e Segurança Crítica",
     "fase1_cenario_inicial": {
       "periodo": "Semestre Passado: Esteira com Portões Rígidos de Segurança",
-      "contexto": "Uma fintech de crédito mantinha rotinas estritas de segurança da informação, submetendo qualquer código a escaneamentos estáticos (SAST) e dinâmicos (DAST) antes do deploy.",
+      "contexto": "Uma fintech de crédito mantinha rotinas estritas de segurança, submetendo todo código a verificações automáticas de vulnerabilidade antes da publicação.",
       "metricas": [
         {
-          "nome": "Custo com licenças de segurança (SAST/DAST)",
+          "nome": "Custo com ferramentas de segurança automatizada",
           "valor": "R$ 30.000",
           "dimensao": "Recursos",
-          "justificativa": "Mede o insumo financeiro contratual em tecnologias de varredura automatizada."
+          "justificativa": "Mede o dinheiro gasto em licenças de softwares que procuram brechas no código."
         },
         {
-          "nome": "Tempo médio para aprovação no pipeline",
+          "nome": "Tempo médio para aprovação de segurança",
           "valor": "14 horas",
           "dimensao": "Processo",
-          "justificativa": "Mede a duração do fluxo de análise de código e validação de conformidade."
+          "justificativa": "Mede quanto tempo uma alteração fica em análise de segurança até poder ir ao ar."
         },
         {
-          "nome": "Taxa de builds bloqueados por segurança",
+          "nome": "Taxa de publicações bloqueadas por falhas de segurança",
           "valor": "16%",
           "dimensao": "Processo",
-          "justificativa": "Avalia o rigor da esteira em barrar código inseguro antes de produção."
+          "justificativa": "Avalia o rigor da esteira em barrar código vulnerável antes que chegue aos clientes."
         },
         {
-          "nome": "Vulnerabilidades críticas ativas em produção",
+          "nome": "Vulnerabilidades graves ativas em produção",
           "valor": "1 falha",
           "dimensao": "Produto",
-          "justificativa": "Mede a postura e a blindagem técnica do software em execução contra ataques."
+          "justificativa": "Mede a segurança real do sistema contra ataques de invasores."
         },
         {
-          "nome": "Tempo médio de exposição a falhas (MTTE)",
+          "nome": "Tempo médio para consertar falhas conhecidas",
           "valor": "3 dias",
           "dimensao": "Produto",
-          "justificativa": "Avalia a rapidez na aplicação de patches em brechas conhecidas."
+          "justificativa": "Mede a rapidez da equipe em lançar correções de segurança."
         }
       ],
-      "diagnostico_inicial": "Postura Segura mas Esteira Burocrática: O sistema era altamente blindado, mas o tempo de 14 horas para aprovação gerava descontentamento na equipe comercial."
+      "diagnostico_inicial": "Postura Segura mas Esteira Burocrática: O sistema era altamente blindado, mas a demora de 14 horas para aprovar alterações gerava descontentamento na equipe comercial."
     },
     "fase2_dilema": {
-      "periodo": "A Mudança: Desativação dos Bloqueios Automáticos",
-      "dilema_texto": "Para bater metas de lançamentos rápidos, a gestão anterior desativou os bloqueios automáticos no CI/CD para que 'regras de segurança não atrasassem deploys'. Agora, uma auditoria do Banco Central emitiu uma notificação formal de inconformidade.",
+      "periodo": "A Mudança: Desativação das Travas Automáticas",
+      "dilema_texto": "Para cumprir metas de lançamentos rápidos, a gestão anterior desligou os bloqueios automáticos de segurança para que nada atrasasse as publicações. Agora, uma auditoria do Banco Central emitiu uma notificação formal de inconformidade por brechas graves encontradas no sistema.",
       "tabela_comparativa": [
         {
           "metrica": "Custo com ferramentas de segurança",
@@ -891,7 +891,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "neutral"
         },
         {
-          "metrica": "Tempo médio para aprovação de PRs",
+          "metrica": "Tempo médio para aprovação de alterações",
           "col1": "14 horas",
           "col2": "2 horas",
           "var": "-85% (Rápido)",
@@ -899,7 +899,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "positive"
         },
         {
-          "metrica": "Taxa de builds bloqueados por segurança",
+          "metrica": "Taxa de publicações bloqueadas por segurança",
           "col1": "16%",
           "col2": "0,2%",
           "var": "-98% (Destravado)",
@@ -907,7 +907,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "danger"
         },
         {
-          "metrica": "Vulnerabilidades críticas em produção (CVE)",
+          "metrica": "Vulnerabilidades graves em produção",
           "col1": "1",
           "col2": "27",
           "var": "+2.600%",
@@ -915,7 +915,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "danger"
         },
         {
-          "metrica": "Tempo de exposição a falhas (MTTE)",
+          "metrica": "Tempo de exposição a falhas conhecidas",
           "col1": "3 dias",
           "col2": "42 dias",
           "var": "+1.300%",
@@ -926,75 +926,75 @@ export const techLeadCasesData: TechLeadCase[] = [
       "colunas_tabela": [
         "Indicador (Métrica)",
         "Com Rigor (Passado)",
-        "Flexibilizado (Atual)",
+        "Sem Travas (Atual)",
         "Variação",
         "Dimensão"
       ]
     },
     "fase3_desafio": {
-      "enunciado": "O banco corre risco iminente de suspensão de licença financeira pelo órgão regulador. Como Tech Lead, defina:",
+      "enunciado": "O banco corre risco imediato de suspensão de licença financeira pelo órgão regulador. Como Tech Lead, defina:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como o afrouxamento do Processo contaminou o Produto expondo a empresa a multas?",
-        "2. Proposição de Ação Tática (Curto Prazo): Como remediar as 27 falhas críticas imediatamente sem travar o time?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Qual modelo de DevSecOps deve ser institucionalizado?"
+        "1. Diagnóstico de Causa e Efeito: Como a eliminação das travas do Processo expôs o Produto a invasões e multas pesadas?",
+        "2. Proposição de Ação Tática (Curto Prazo): Como consertar as 27 falhas graves imediatamente sem travar as entregas futuras?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Qual rotina sustentável de segurança deve ser estabelecida?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "Para acelerar artificialmente o Processo de entrega (-85% no tempo de aprovação), foram eliminadas as barreiras de segurança (-98% de bloqueios). Isso gerou um Produto vulnerável e contaminado (27 falhas críticas ativas expostas por até 42 dias), submetendo a instituição a penalidades severas da LGPD e do BACEN.",
-      "acao_tatica": "Reativar imediatamente o bloqueio automático (hard fail) na esteira para vulnerabilidades de severidade Alta/Crítica (CVSS >= 7.0) e convocar um 'Security Sprint' de 5 dias úteis com dedicação exclusiva para correção das 27 falhas.",
-      "acao_estrategica": "Instituir o programa de Security Champions (um desenvolvedor com treinamento especializado em cada squad) e automatizar o escaneamento de dependências vulneráveis (SCA via Dependabot/Snyk) diretamente nas branches de desenvolvimento.",
-      "metrica_oculta": "O investimento de R$ 30.000 em ferramentas virou desperdício: as licenças continuavam pagas, mas seus relatórios eram ignorados na esteira, gerando compliance puramente ilusório.",
-      "nova_metrica_proposta": "MTTR de Vulnerabilidades Críticas (Tempo médio decorrido entre a descoberta da brecha e a publicação do patch).",
+      "diagnostico_causa_efeito": "Para acelerar artificialmente o Processo de publicação (-85% no tempo de aprovação), foram desligadas as travas automáticas de segurança (-98% de bloqueios). Isso gerou um Produto desprotegido (27 falhas graves ativas expostas por mais de 40 dias), submetendo a instituição financeira a riscos de invasão, vazamento de dados e sanções graves do Banco Central.",
+      "acao_tatica": "Reativar as Travas Automáticas Imediatamente: Configurar a esteira para barrar qualquer publicação que contenha falhas graves de segurança e convocar uma semana com foco total da equipe para corrigir as 27 brechas encontradas.",
+      "acao_estrategica": "Formar Referências de Segurança nas Equipes: Treinar desenvolvedores de cada time para apoiar os colegas e incluir ferramentas automáticas que avisam sobre bibliotecas antigas e vulneráveis diretamente no dia a dia da escrita do código.",
+      "metrica_oculta": "O dinheiro gasto em ferramentas (R$ 30.000) estava sendo jogado fora: as licenças continuavam pagas, mas seus avisos eram ignorados na pressa de publicar, gerando uma falsa sensação de proteção.",
+      "nova_metrica_proposta": "Tempo Médio para Corrigir Falhas Críticas (quantos dias a equipe leva desde a descoberta de uma brecha até a publicação da correção no ar).",
       "ruidos_cenario": [
         {
           "item": "Tempo de aprovação caindo de 14h para 2h",
-          "motivo": "Ruído de eficiência: Aceleração obtida pela supressão de controles de qualidade essenciais."
+          "motivo": "Ruído de falsa eficiência: a velocidade foi conquistada simplesmente deixando de verificar se o software era seguro."
         },
         {
           "item": "Custo estável de R$ 30.000 em ferramentas",
-          "motivo": "Mostra que a tecnologia foi adquirida, mas a disciplina de processo foi ignorada."
+          "motivo": "Métrica estática: mostra que comprar ferramentas não tem valor se a equipe não tiver a disciplina de seguir suas orientações."
         }
       ],
       "painel_pos_acao": {
-        "titulo": "Painel Projetado 30 Dias Pós-Security Sprint",
+        "titulo": "Painel Projetado 30 Dias Pós-Correção das Falhas de Segurança",
         "tabela": [
           {
             "metrica": "Custo com ferramentas de segurança",
             "anterior": "R$ 30.000",
             "projetado": "R$ 30.000",
-            "impacto": "Recurso aproveitado com eficácia",
+            "impacto": "Dinheiro aproveitado com eficácia real",
             "dimensao": "Recursos"
           },
           {
-            "metrica": "Tempo de aprovação de PRs",
+            "metrica": "Tempo de aprovação de alterações",
             "anterior": "2 horas",
             "projetado": "4 horas",
-            "impacto": "Equilíbrio entre agilidade e segurança",
+            "impacto": "Equilíbrio entre agilidade e proteção",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Taxa de builds bloqueados por segurança",
+            "metrica": "Taxa de publicações bloqueadas por segurança",
             "anterior": "0,2%",
             "projetado": "12%",
-            "impacto": "Filtro automatizado ativo",
+            "impacto": "Filtro automático reativado com sucesso",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Vulnerabilidades críticas em produção",
+            "metrica": "Vulnerabilidades graves em produção",
             "anterior": "27",
             "projetado": "0",
-            "impacto": "Risco regulatório neutralizado",
+            "impacto": "Risco regulatório e multas eliminados",
             "dimensao": "Produto"
           },
           {
-            "metrica": "Tempo de exposição a falhas (MTTE)",
+            "metrica": "Tempo de exposição a falhas conhecidas",
             "anterior": "42 dias",
             "projetado": "2 dias",
-            "impacto": "Remediação ágil e contínua",
+            "impacto": "Correções ágeis e constantes",
             "dimensao": "Produto"
           }
         ],
-        "conclusao": "As 27 vulnerabilidades foram eliminadas, a esteira foi reativada com travas de segurança e o tempo de exposição caiu para 2 dias."
+        "conclusao": "As 27 brechas foram eliminadas, a esteira voltou a bloquear código inseguro e o tempo para corrigir novas falhas caiu para apenas 2 dias."
       }
     }
   },
@@ -1004,47 +1004,47 @@ export const techLeadCasesData: TechLeadCase[] = [
     "nivel": "Nível 7 • Avançado: Sustentabilidade do Capital Humano e Conhecimento Tácito",
     "fase1_cenario_inicial": {
       "periodo": "Semestre Passado: Ritmo Sustentável de Desenvolvimento",
-      "contexto": "Uma software house de médio porte desenvolvia aplicações com estabilidade, respeitando a jornada regular de trabalho e mantendo retenção de seus profissionais seniores.",
+      "contexto": "Uma software house de médio porte desenvolvia sistemas com estabilidade, respeitando a jornada normal de trabalho e mantendo seus profissionais experientes na empresa.",
       "metricas": [
         {
           "nome": "Custo mensal com horas extras da equipe",
           "valor": "R$ 4.000",
           "dimensao": "Recursos",
-          "justificativa": "Mede o insumo financeiro adicional aplicado em sobrecarga de jornada."
+          "justificativa": "Mede o dinheiro gasto em horas adicionais de trabalho além da jornada normal."
         },
         {
-          "nome": "Taxa de rotatividade de desenvolvedores (Turnover)",
+          "nome": "Taxa de rotatividade de funcionários (Turnover)",
           "valor": "4% ao ano",
           "dimensao": "Recursos",
-          "justificativa": "Mede o desgaste e a perda de capital humano na equipe de engenharia."
+          "justificativa": "Mede quantos programadores pedem demissão da empresa ao longo do ano."
         },
         {
-          "nome": "Tempo médio para onboarding de novos devs",
+          "nome": "Tempo para treinar e integrar novos desenvolvedores",
           "valor": "15 dias",
           "dimensao": "Processo",
-          "justificativa": "Avalia a agilidade do processo de integração e transmissão de conhecimento."
+          "justificativa": "Mede a rapidez em capacitar um programador novo até que ele consiga fazer entregas úteis."
         },
         {
           "nome": "Funcionalidades entregues no prazo acordado",
           "valor": "85%",
           "dimensao": "Processo",
-          "justificativa": "Mede o cumprimento das metas contratuais na esteira de desenvolvimento."
+          "justificativa": "Mede o cumprimento dos prazos contratuais firmados com os clientes."
         },
         {
-          "nome": "Taxa de bugs introduzidos por nova alteração",
+          "nome": "Taxa de bugs introduzidos a cada alteração",
           "valor": "2,5%",
           "dimensao": "Produto",
-          "justificativa": "Atributo de confiabilidade e sanidade do código gerado pela equipe."
+          "justificativa": "Mede a confiabilidade: percentual de alterações que geram novos defeitos no sistema."
         }
       ],
-      "diagnostico_inicial": "Equipe Estável e Sustentável: A equipe operava com baixo turnover (4%) e código confiável, embora a liderança comercial cobrasse 'mais entregas no prazo'."
+      "diagnostico_inicial": "Equipe Estável e Saudável: O time mantinha baixa rotatividade (4%) e código confiável, embora a liderança comercial cobrasse mais entregas no prazo."
     },
     "fase2_dilema": {
       "periodo": "O Dilema: Aceleração sob Pressão e Horas Extras",
-      "dilema_texto": "Para cumprir um cronograma comercial agressivo, a gestão forçou a equipe a trabalhar em regime constante de horas extras nos últimos dois trimestres. Na reunião de diretoria, o gerente celebrou: 'entregamos 98% das telas no prazo'. Porém, no mês seguinte, os dados de sustentabilidade revelaram o estrago.",
+      "dilema_texto": "Para cumprir um cronograma de vendas agressivo, a gestão forçou a equipe a fazer horas extras constantes nos últimos dois trimestres. A liderança celebrou: entregamos 98% das tarefas no prazo. Porém, no mês seguinte, os dados de sustentabilidade revelaram o tamanho do prejuízo.",
       "tabela_comparativa": [
         {
-          "metrica": "Custo com horas extras da equipe",
+          "metrica": "Custo mensal com horas extras",
           "col1": "R$ 4.000",
           "col2": "R$ 28.000",
           "var": "+600%",
@@ -1052,7 +1052,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "danger"
         },
         {
-          "metrica": "Turnover voluntário anualizado",
+          "metrica": "Rotatividade de funcionários (demissões)",
           "col1": "4%",
           "col2": "32%",
           "var": "+700%",
@@ -1060,7 +1060,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "danger"
         },
         {
-          "metrica": "Tempo de onboarding de novos devs",
+          "metrica": "Tempo para treinar novos desenvolvedores",
           "col1": "15 dias",
           "col2": "65 dias",
           "var": "+333%",
@@ -1076,7 +1076,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "positive"
         },
         {
-          "metrica": "Taxa de bugs por alteração (Regressão)",
+          "metrica": "Taxa de novos bugs a cada alteração",
           "col1": "2,5%",
           "col2": "16,8%",
           "var": "+572%",
@@ -1093,69 +1093,69 @@ export const techLeadCasesData: TechLeadCase[] = [
       ]
     },
     "fase3_desafio": {
-      "enunciado": "Os principais desenvolvedores seniores pediram demissão e o sistema começou a quebrar a cada deploy. Como Tech Lead, defina:",
+      "enunciado": "Os desenvolvedores mais experientes pediram demissão e o sistema começou a quebrar a cada nova atualização. Como Tech Lead, defina:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como o esgotamento do Recurso humano desarticulou o Processo e degradou o Produto?",
-        "2. Proposição de Ação Tática (Curto Prazo): Como estancar a saída de talentos e estabilizar a rotina?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Como criar uma política de capacidade produtiva realista?"
+        "1. Diagnóstico de Causa e Efeito: Como o esgotamento dos Recursos humanos desarticulou o Processo e prejudicou o Produto?",
+        "2. Proposição de Ação Tática (Curto Prazo): O que fazer imediatamente para conter a saída de talentos e estabilizar a rotina?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Como criar um planejamento de entregas realista e sustentável?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "A exploração predatória do Recurso humano (+600% em horas extras) provocou esgotamento (burnout) e fuga de cérebros (turnover de 32%). A perda dos profissionais seniores destruiu o Processo de transmissão de conhecimento tácito (onboarding saltou de 15 para 65 dias). O resultado foi um Produto frágil e repleto de regressões (+572% de bugs), desenvolvido por novatos sobrecarregados.",
-      "acao_tatica": "Proibir imediatamente horas extras compulsórias, congelar novos compromissos comerciais no próximo mês e instaurar pareamento técnico para resgatar documentação viva da arquitetura.",
-      "acao_estrategica": "Adotar planejamento de capacidade baseado em dados históricos de vazão real (Throughput com Simulação de Monte Carlo), limitar o WIP (Work In Progress) e condicionar a bonificação da gestão à taxa de retenção de talentos.",
-      "metrica_oculta": "A entrega de 98% dos prazos foi conquistada 'queimando a equipe'; uma métrica canibal que sacrificou a sustentabilidade futura do negócio em troca de um ganho pontual de curtíssimo prazo.",
-      "nova_metrica_proposta": "eNPS Técnico / Team Health Index (Satisfação e bem-estar dos engenheiros) e Débito de Descanso.",
+      "diagnostico_causa_efeito": "A sobrecarga contínua do Recurso humano (+600% em horas extras) provocou exaustão física e mental (burnout) e a saída de quase um terço do time (32% de demissões). A perda dos profissionais mais antigos destruiu o Processo de transmissão de conhecimento (o tempo de treinamento de novatos subiu de 15 para 65 dias). O resultado foi um Produto frágil e cheio de defeitos (+572% de bugs), mantido por novatos sobrecarregados.",
+      "acao_tatica": "Suspender Horas Extras Compulsórias Imediatamente: Estabelecer jornada de trabalho normal, pausar novos compromissos comerciais no próximo mês e colocar desenvolvedores trabalhando em duplas para registrar por escrito o conhecimento dos sistemas.",
+      "acao_estrategica": "Planejar Entregas com Base na Capacidade Real do Time: Estimar prazos com base no histórico real de entregas da equipe, evitar iniciar muitas tarefas ao mesmo tempo e atrelar a avaliação dos gestores à retenção e bem-estar dos profissionais.",
+      "metrica_oculta": "A comemoração de que 98% dos prazos foram cumpridos foi uma ilusão perigosa: a gestão sacrificou a saúde e o futuro da equipe em troca de um ganho passageiro que quase quebrou a empresa no mês seguinte.",
+      "nova_metrica_proposta": "Índice de Saúde e Bem-Estar da Equipe (pesquisa periódica para medir o nível de estresse, satisfação e sobrecarga dos desenvolvedores).",
       "ruidos_cenario": [
         {
           "item": "98% das entregas no prazo",
-          "motivo": "Ruído de aparente sucesso: Métrica usada pela gestão para justificar a pressão, ignorando o colapso estrutural da equipe."
+          "motivo": "Ruído de aparente sucesso: a pontualidade ilusória escondeu o esgotamento dos profissionais e a explosão de defeitos no código."
         },
         {
-          "item": "R$ 28.000 em horas extras",
-          "motivo": "Custo financeiro direto que esconde o prejuízo muito superior de rescisões, recrutamento e perda de conhecimento."
+          "item": "Gasto de R$ 28.000 em horas extras",
+          "motivo": "Custo financeiro superficial: esse valor é pequeno se comparado ao prejuízo gigantesco de rescisões, novas contratações e perda de conhecimento crítico da empresa."
         }
       ],
       "painel_pos_acao": {
-        "titulo": "Painel Projetado 90 Dias Pós-Ajuste de Capacidade",
+        "titulo": "Painel Projetado 90 Dias Pós-Ajuste de Capacidade Sustentável",
         "tabela": [
           {
             "metrica": "Custo com horas extras",
             "anterior": "R$ 28.000",
             "projetado": "R$ 2.000",
-            "impacto": "Jornada sustentável restabelecida",
+            "impacto": "Jornada saudável restabelecida",
             "dimensao": "Recursos"
           },
           {
-            "metrica": "Turnover voluntário anualizado",
+            "metrica": "Rotatividade anual de funcionários",
             "anterior": "32%",
             "projetado": "6%",
-            "impacto": "Fim da fuga de talentos",
+            "impacto": "Fim da fuga de talentos da empresa",
             "dimensao": "Recursos"
           },
           {
-            "metrica": "Tempo de onboarding de novos devs",
+            "metrica": "Tempo para treinar novos programadores",
             "anterior": "65 dias",
             "projetado": "20 dias",
-            "impacto": "Documentação viva e mentoria",
+            "impacto": "Documentação clara e apoio mútuo",
             "dimensao": "Processo"
           },
           {
             "metrica": "Entregas concluídas no prazo",
             "anterior": "98%",
             "projetado": "88%",
-            "impacto": "Metas realistas e previsíveis",
+            "impacto": "Prazos realistas e previsíveis",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Taxa de bugs por alteração",
+            "metrica": "Taxa de novos bugs por alteração",
             "anterior": "16,8%",
             "projetado": "3,1%",
-            "impacto": "Queda drástica de 81%",
+            "impacto": "Queda drástica de 81% nos erros",
             "dimensao": "Produto"
           }
         ],
-        "conclusao": "A eliminação de horas extras reduziu o turnover de 32% para 6% e derrubou as falhas de código em 81%."
+        "conclusao": "O retorno a um ritmo sustentável de trabalho reduziu as demissões de 32% para 6% e derrubou as falhas no software em 81%."
       }
     }
   },
@@ -1165,47 +1165,47 @@ export const techLeadCasesData: TechLeadCase[] = [
     "nivel": "Nível 8 • Mestre: Débito Técnico Estrutural vs. Custo de Oportunidade",
     "fase1_cenario_inicial": {
       "periodo": "Situação Histórica do Sistema Legado (Há 2 Anos)",
-      "contexto": "Um sistema central de faturamento atende toda a corporação. Dois anos atrás, o código possuía complexidade moderada e permitia lançar novas regras fiscais em menos de uma semana.",
+      "contexto": "Um sistema central de faturamento atende toda a empresa. Dois anos atrás, o código possuía complexidade moderada e permitia lançar novas regras fiscais em menos de uma semana.",
       "metricas": [
         {
           "nome": "Custo de sustentação do servidor legado",
           "valor": "R$ 15.000",
           "dimensao": "Recursos",
-          "justificativa": "Mede o insumo financeiro para manter máquinas físicas e licenças operacionais."
+          "justificativa": "Mede o dinheiro gasto para manter servidores e licenças do sistema antigo funcionando."
         },
         {
-          "nome": "Lead time para novas regras fiscais",
+          "nome": "Tempo para lançar novas regras fiscais no ar",
           "valor": "6 dias",
           "dimensao": "Processo",
-          "justificativa": "Mede a agilidade de ponta a ponta desde a especificação até a produção."
+          "justificativa": "Mede a agilidade desde o pedido da mudança até ela estar disponível para uso."
         },
         {
           "nome": "Taxa de retrabalho em testes manuais",
           "valor": "12%",
           "dimensao": "Processo",
-          "justificativa": "Avalia o desperdício de tempo gerado por alterações que quebram módulos vizinhos."
+          "justificativa": "Mede o tempo perdido quando uma alteração quebra outras partes vizinhas do sistema."
         },
         {
-          "nome": "Complexidade Ciclomática média dos métodos",
+          "nome": "Complexidade do código-fonte (caminhos lógicos)",
           "valor": "8,4",
           "dimensao": "Produto",
-          "justificativa": "Mede os caminhos de execução independentes e inteligibilidade do código-fonte."
+          "justificativa": "Mede o grau de emaranhamento do código (quanto menor que 10, mais fácil de entender e manter)."
         },
         {
-          "nome": "Grau de acoplamento entre módulos",
-          "valor": "Moderado",
+          "nome": "Dependência entre partes do sistema",
+          "valor": "Moderada",
           "dimensao": "Produto",
-          "justificativa": "Mede a interdependência e a rigidez arquitetural entre os componentes."
+          "justificativa": "Mede o quanto uma parte do software depende de outras para funcionar."
         }
       ],
-      "diagnostico_inicial": "Sistema Maduro e Operacional: O código possuía complexidade aceitável (< 10) e permitia responder às demandas tributárias com agilidade."
+      "diagnostico_inicial": "Sistema Maduro e Operacional: O código possuía complexidade aceitável e permitia atender às demandas tributárias com rapidez."
     },
     "fase2_dilema": {
-      "periodo": "O Dilema: A Proibição de Mexer no 'Código que Está Ganhando'",
-      "dilema_texto": "Nos últimos dois anos, a diretoria de negócios vetou sistematicamente todas as solicitações de refatoração sob a justificativa: 'se está funcionando e faturando, não gastem dinheiro mexendo em código antigo'. Agora, o setor comercial alerta que a concorrência lança produtos em 3 dias, enquanto o sistema interno exige meses.",
+      "periodo": "O Dilema: A Proibição de Mexer no Código que Já Funciona",
+      "dilema_texto": "Nos últimos 2 anos, a diretoria vetou qualquer melhoria interna no código sob a justificativa: se está funcionando e faturando, não gastem dinheiro mexendo em código antigo. Agora, o setor comercial alerta que os concorrentes lançam produtos em 3 dias, enquanto o sistema interno exige meses.",
       "tabela_comparativa": [
         {
-          "metrica": "Custo mensal de sustentação do legado",
+          "metrica": "Custo mensal do servidor legado",
           "col1": "R$ 15.000",
           "col2": "R$ 16.500",
           "var": "+10% (Estável)",
@@ -1213,7 +1213,7 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "neutral"
         },
         {
-          "metrica": "Lead time para lançar novas regras fiscais",
+          "metrica": "Tempo para lançar novas regras fiscais",
           "col1": "6 dias",
           "col2": "48 dias",
           "var": "+700%",
@@ -1221,424 +1221,424 @@ export const techLeadCasesData: TechLeadCase[] = [
           "status_var": "danger"
         },
         {
-          "metrica": "Retrabalho em testes de regressão manuais",
+          "metrica": "Retrabalho em testes manuais",
           "col1": "12%",
-          "col2": "58%",
-          "var": "+383%",
+          "col2": "45%",
+          "var": "+275%",
           "dimensao": "Processo",
           "status_var": "danger"
         },
         {
-          "metrica": "Complexidade Ciclomática média (McCabe)",
+          "metrica": "Complexidade do código-fonte",
           "col1": "8,4",
-          "col2": "34,2",
-          "var": "+307% (Espaguete)",
+          "col2": "38,2",
+          "var": "+354%",
           "dimensao": "Produto",
           "status_var": "danger"
         },
         {
-          "metrica": "Grau de acoplamento entre módulos",
-          "col1": "Moderado",
-          "col2": "Crítico (Emaranhado)",
-          "var": "Degradação severa",
+          "metrica": "Dependência entre partes do sistema",
+          "col1": "Moderada",
+          "col2": "Totalmente Emaranhado",
+          "var": "Crítico",
           "dimensao": "Produto",
           "status_var": "danger"
         }
       ],
       "colunas_tabela": [
         "Indicador (Métrica)",
-        "2 Anos Atrás",
-        "Cenário Atual",
+        "Há 2 Anos",
+        "Situação Atual",
         "Variação",
         "Dimensão"
       ]
     },
     "fase3_desafio": {
-      "enunciado": "A empresa está perdendo mercado porque não consegue atualizar suas regras de cobrança. Como Tech Lead, defina:",
+      "enunciado": "A empresa está perdendo clientes para concorrentes porque não consegue mais atualizar suas regras fiscais a tempo. Como Tech Lead, defina:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como a deterioração interna do Produto asfixiou a esteira de Processo?",
-        "2. Proposição de Ação Tática (Curto Prazo): Como permitir novos lançamentos urgentes sem quebrar o legado?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Qual padrão arquitetural modernizará o monolito de forma segura?"
+        "1. Diagnóstico de Causa e Efeito: Como a recusa em manter o código limpo no passado paralisou o Processo e degradou o Produto?",
+        "2. Proposição de Ação Tática (Curto Prazo): O que fazer para entregar a próxima regra fiscal obrigatória sem reescrever tudo do zero?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Qual plano seguro deve substituir gradualmente as partes antigas do sistema?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "A negligência contínua na arquitetura elevou a Complexidade Ciclomática do Produto para 34,2 (código espaguete e ininteligível) e tornou o acoplamento crítico. Esse código intrinsecamente apodrecido quebrou o Processo: mais da metade do tempo de testes (58%) é retrabalho e o Lead Time explodiu em 8 vezes (48 dias), paralisando a inovação da empresa.",
-      "acao_tatica": "Aplicar o Padrão Estrangulador (Strangler Fig Pattern): congelar novas inserções de código no monólito e direcionar as novas regras de negócio para microsserviços modernos desacoplados em nuvem que consomem o legado via APIs de leitura.",
-      "acao_estrategica": "Reservar 20% da capacidade de cada sprint exclusivamente para pagamento de débito técnico e refatoração arquitetural, implantando testes de regressão automatizados e linters com teto máximo de complexidade ciclomática.",
-      "metrica_oculta": "O custo de sustentação da infraestrutura (R$ 16.500) parece estável e barato, mas é um ruído enganoso. O prejuízo real é o custo de oportunidade: a perda de contratos comerciais devido à incapacidade de lançar promoções a tempo.",
-      "nova_metrica_proposta": "Technical Debt Ratio (TDR) via SonarQube e Índice de Manutenibilidade de Código.",
+      "diagnostico_causa_efeito": "A recusa em autorizar manutenção preventiva no código durante dois anos fez com que o Produto se tornasse extremamente emaranhado (complexidade saltou de 8,4 para 38,2 e tudo ficou dependente entre si). Como consequência, o Processo de lançar novidades quase parou (o tempo de lançamento subiu de 6 para 48 dias e quase metade dos testes gera retrabalho), porque qualquer mudança quebrava partes vizinhas de surpresa.",
+      "acao_tatica": "Blindagem e Separação do Módulo Fiscal: Criar testes automáticos de segurança ao redor do cálculo tributário e começar a construí-lo como um serviço novo e independente, sem mexer no restante do sistema antigo.",
+      "acao_estrategica": "Substituição Gradual do Sistema Antigo: Adotar a estratégia de construir módulos novos e independentes ao redor do sistema legado, desativando as partes antigas aos poucos e sem riscos, reservando 20% de cada ciclo para a limpeza contínua de código.",
+      "metrica_oculta": "O custo com servidores parecia controlado (R$ 16.500), mas a empresa perdeu milhões em oportunidade de negócio porque demorava quase dois meses para lançar novidades que a concorrência entregava em poucos dias.",
+      "nova_metrica_proposta": "Tempo para Lançar uma Mudança Pequena (Lead Time de alterações simples para medir se o código continua fácil ou difícil de mexer).",
       "ruidos_cenario": [
         {
-          "item": "Custo de infraestrutura subindo apenas R$ 1.500 em 2 anos",
-          "motivo": "Ruído de falsa economia: Manter servidores antigos ligados custa pouco, mas oculta a perda de milhões em atrasos de novos negócios."
+          "item": "O custo de sustentação quase não subiu",
+          "motivo": "Ruído financeiro ilusório: a conta de servidores ficou estável, mas a empresa ficou paralisada comercialmente pela demora em lançar novidades."
         },
         {
-          "item": "'Sistema atende há 12 anos toda a corporação'",
-          "motivo": "Fato histórico que gera apego emocional, mas não justifica manter código obsoleto e asfixiado."
+          "item": "O sistema fatura milhões e não deve ser mexido",
+          "motivo": "Ruído cultural: ignorar a manutenção preventiva do código acumula dificuldades até o ponto em que o sistema não consegue mais evoluir."
         }
       ],
       "painel_pos_acao": {
-        "titulo": "Painel Projetado 6 Meses Pós-Padrão Estrangulador",
+        "titulo": "Painel Projetado Pós-Separação do Módulo Fiscal",
         "tabela": [
           {
-            "metrica": "Custo de sustentação e nuvem",
+            "metrica": "Custo mensal de sustentação",
             "anterior": "R$ 16.500",
-            "projetado": "R$ 21.000",
-            "impacto": "Investimento absorvido pelo ganho",
+            "projetado": "R$ 18.000",
+            "impacto": "Pequeno acréscimo para novo servidor",
             "dimensao": "Recursos"
           },
           {
-            "metrica": "Lead time para novas regras fiscais",
+            "metrica": "Tempo para lançar regras fiscais",
             "anterior": "48 dias",
-            "projetado": "8 dias",
-            "impacto": "Aceleração de 83% no ciclo",
+            "projetado": "9 dias",
+            "impacto": "Redução drástica de 81% no tempo",
             "dimensao": "Processo"
           },
           {
             "metrica": "Retrabalho em testes manuais",
-            "anterior": "58%",
+            "anterior": "45%",
             "projetado": "15%",
-            "impacto": "Suíte automatizada ativa",
+            "impacto": "Queda de 67% nos retrabalhos",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Complexidade ciclomática (novos módulos)",
-            "anterior": "34,2",
-            "projetado": "6,5",
-            "impacto": "Código limpo e modular",
+            "metrica": "Complexidade do código novo",
+            "anterior": "38,2",
+            "projetado": "7,5",
+            "impacto": "Código claro, simples e fácil de manter",
             "dimensao": "Produto"
           },
           {
-            "metrica": "Grau de acoplamento",
-            "anterior": "Crítico",
-            "projetado": "Baixo (APIs)",
-            "impacto": "Desacoplamento por microsserviços",
+            "metrica": "Dependência entre partes do sistema",
+            "anterior": "Totalmente Emaranhado",
+            "projetado": "Módulos Independentes",
+            "impacto": "Flexibilidade e segurança conquistadas",
             "dimensao": "Produto"
           }
         ],
-        "conclusao": "O Padrão Estrangulador reduziu o tempo de lançamento de 48 para 8 dias e estancou o retrabalho em testes."
+        "conclusao": "A construção do módulo fiscal de forma independente reduziu o tempo de entrega de 48 para 9 dias e diminuiu o retrabalho em 67%."
       }
     }
   },
   {
     "id": 9,
     "titulo": "SRE e Error Budget: O Conflito entre Inovação Agressiva e Confiabilidade",
-    "nivel": "Nível 9 • Mestre: Engenharia de Confiabilidade e Governança Orientada a Dados",
+    "nivel": "Nível 9 • Mestre: Confiabilidade de Sistemas e Equilíbrio de Risco",
     "fase1_cenario_inicial": {
-      "periodo": "Mês Anterior: Equilíbrio Operacional no Serviço de PIX",
-      "contexto": "Em um aplicativo de pagamentos instantâneos (PIX), o SLA contratual com o Banco Central exige 99,95% de disponibilidade mensal, gerando uma margem de tolerância máxima de 21,6 minutos de indisponibilidade permitida por mês (Error Budget).",
+      "periodo": "Trimestre Passado: Operação em Equilíbrio (Linha de Base)",
+      "contexto": "Uma plataforma de pagamentos firmou com seus clientes corporativos o compromisso de manter o sistema funcionando em 99,9% do tempo no mês (o que permite no máximo 43 minutos de instabilidade aceitável ao longo de todo o mês).",
       "metricas": [
         {
-          "nome": "Consumo acumulado do Error Budget",
-          "valor": "35% (margem segura)",
-          "dimensao": "Processo",
-          "justificativa": "Métrica de governança SRE que monitora o risco operacional consumido no período."
+          "nome": "Custo mensal com suporte a incidentes",
+          "valor": "R$ 12.000",
+          "dimensao": "Recursos",
+          "justificativa": "Mede o dinheiro gasto com equipes de plantão para resolver problemas urgentes."
         },
         {
-          "nome": "Taxa de falha nas mudanças em produção (DORA)",
-          "valor": "6%",
+          "nome": "Publicações de novidades por mês",
+          "valor": "4 publicações",
           "dimensao": "Processo",
-          "justificativa": "Mede a confiabilidade e assertividade da esteira de deploy de versões do software."
+          "justificativa": "Mede o ritmo com que novas funcionalidades são entregues aos clientes."
         },
         {
-          "nome": "Frequência de deploys em produção",
-          "valor": "3 por semana",
-          "dimensao": "Processo",
-          "justificativa": "Mede a cadência de liberação contínua de código da equipe de desenvolvimento."
-        },
-        {
-          "nome": "Tempo médio para recuperação do serviço (MTTR)",
-          "valor": "4 minutos",
-          "dimensao": "Processo",
-          "justificativa": "Mede a agilidade de reação da equipe na contenção e resolução de incidentes operacionais."
-        },
-        {
-          "nome": "Disponibilidade operacional do PIX",
-          "valor": "99,97%",
+          "nome": "Tempo de indisponibilidade acumulada no mês",
+          "valor": "22 minutos",
           "dimensao": "Produto",
-          "justificativa": "Atributo de continuidade do serviço de software perante os clientes e o regulador."
+          "justificativa": "Mede quanto tempo o sistema ficou fora do ar no mês (o limite contratual é 43 minutos)."
+        },
+        {
+          "nome": "Margem tolerável de falhas restante (Orçamento)",
+          "valor": "49% sobrando",
+          "dimensao": "Processo",
+          "justificativa": "Percentual da tolerância contratual a falhas que ainda não foi gasta pela equipe."
+        },
+        {
+          "nome": "Disponibilidade real da plataforma",
+          "valor": "99,95%",
+          "dimensao": "Produto",
+          "justificativa": "Percentual do tempo em que os pagamentos funcionaram perfeitamente no mês."
         }
       ],
-      "diagnostico_inicial": "Operação Confiável: Apenas 35% da margem de erro foi utilizada, MTTR rápido (4 min) e disponibilidade acima do patamar de segurança do Banco Central."
+      "diagnostico_inicial": "Operação Exemplar: A equipe entregava novidades com cadência controlada e utilizou apenas metade da margem permitida de falhas, operando acima do compromisso contratual."
     },
     "fase2_dilema": {
-      "periodo": "O Dilema: Aceleração Desenfreada no Meio do Mês",
-      "dilema_texto": "O setor comercial exigiu 18 deploys semanais para lançar promoções de cashback. No dia 18 do mês de 30 dias, a telemetria do SRE dispara o alarme: 94% do Error Budget já foi consumido e restam apenas 1,3 minuto de indisponibilidade permitida para os 12 dias restantes.",
+      "periodo": "O Dilema: Acelerar Lançamentos Ignorando os Limites",
+      "dilema_texto": "Para vencer uma disputa comercial, a diretoria quadruplicou a meta de lançamentos para 16 novidades por mês. Na segunda semana, o limite de falhas aceitáveis foi totalmente esgotado e a plataforma caiu várias vezes, gerando ameaças de processos judiciais de grandes clientes.",
       "tabela_comparativa": [
         {
-          "metrica": "Consumo acumulado do Error Budget",
-          "col1": "35%",
-          "col2": "94% (no dia 18)",
-          "var": "+168% (Crítico)",
-          "dimensao": "Processo",
+          "metrica": "Custo mensal com suporte a incidentes",
+          "col1": "R$ 12.000",
+          "col2": "R$ 48.000",
+          "var": "+300%",
+          "dimensao": "Recursos",
           "status_var": "danger"
         },
         {
-          "metrica": "Taxa de falha nas mudanças (Change Failure)",
-          "col1": "6%",
-          "col2": "28%",
-          "var": "+366%",
-          "dimensao": "Processo",
-          "status_var": "danger"
-        },
-        {
-          "metrica": "Frequência de deploys em produção",
-          "col1": "3 / semana",
-          "col2": "18 / semana",
-          "var": "+500%",
+          "metrica": "Publicações de novidades por mês",
+          "col1": "4 / mês",
+          "col2": "16 / mês",
+          "var": "+300%",
           "dimensao": "Processo",
           "status_var": "positive"
         },
         {
-          "metrica": "Tempo médio de recuperação (MTTR)",
-          "col1": "4 min",
-          "col2": "26 min",
-          "var": "+550%",
+          "metrica": "Tempo de indisponibilidade acumulada",
+          "col1": "22 min",
+          "col2": "185 min",
+          "var": "+740%",
+          "dimensao": "Produto",
+          "status_var": "danger"
+        },
+        {
+          "metrica": "Margem tolerável de falhas restante",
+          "col1": "49% sobrando",
+          "col2": "Esgotada (-330%)",
+          "var": "Estourada",
           "dimensao": "Processo",
           "status_var": "danger"
         },
         {
-          "metrica": "Disponibilidade operacional acumulada",
-          "col1": "99,97%",
-          "col2": "99,952%",
-          "var": "À beira da multa",
+          "metrica": "Disponibilidade real da plataforma",
+          "col1": "99,95%",
+          "col2": "99,57%",
+          "var": "-0,38% (Abaixo)",
           "dimensao": "Produto",
           "status_var": "danger"
         }
       ],
       "colunas_tabela": [
         "Indicador (Métrica)",
-        "Mês Anterior",
-        "Mês Atual (Dia 18)",
+        "Trimestre Passado",
+        "Trimestre Atual",
         "Variação",
         "Dimensão"
       ]
     },
     "fase3_desafio": {
-      "enunciado": "O setor comercial exige subir mais 3 deploys hoje à noite. Como Tech Lead apoiado em dados de SRE, defina:",
+      "enunciado": "O sistema violou o contrato com os clientes e o suporte está sobrecarregado. Como Tech Lead, defina:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como a frequência desgovernada de deploys ameaça a estabilidade do Produto perante o BACEN?",
-        "2. Proposição de Ação Tática (Curto Prazo): Qual é a decisão técnica mandatória para os próximos 12 dias do mês?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Qual mecanismo de governança automatizada evitará novas crises?"
+        "1. Diagnóstico de Causa e Efeito: Como a aceleração de publicações no Processo quebrou a estabilidade do Produto e quadruplicou os gastos de Recursos?",
+        "2. Proposição de Ação Tática (Curto Prazo): O que deve acontecer com as próximas novidades enquanto o sistema estiver instável?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Qual regra de governança deve ser adotada entre diretoria e engenharia para proteger a estabilidade?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "A aceleração imprudente na frequência de deploys (+500%) multiplicou a taxa de falha nas mudanças para 28%. Com o MTTR subindo para 26 minutos, o Error Budget de Processo foi consumido a um ritmo vertiginoso (94% consumido antes de 60% do mês transcorrer). Um único novo incidente de míseros 80 segundos romperá o patamar de 99,95% no Produto, acarretando multas e perda de licença do BACEN.",
-      "acao_tatica": "Deploy Freeze Comercial Imediato: Bloquear qualquer nova funcionalidade até o dia 30 do mês. Autorizar estritamente patches de segurança e estabilização de bugs com aprovação conjunta de SRE e Tech Lead.",
-      "acao_estrategica": "Instituir a política contratual de Error Budget: automatizar no pipeline de CI/CD o bloqueio automático de deploys comerciais sempre que o consumo do orçamento de erros ultrapassar 80%, forçando o uso de deploys canários e feature flags.",
-      "metrica_oculta": "A frequência recorde de 18 deploys semanais gerou uma armadilha: velocidade sem testes de regressão automatizados converteu-se em velocidade de destruição de estabilidade.",
-      "nova_metrica_proposta": "Error Budget Burn Rate (Velocidade horária de consumo da margem de indisponibilidade permitida).",
+      "diagnostico_causa_efeito": "A ambição comercial de acelerar o Processo de lançamentos (+300% de publicações) foi feita sem respeito aos limites de segurança do sistema. A margem aceitável de falhas do mês foi totalmente esgotada nos primeiros 10 dias, resultando em um Produto que ficou mais de 3 horas fora do ar e violou os contratos com os clientes, além de quadruplicar os Recursos gastos com plantões e correções emergenciais.",
+      "acao_tatica": "Pausar Novas Funções e Focar em Estabilidade: Como a margem aceitável de pequenas falhas foi estourada, congelar o lançamento de novidades comerciais e direcionar 100% da equipe para consertar a causa das quedas e melhorar o monitoramento até o início do próximo mês.",
+      "acao_estrategica": "Formalizar a Política de Orçamento de Falhas com a Diretoria: Estabelecer em contrato interno que, quando o limite de falhas aceitáveis estiver em risco, a equipe tem autorização formal para priorizar qualidade antes de aceitar novas pressões comerciais.",
+      "metrica_oculta": "Entregar 16 novidades por mês virou uma meta de vaidade tóxica: a rapidez aparente estava gerando mais cancelamentos de clientes irritados com as quedas do que novos usuários satisfeitos.",
+      "nova_metrica_proposta": "Percentual Restante da Margem de Falhas (indicador compartilhado entre gestão e tecnologia para saber quando é seguro acelerar ou quando é hora de pisar no freio).",
       "ruidos_cenario": [
         {
-          "item": "Frequência recorde de 18 deploys por semana",
-          "motivo": "Ruído de vaidade e pressão de negócio: Usado pelo marketing como sinônimo de inovação, mas que sabotou a estabilidade do sistema."
+          "item": "16 novas funcionalidades lançadas no mês",
+          "motivo": "Ruído de vaidade: quantidade de novidades não compensa a perda de confiança dos clientes gerada pelas constantes quedas do sistema."
         },
         {
-          "item": "Disponibilidade atual em 99,952%",
-          "motivo": "Ruído de falsa segurança: Parece cumprir a meta (99,95%), mas a margem de segurança restante é microscópica frente aos 12 dias restantes."
+          "item": "Clientes continuam usando o sistema apesar das reclamações",
+          "motivo": "Ruído de ilusão: clientes empresariais costumam trocar de fornecedor apenas no vencimento do contrato anual, acumulando insatisfação em silêncio."
         }
       ],
       "painel_pos_acao": {
-        "titulo": "Painel Projetado no Fechamento do Mês com Deploy Freeze Ativo",
+        "titulo": "Painel Projetado Pós-Adoção da Política de Estabilidade",
         "tabela": [
           {
-            "metrica": "Consumo acumulado do Error Budget",
-            "anterior": "94%",
-            "projetado": "96%",
-            "impacto": "Margem preservada no limite",
+            "metrica": "Custo mensal com suporte a incidentes",
+            "anterior": "R$ 48.000",
+            "projetado": "R$ 14.000",
+            "impacto": "Economia de R$ 34.000 em horas extras",
+            "dimensao": "Recursos"
+          },
+          {
+            "metrica": "Publicações de novidades por mês",
+            "anterior": "16 / mês",
+            "projetado": "6 / mês",
+            "impacto": "Ritmo sustentável e seguro",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Taxa de falha nas mudanças",
-            "anterior": "28%",
-            "projetado": "2%",
-            "impacto": "Apenas patches cirúrgicos",
+            "metrica": "Tempo de indisponibilidade acumulada",
+            "anterior": "185 min",
+            "projetado": "18 min",
+            "impacto": "Dentro da meta contratual de 43 min",
+            "dimensao": "Produto"
+          },
+          {
+            "metrica": "Margem tolerável de falhas restante",
+            "anterior": "Esgotada",
+            "projetado": "58% sobrando",
+            "impacto": "Margem de segurança restaurada",
             "dimensao": "Processo"
           },
           {
-            "metrica": "Frequência de deploys em produção",
-            "anterior": "18 / semana",
-            "projetado": "1 / semana",
-            "impacto": "Estabilidade prioritária",
-            "dimensao": "Processo"
-          },
-          {
-            "metrica": "Tempo médio de recuperação (MTTR)",
-            "anterior": "26 min",
-            "projetado": "3 min",
-            "impacto": "Foco total da equipe em suporte",
-            "dimensao": "Processo"
-          },
-          {
-            "metrica": "Disponibilidade operacional final",
-            "anterior": "99,952%",
-            "projetado": "99,951%",
-            "impacto": "SLA do BACEN cumprido com sucesso",
+            "metrica": "Disponibilidade real da plataforma",
+            "anterior": "99,57%",
+            "projetado": "99,96%",
+            "impacto": "Confiabilidade recuperada",
             "dimensao": "Produto"
           }
         ],
-        "conclusao": "O Deploy Freeze salvou a fintech de quebrar o SLA regulatório do Banco Central, fechando o mês em 99,951%."
+        "conclusao": "O respeito aos limites de estabilidade eliminou as quedas do sistema e devolveu a plataforma a um patamar confiável de 99,96% de funcionamento contínuo."
       }
     }
   },
   {
     "id": 10,
     "titulo": "Engenharia de Plataforma: Destravando o Atrito Cognitivo e o Tempo de Espera",
-    "nivel": "Nível 10 • Mestre: Produtividade Sistêmica e Plataforma Interna do Desenvolvedor (IDP)",
+    "nivel": "Nível 10 • Mestre: Eficiência Organizacional e Redução de Atrito Cognitivo",
     "fase1_cenario_inicial": {
-      "periodo": "Ano Passado: Operação Enxuta com 6 Squads",
-      "contexto": "A empresa operava com 6 squads e 40 engenheiros. As ferramentas internas atendiam bem à demanda e a comunicação era rápida e sem intermediários.",
+      "periodo": "Situação Histórica: Equipes Autônomas mas Atoladas em Burocracia",
+      "contexto": "Uma corporação de tecnologia possui 12 equipes de produto. Para colocar qualquer sistema novo no ar, os programadores precisavam abrir chamados manuais para a equipe de infraestrutura criar bancos de dados, servidores e permissões de segurança.",
       "metricas": [
         {
-          "nome": "Custo de infraestrutura interna de CI/CD",
-          "valor": "R$ 18.000",
+          "nome": "Tempo médio de espera em chamados manuais",
+          "valor": "8 dias úteis",
+          "dimensao": "Processo",
+          "justificativa": "Mede quantos dias um programador fica parado esperando outra equipe criar um banco ou servidor."
+        },
+        {
+          "nome": "Novos serviços entregues por mês",
+          "valor": "3 serviços",
+          "dimensao": "Produto",
+          "justificativa": "Mede a velocidade da empresa em colocar novas soluções úteis no ar."
+        },
+        {
+          "nome": "Tempo gasto pelos devs com tarefas de infraestrutura",
+          "valor": "35% da jornada",
           "dimensao": "Recursos",
-          "justificativa": "Mede o insumo financeiro alocado para servidores e ferramentas de build."
+          "justificativa": "Mede o esforço humano dos programadores desperdiçado em burocracias de servidores em vez de programar."
         },
         {
-          "nome": "Horas mensais dos devs em filas de espera",
-          "valor": "340 horas",
+          "nome": "Erros de configuração de segurança por entrega",
+          "valor": "4,2 falhas",
+          "dimensao": "Produto",
+          "justificativa": "Mede a quantidade de configurações esquecidas ou malfeitas em cada publicação manual."
+        },
+        {
+          "nome": "Custo de sustentação da equipe de infraestrutura",
+          "valor": "R$ 80.000",
           "dimensao": "Recursos",
-          "justificativa": "Quantifica o desperdício de esforço humano retido aguardando máquinas de build."
-        },
-        {
-          "nome": "Tempo para configurar ambiente local (Setup)",
-          "valor": "2 dias",
-          "dimensao": "Processo",
-          "justificativa": "Mede a facilidade operacional de integração de ferramentas locais."
-        },
-        {
-          "nome": "Alternância de contexto diária (Interrupções)",
-          "valor": "4 vezes/dia",
-          "dimensao": "Processo",
-          "justificativa": "Avalia o grau de fragmentação do fluxo de foco mental dos programadores."
-        },
-        {
-          "nome": "Índice de atrito na esteira técnica (DevEx)",
-          "valor": "78 (Bom)",
-          "dimensao": "Processo",
-          "justificativa": "Mede a satisfação percebida e a fluidez do ecossistema técnico interno."
+          "justificativa": "Mede o dinheiro gasto com analistas dedicados a atender chamados manuais repetitivos."
         }
       ],
-      "diagnostico_inicial": "Engenharia Produtiva: A esteira de suporte atendia aos 40 desenvolvedores com atrito baixo e espera aceitável."
+      "diagnostico_inicial": "Empresa Travada por Filas: A empresa tem bons programadores, mas o processo cheio de pedidos manuais faz com que todos percam tempo em filas e burocracias."
     },
     "fase2_dilema": {
-      "periodo": "O Dilema: A Escala sem Investimento em Ferramentas",
-      "dilema_texto": "A empresa quase triplicou o quadro para 16 squads e 140 engenheiros, mas a diretoria congelou o orçamento de CI/CD em R$ 18.000 para 'conter custos'. Agora, a liderança reclama que os desenvolvedores 'estão produzindo menos', enquanto os engenheiros relatam exaustão e filas intermináveis.",
+      "periodo": "O Dilema: Aumentar a Equipe ou Automatizar o Processo?",
+      "dilema_texto": "A diretoria planejava contratar mais 10 desenvolvedores para tentar acelerar as entregas. Porém, uma análise mais profunda revelou que contratar mais pessoas em um processo cheio de filas apenas aumentaria o congestionamento de pedidos. A liderança técnica propôs automatizar as solicitações.",
       "tabela_comparativa": [
         {
-          "metrica": "Custo de infraestrutura interna de CI/CD",
-          "col1": "R$ 18.000",
-          "col2": "R$ 18.000",
-          "var": "0% (Congelado)",
-          "dimensao": "Recursos",
+          "metrica": "Tempo médio de espera em chamados manuais",
+          "col1": "8 dias úteis",
+          "col2": "11 dias úteis",
+          "var": "+37% (Pior)",
+          "dimensao": "Processo",
+          "status_var": "danger"
+        },
+        {
+          "metrica": "Novos serviços entregues por mês",
+          "col1": "3 / mês",
+          "col2": "3 / mês",
+          "var": "0% (Empacado)",
+          "dimensao": "Produto",
           "status_var": "neutral"
         },
         {
-          "metrica": "Horas gastas em filas de build e testes",
-          "col1": "340h",
-          "col2": "1.850h",
-          "var": "+444% (Desperdício)",
+          "metrica": "Tempo gasto com burocracias de servidor",
+          "col1": "35% do tempo",
+          "col2": "42% do tempo",
+          "var": "+20% (Pior)",
           "dimensao": "Recursos",
           "status_var": "danger"
         },
         {
-          "metrica": "Tempo para setup de ambiente local",
-          "col1": "2 dias",
-          "col2": "9 dias",
-          "var": "+350%",
-          "dimensao": "Processo",
+          "metrica": "Erros de configuração por entrega",
+          "col1": "4,2",
+          "col2": "5,8",
+          "var": "+38%",
+          "dimensao": "Produto",
           "status_var": "danger"
         },
         {
-          "metrica": "Interrupções diárias por contexto",
-          "col1": "4 vezes/dia",
-          "col2": "17 vezes/dia",
-          "var": "+325%",
-          "dimensao": "Processo",
-          "status_var": "danger"
-        },
-        {
-          "metrica": "Índice de atrito na esteira (DevEx Score)",
-          "col1": "78 (Bom)",
-          "col2": "31 (Crítico)",
-          "var": "-60%",
-          "dimensao": "Processo",
+          "metrica": "Custo de analistas para atender chamados",
+          "col1": "R$ 80.000",
+          "col2": "R$ 110.000",
+          "var": "+37%",
+          "dimensao": "Recursos",
           "status_var": "danger"
         }
       ],
       "colunas_tabela": [
         "Indicador (Métrica)",
-        "6 Squads (Ano Passado)",
-        "16 Squads (Atual)",
+        "Situação Anterior",
+        "Com Mais Pessoas na Fila",
         "Variação",
         "Dimensão"
       ]
     },
     "fase3_desafio": {
-      "enunciado": "A diretoria acredita que a lentidão é 'falta de comprometimento dos novos contratados'. Como Head de Engenharia, estruture sua resposta:",
+      "enunciado": "Contratar mais pessoas não resolveu e as filas só aumentaram. Como Tech Lead, defina:",
       "perguntas": [
-        "1. Diagnóstico de Causa e Efeito: Como o estrangulamento de Recursos de plataforma colapsou o Processo de trabalho de 140 engenheiros?",
-        "2. Proposição de Ação Tática (Curto Prazo): Como destravar as filas de compilação imediatamente?",
-        "3. Proposição de Ação Estratégica (Longo Prazo): Qual iniciativa estrutural devolverá produtividade à engenharia?"
+        "1. Diagnóstico de Causa e Efeito: Por que as filas e burocracias do Processo travam o Produto e desperdiçam Recursos humanos?",
+        "2. Proposição de Ação Tática (Curto Prazo): O que pode ser automatizado imediatamente para os programadores não dependerem de chamados manuais?",
+        "3. Proposição de Ação Estratégica (Longo Prazo): Como estruturar uma plataforma interna de autosserviço para a empresa inteira?"
       ]
     },
     "fase4_resolucao": {
-      "diagnostico_causa_efeito": "A escala de 6 para 16 squads sem investimento em Recursos de plataforma (CI/CD congelado em R$ 18k) congestionou totalmente o Processo: o tempo de setup saltou para 9 dias e os desenvolvedores sofrem 17 interrupções diárias. O resultado é a queima de 1.850 horas de Recursos humanos ociosos em filas travadas, destruindo o fluxo de trabalho da companhia.",
-      "acao_tatica": "Destravar as Filas Imediatamente: Contratar runners elásticos em nuvem com auto-scaling automático no GitHub Actions/GitLab CI e paralelizar a execução dos testes de integração mais lentos.",
-      "acao_estrategica": "Fundar a equipe de Engenharia de Plataforma (Platform Engineering) encarregada de construir uma Internal Developer Platform (IDP) com templates de código padronizados e ambientes de desenvolvimento em nuvem (DevContainers/Backstage), reduzindo o setup para 15 minutos.",
-      "metrica_oculta": "A perda de 1.850 horas de engenharia por mês equivale a pagar o salário integral de 11 engenheiros seniores para ficarem olhando a tela carregar. O gargalo não é humano; é o colapso da infraestrutura interna.",
-      "nova_metrica_proposta": "Custo Financeiro do Tempo Ocioso em Filas de Esteira (Wasted Engineering Hours in Cash).",
+      "diagnostico_causa_efeito": "Adicionar mais Recursos humanos (programadores) não adiantou porque o gargalo estava no Processo de atendimento manual (dias de espera em filas para criar servidores e bancos). Como cada pedido dependia de outra equipe, os desenvolvedores perdiam quase metade do tempo parados ou configurando coisas manuais, resultando em um Produto que demorava meses para nascer e vinha com erros de configuração.",
+      "acao_tatica": "Criar Modelos Prontos de Autosserviço: Desenvolver receitas prontas e automatizadas para as 3 solicitações mais comuns (criar banco de dados, criar ambiente de testes e configurar publicação), permitindo que os próprios desenvolvedores façam isso em minutos com um clique.",
+      "acao_estrategica": "Estruturar uma Equipe de Plataforma Interna: Tratar as ferramentas internas de trabalho como um produto, construindo um portal unificado onde as equipes conseguem tudo o que precisam sem burocracia e com regras de segurança embutidas automaticamente.",
+      "metrica_oculta": "Os programadores gastavam quase metade do tempo esperando aprovações manuais ou tentando configurar servidores, o que gerava um desperdício enorme de talento e dinheiro em tarefas que poderiam ser automáticas.",
+      "nova_metrica_proposta": "Tempo de Espera em Filas de Chamados (quanto tempo uma demanda fica parada esperando a ação de outra pessoa para poder continuar).",
       "ruidos_cenario": [
         {
-          "item": "Orçamento de CI/CD congelado em R$ 18.000",
-          "motivo": "Ruído de falsa contenção de despesas: A diretoria comemorava economizar em servidores internos, ignorando o desperdício de R$ 185 mil em salários de engenheiros parados."
+          "item": "Contratar mais programadores para tentar acelerar",
+          "motivo": "Ruído de capacidade: adicionar mais pessoas a um processo cheio de filas e burocracia apenas cria mais filas e mais atrasos."
         },
         {
-          "item": "Contagem de 140 engenheiros",
-          "motivo": "Dimensionamento estrutural que sem plataforma de apoio gera deseconomia de escala e atrito de comunicação."
+          "item": "Segurança exige que tudo seja feito manualmente por um analista",
+          "motivo": "Ruído de falsa proteção: aprovações manuais repetitivas viram rotina desatenta, enquanto regras de segurança embutidas no código protegem de verdade."
         }
       ],
       "painel_pos_acao": {
-        "titulo": "Painel Projetado 90 Dias Pós-Engenharia de Plataforma",
+        "titulo": "Painel Projetado Pós-Implantação do Portal de Autosserviço",
         "tabela": [
           {
-            "metrica": "Custo de ferramentas e plataforma",
-            "anterior": "R$ 18.000",
-            "projetado": "R$ 42.000",
-            "impacto": "Investimento que destravou o time",
+            "metrica": "Tempo médio de espera para novos recursos",
+            "anterior": "11 dias",
+            "projetado": "2 horas",
+            "impacto": "Redução drástica de 98% na espera",
+            "dimensao": "Processo"
+          },
+          {
+            "metrica": "Novos serviços entregues por mês",
+            "anterior": "3 / mês",
+            "projetado": "11 / mês",
+            "impacto": "Velocidade multiplicada por 3,6x",
+            "dimensao": "Produto"
+          },
+          {
+            "metrica": "Tempo gasto com burocracias de servidor",
+            "anterior": "42%",
+            "projetado": "8%",
+            "impacto": "Devs focados 92% do tempo em programar",
             "dimensao": "Recursos"
           },
           {
-            "metrica": "Horas mensais em filas de espera",
-            "anterior": "1.850h",
-            "projetado": "180h",
-            "impacto": "Recuperação de 1.670 horas úteis (-90%)",
+            "metrica": "Erros de configuração por entrega",
+            "anterior": "5,8",
+            "projetado": "0,2",
+            "impacto": "Modelos padronizados e seguros",
+            "dimensao": "Produto"
+          },
+          {
+            "metrica": "Custo de analistas para atender chamados manuais",
+            "anterior": "R$ 110.000",
+            "projetado": "R$ 55.000",
+            "impacto": "Fim do retrabalho manual repetitivo",
             "dimensao": "Recursos"
-          },
-          {
-            "metrica": "Tempo para setup de ambiente local",
-            "anterior": "9 dias",
-            "projetado": "15 minutos",
-            "impacto": "Padronização via DevContainers",
-            "dimensao": "Processo"
-          },
-          {
-            "metrica": "Interrupções diárias por contexto",
-            "anterior": "17 / dia",
-            "projetado": "5 / dia",
-            "impacto": "Fluxo de foco restaurado",
-            "dimensao": "Processo"
-          },
-          {
-            "metrica": "Índice DevEx Score",
-            "anterior": "31",
-            "projetado": "84",
-            "impacto": "Excelente experiência do desenvolvedor",
-            "dimensao": "Processo"
           }
         ],
-        "conclusao": "O investimento de R$ 24 mil em plataforma devolveu 1.670 horas úteis por mês, o equivalente a contratar 10 novos engenheiros."
+        "conclusao": "A criação de modelos prontos de autosserviço reduziu a espera de 11 dias para apenas 2 horas, multiplicando a velocidade de entregas úteis em mais de 3,5 vezes."
       }
     }
   }

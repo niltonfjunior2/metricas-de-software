@@ -181,7 +181,7 @@ export function createTechLeadActivity(initialCaseIndex: number = 0): {
     const phaseNames = [
       'Cenário Inicial & Baseline',
       'O Dilema & Novo Painel',
-      'O Desafio da Turma',
+      'O Desafio',
       'Resolução & Pós-Ação',
     ];
 
@@ -438,7 +438,7 @@ export function createTechLeadActivity(initialCaseIndex: number = 0): {
     waitingBanner.className = 'techlead-waiting-banner';
     waitingBanner.innerHTML = `
       <span class="pulse-dot"></span>
-      <span>Novo painel analisado! <strong>[Clique aqui ou aperte Espaço para abrir o Desafio da Turma na Fase 3]</strong> &rarr;</span>
+      <span>Novo painel analisado! <strong>[Clique aqui ou aperte Espaço para abrir o Desafio na Fase 3]</strong> &rarr;</span>
     `;
     waitingBanner.addEventListener('click', () => goToPhase(3));
 
@@ -479,7 +479,7 @@ export function createTechLeadActivity(initialCaseIndex: number = 0): {
     waitingBanner.className = 'techlead-waiting-banner';
     waitingBanner.innerHTML = `
       <span class="pulse-dot"></span>
-      <span>Aguardando o posicionamento e debate dos alunos... <strong>[Clique aqui ou aperte Espaço para revelar a Resolução na Fase 4]</strong> &rarr;</span>
+      <span>Reflita sobre o cenário e formule sua hipótese... <strong>[Clique aqui ou aperte Espaço para revelar a Resolução na Fase 4]</strong> &rarr;</span>
     `;
     waitingBanner.addEventListener('click', () => goToPhase(4));
 

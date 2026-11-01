@@ -41,6 +41,21 @@ Conteúdo normal <script>alert("xss")</script><img src="x" onerror="alert(1)" />
     expect(result.sections[0].html).not.toContain('<script>');
     expect(result.sections[0].html).not.toContain('onerror');
   });
+
+  it('deve processar o Módulo 03 da Trilha Teórica com frontmatter e 6 seções', async () => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const mdPath = path.resolve(__dirname, '../src/content/teoria/03-qualidade-papel-techlead.md');
+    const mdContent = fs.readFileSync(mdPath, 'utf-8');
+
+    const result = parseMarkdownToAccordion(mdContent);
+    expect(result.metadata.id).toBe('techlead');
+    expect(result.metadata.modulo).toBe('3');
+    expect(result.sections.length).toBe(6);
+    expect(result.sections[0].title).toContain('Por que Medir?');
+    expect(result.sections[2].title).toContain('Papel do Engenheiro de Software');
+    expect(result.sections[3].title).toContain('Tech Lead');
+  });
 });
 
 describe('Componente Accordion', () => {

@@ -1,5 +1,6 @@
 import introMarkdown from '../content/teoria/01-introducao-metricas.md?raw';
 import classifMarkdown from '../content/teoria/02-classificacao-metricas.md?raw';
+import techleadMarkdown from '../content/teoria/03-qualidade-papel-techlead.md?raw';
 import { parseMarkdownToAccordion } from '../utils/markdownParser';
 import { createAccordion } from '../components/Accordion';
 
@@ -26,6 +27,16 @@ export function renderTheoryView(moduleId?: string): HTMLElement {
       raw: classifMarkdown,
       activityRoute: '#/atividades/classificacao',
       activityLabel: 'Praticar Classificação de Métricas',
+    },
+    {
+      id: 'techlead',
+      number: '03',
+      title: 'Qualidade, o Engenheiro de Software e o Tech Lead',
+      source: 'Módulo 03',
+      badgeClass: 'badge-recursos',
+      raw: techleadMarkdown,
+      activityRoute: '#/atividades/techlead',
+      activityLabel: 'Praticar no Simulador de Tech Lead',
     },
   ];
 

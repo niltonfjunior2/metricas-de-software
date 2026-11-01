@@ -24,28 +24,70 @@ function initializeApp(): void {
   // Mobile drawer state
   let isSidebarOpen = false;
 
-  const toggleSidebar = (): void => {
+  const toggleSidebarMobile = (): void => {
     isSidebarOpen = !isSidebarOpen;
     sidebar.classList.toggle('open', isSidebarOpen);
     backdrop.classList.toggle('active', isSidebarOpen);
   };
 
-  const closeSidebar = (): void => {
+  const closeSidebarMobile = (): void => {
     isSidebarOpen = false;
     sidebar.classList.remove('open');
     backdrop.classList.remove('active');
   };
 
+  // Desktop sidebar collapsed state (persisted in localStorage)
+  let isSidebarCollapsed = localStorage.getItem('metrics_sidebar_collapsed') === 'true';
+
+  const applySidebarCollapsedState = (): void => {
+    sidebar.classList.toggle('collapsed', isSidebarCollapsed);
+    expandBtn.classList.toggle('visible', isSidebarCollapsed);
+    localStorage.setItem('metrics_sidebar_collapsed', isSidebarCollapsed ? 'true' : 'false');
+  };
+
+  const toggleCollapseSidebar = (): void => {
+    isSidebarCollapsed = !isSidebarCollapsed;
+    applySidebarCollapsedState();
+  };
+
+  // Universal toggle handler for navbar hamburger button
+  const handleNavToggle = (): void => {
+    if (window.innerWidth <= 900) {
+      toggleSidebarMobile();
+    } else {
+      toggleCollapseSidebar();
+    }
+  };
+
   // Build Shell
-  const navbar = createNavbar(toggleSidebar);
+  const navbar = createNavbar(handleNavToggle);
   const backdrop = document.createElement('div');
   backdrop.className = 'sidebar-backdrop';
-  backdrop.addEventListener('click', closeSidebar);
+  backdrop.addEventListener('click', closeSidebarMobile);
 
   const shellBody = document.createElement('div');
   shellBody.className = 'shell-body';
 
-  const sidebar = createSidebar(closeSidebar);
+  const sidebar = createSidebar(closeSidebarMobile, toggleCollapseSidebar);
+
+  // Floating expand button on left edge when collapsed
+  const expandBtn = document.createElement('button');
+  expandBtn.className = 'sidebar-expand-btn';
+  expandBtn.id = 'sidebar-expand-btn';
+  expandBtn.title = 'Exibir barra lateral';
+  expandBtn.setAttribute('aria-label', 'Exibir barra lateral');
+  expandBtn.innerHTML = `
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="13 17 18 12 13 7"></polyline>
+      <polyline points="6 17 11 12 6 7"></polyline>
+    </svg>
+    <span>Menu</span>
+  `;
+  expandBtn.addEventListener('click', toggleCollapseSidebar);
+
+  if (isSidebarCollapsed) {
+    applySidebarCollapsedState();
+  }
 
   const mainContent = document.createElement('main');
   mainContent.className = 'main-content';
@@ -57,6 +99,7 @@ function initializeApp(): void {
   const footer = createFooter();
 
   appElement.appendChild(navbar);
+  appElement.appendChild(expandBtn);
   appElement.appendChild(backdrop);
   appElement.appendChild(shellBody);
   appElement.appendChild(footer);
