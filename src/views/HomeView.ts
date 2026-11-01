@@ -7,13 +7,13 @@ export function renderHomeView(): HTMLElement {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
         </svg>
-        Engenharia de Software • Medição Prática
+        MétricaLab • Engenharia de Software
       </div>
       <h1 class="hero-title">
-        Aprenda <span class="hero-title-gradient">Métricas de Software</span> com Atividades Interativas
+        <span class="hero-title-gradient">MétricaLab</span>: Aprenda Métricas de Software na Prática
       </h1>
       <p class="hero-subtitle">
-        Plataforma interativa com conteúdos conceituais sintetizados em acordeões dinâmicos e simuladores práticos de classificação e auditoria de métricas reais.
+        Plataforma interativa com teoria concisa em acordeões dinâmicos e simuladores práticos de classificação, auditoria de cenários reais e tomada de decisão técnica como Tech Lead.
       </p>
       <div class="hero-actions">
         <a href="#/teoria" class="btn btn-primary">
