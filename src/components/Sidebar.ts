@@ -37,6 +37,12 @@ export function createSidebar(onCloseMobile: () => void): HTMLElement {
             <span>Auditoria de Cenários</span>
           </a>
         </li>
+        <li>
+          <a href="#/atividades/techlead" class="sidebar-link" data-route="/atividades/techlead">
+            <span class="badge badge-recursos" style="font-size: 0.65rem; padding: 0.15rem 0.45rem;">A3</span>
+            <span>Simulador de Tech Lead</span>
+          </a>
+        </li>
       </ul>
     </div>
 

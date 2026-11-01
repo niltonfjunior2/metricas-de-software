@@ -1,5 +1,6 @@
 import { createClassificationActivity } from '../activities/classification';
 import { createAuditActivity } from '../activities/audit';
+import { createTechLeadActivity } from '../activities/techlead';
 
 export interface ViewResult {
   element: HTMLElement;
@@ -17,6 +18,14 @@ export function renderActivitiesView(activityId?: string): ViewResult {
 
   if (activityId === 'auditoria') {
     const activity = createAuditActivity(0);
+    return {
+      element: activity.element,
+      cleanup: activity.cleanup,
+    };
+  }
+
+  if (activityId === 'techlead' || activityId === 'simulador-techlead') {
+    const activity = createTechLeadActivity(0);
     return {
       element: activity.element,
       cleanup: activity.cleanup,
@@ -72,6 +81,22 @@ export function renderActivitiesView(activityId?: string): ViewResult {
           <span class="btn btn-primary" style="font-size: 0.82rem; padding: 0.4rem 0.85rem;">Iniciar Auditoria &rarr;</span>
         </div>
       </a>
+
+      <!-- Atividade 3 Card -->
+      <a href="#/atividades/techlead" class="card card-interactive" style="border-top: 4px solid var(--color-produto);">
+        <div class="card-header">
+          <span class="badge badge-produto">Atividade 03</span>
+          <span class="badge badge-processo" style="font-size: 0.7rem;">Disponível</span>
+        </div>
+        <h3 class="card-title">Simulador de Tech Lead</h3>
+        <p class="card-description">
+          Vivencie a tomada de decisão técnica em 10 estudos de caso estruturados em 4 fases: Baseline, O Dilema, O Desafio da Turma e Resolução com Painel Pós-Ação.
+        </p>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Mecânica: Simulação em 4 Fases</span>
+          <span class="btn btn-primary" style="font-size: 0.82rem; padding: 0.4rem 0.85rem;">Iniciar Simulação &rarr;</span>
+        </div>
+      </a>
     </div>
 
     <!-- Practical guide card -->
@@ -91,6 +116,12 @@ export function renderActivitiesView(activityId?: string): ViewResult {
           <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.35rem;">Auditoria Crítica</div>
           <p style="font-size: 0.88rem; color: var(--text-desc); line-height: 1.6;">
             Desenvolva a visão sênior de engenheiro, descobrindo quais dados realmente ajudam a gerenciar e quais devem ser descartados como ruído.
+          </p>
+        </div>
+        <div style="background-color: var(--bg-neutral-box); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-inner);">
+          <div style="font-weight: 700; color: var(--color-produto-tag); margin-bottom: 0.35rem;">Simulação de Tech Lead</div>
+          <p style="font-size: 0.88rem; color: var(--text-desc); line-height: 1.6;">
+            Correlacione causa e efeito sistêmicos entre Recursos, Processo e Produto para formular planos táticos e estratégicos de sustentação.
           </p>
         </div>
       </div>

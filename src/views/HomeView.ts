@@ -92,7 +92,7 @@ export function renderHomeView(): HTMLElement {
             <span class="badge badge-processo" style="margin-bottom: 0.75rem;">Auto-Instrucional</span>
             <h3 style="font-size: 1.3rem; color: var(--text-title); margin-bottom: 0.5rem;">Pronto para testar seus conhecimentos?</h3>
             <p style="color: var(--text-secondary); font-size: 0.92rem;">
-              Classifique métricas em tempo real com atalhos de teclado ou assuma o papel de auditor em cenários corporativos complexos.
+              Classifique métricas em tempo real, audite cenários corporativos ou assuma a tomada de decisão técnica no Simulador de Tech Lead.
             </p>
           </div>
           <a href="#/atividades" class="btn btn-primary">
