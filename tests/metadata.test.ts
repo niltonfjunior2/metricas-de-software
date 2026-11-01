@@ -7,7 +7,7 @@ describe('Metadados e Configurações de Produção', () => {
   const indexHtml = fs.readFileSync(indexPath, 'utf-8');
 
   it('deve possuir meta tags essenciais de SEO e Open Graph no index.html', () => {
-    expect(indexHtml).toContain('<title>Métricas de Software • Engenharia de Software</title>');
+    expect(indexHtml).toContain('<title>MétricaLab • Métricas de Software na Prática</title>');
     expect(indexHtml).toContain('name="description"');
     expect(indexHtml).toContain('property="og:title"');
     expect(indexHtml).toContain('property="og:description"');
