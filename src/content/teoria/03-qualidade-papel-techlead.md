@@ -82,5 +82,5 @@ A melhor forma de assimilar esses conceitos é exercitá-los em cenários que si
 3. **Fase 3 (O Desafio):** Formular o raciocínio crítico: qual foi a causa raiz? Qual a decisão emergencial de hoje e a solução definitiva de amanhã?
 4. **Fase 4 (Resolução & Painel Pós-Ação):** Descobrir o padrão de resposta da engenharia sênior, auditar ruídos de cenário e conferir a recuperação projetada do sistema.
 
-> 💡 **Próximo Passo:** Explore os 10 estudos de caso no Simulador prático para vivenciar a tomada de decisão técnica em armazéns, fintechs, e-commerces e bancos digitais.
+> 💡 **Próximo Passo:** Explore os 15 estudos de caso (cenários de crise e governança de sucesso) no Simulador prático para vivenciar a tomada de decisão técnica em armazéns, fintechs, e-commerces, modernização de nuvem e bancos digitais.
 

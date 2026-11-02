@@ -90,7 +90,7 @@ export function renderActivitiesView(activityId?: string): ViewResult {
         </div>
         <h3 class="card-title">Simulador de Tech Lead</h3>
         <p class="card-description">
-          Vivencie a tomada de decisão técnica em 10 estudos de caso estruturados em 4 fases: Baseline, O Dilema, O Desafio e Resolução com Painel Pós-Ação.
+          Vivencie a tomada de decisão técnica em 15 estudos de caso (crise e governança de sucesso) estruturados em 4 fases: Baseline, O Dilema, O Desafio e Resolução com Painel Pós-Ação.
         </p>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-color);">
           <span style="font-size: 0.82rem; color: var(--text-muted);">Mecânica: Simulação em 4 Fases</span>

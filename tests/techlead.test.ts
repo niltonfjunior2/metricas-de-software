@@ -3,8 +3,8 @@ import { techLeadCasesData } from '../src/activities/techlead/data';
 import { createTechLeadActivity } from '../src/activities/techlead';
 
 describe('Base de Dados do Simulador de Tech Lead', () => {
-  it('deve conter 10 estudos de caso completos e estruturados em 4 fases', () => {
-    expect(techLeadCasesData.length).toBe(10);
+  it('deve conter 15 estudos de caso completos e estruturados em 4 fases', () => {
+    expect(techLeadCasesData.length).toBe(15);
 
     techLeadCasesData.forEach((c) => {
       expect(c.id).toBeGreaterThan(0);
@@ -121,10 +121,10 @@ describe('Componente Interativo do Simulador de Tech Lead', () => {
     nextCaseBtn.click();
 
     const titleEl = activity.element.querySelector('.techlead-case-title');
-    expect(titleEl?.textContent).toContain('Checkout Expresso');
+    expect(titleEl?.textContent).toContain('Automação de CI/CD');
 
     const counter = activity.element.querySelector('.activity-counter');
-    expect(counter?.textContent).toContain('2 / 10');
+    expect(counter?.textContent).toContain('2 / 15');
 
     activity.cleanup();
   });

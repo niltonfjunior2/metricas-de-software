@@ -237,6 +237,144 @@ export const techLeadCasesData: TechLeadCase[] = [
   },
   {
     "id": 2,
+    "titulo": "Automação de CI/CD: A Conquista do Deploy Diário e a Gestão da Velocidade",
+    "nivel": "Nível 1 • Fundamental: Causa e Efeito Direta",
+    "fase1_cenario_inicial": {
+      "periodo": "Mês 1 (Janeiro) - Antes da Automação de CI/CD",
+      "contexto": "Você assumiu a liderança técnica da plataforma de pagamentos. As publicações em produção ocorriam a cada 15 dias, de forma manual nas madrugadas, frequentemente gerando incidentes e cansaço no time. Você propôs um ciclo inicial de automação da esteira de integração e entrega contínua (CI/CD).",
+      "metricas": [
+        {
+          "nome": "Tempo para colocar em produção (Lead Time)",
+          "valor": "14 dias",
+          "dimensao": "Processo",
+          "justificativa": "Mede o tempo total decorrido desde o commit no código até a funcionalidade estar rodando em produção."
+        },
+        {
+          "nome": "Horas gastas em deploys manuais por mês",
+          "valor": "32 horas",
+          "dimensao": "Recursos",
+          "justificativa": "Mede o esforço e dedicação de desenvolvedores consumidos exclusivamente na rotina de publicação manual."
+        },
+        {
+          "nome": "Taxa de falhas na publicação (Change Failure Rate)",
+          "valor": "30%",
+          "dimensao": "Processo",
+          "justificativa": "Percentual de publicações que provocaram incidentes ou precisaram de rollback imediato."
+        },
+        {
+          "nome": "Incidentes graves pós-deploy",
+          "valor": "5 por mês",
+          "dimensao": "Produto",
+          "justificativa": "Contabiliza falhas funcionais que afetaram diretamente a experiência dos usuários em produção."
+        }
+      ],
+      "diagnostico_inicial": "O fluxo de entrega é lento, caro em horas humanas e instável. A lentidão das entregas atrasa o feedback do negócio e sobrecarrega a equipe com deploys estressantes."
+    },
+    "fase2_dilema": {
+      "periodo": "Mês 3 (Março) - O Salto da Automação e a Euforia da Gestão",
+      "dilema_texto": "Após dois meses implementando testes automatizados na esteira e deploys em um clique, os indicadores melhoraram espetacularmente. O Lead Time caiu para 2 horas e os incidentes despencaram. Diante desse sucesso estrondoso, a gerência de produto ficou empolgada e concluiu: 'Se agora podemos publicar todo dia sem falhas, vamos triplicar a meta de novas funcionalidades e eliminar o tempo reservado para refatoração e manutenção da esteira!'.",
+      "colunas_tabela": [
+        "Métrica",
+        "Antes (Jan)",
+        "Hoje (Mar)",
+        "Variação",
+        "Dimensão"
+      ],
+      "tabela_comparativa": [
+        {
+          "metrica": "Tempo para colocar em produção (Lead Time)",
+          "col1": "14 dias",
+          "col2": "2 horas",
+          "var": "-99%",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Frequência de deploys",
+          "col1": "2 por mês",
+          "col2": "22 por mês (diário)",
+          "var": "+1000%",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Horas em deploys manuais por mês",
+          "col1": "32 horas",
+          "col2": "1 hora",
+          "var": "-97%",
+          "dimensao": "Recursos",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Taxa de falha nas publicações",
+          "col1": "30%",
+          "col2": "4%",
+          "var": "-87%",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Tempo de build e execução de testes na esteira",
+          "col1": "N/A",
+          "col2": "18 min",
+          "var": "Novo",
+          "dimensao": "Recursos",
+          "status_var": "neutral"
+        }
+      ]
+    },
+    "fase3_desafio": {
+      "enunciado": "Como Tech Lead, você comemora o sucesso da automação, mas percebe o risco iminente de 'overfitting' e degradação futura se o time aceitar acelerar desenfreadamente sem manter a saúde da esteira. Reflita sobre as decisões:",
+      "perguntas": [
+        "Como demonstrar para a diretoria que a esteira de CI/CD é um produto interno que exige manutenção contínua e não apenas um facilitador pontual?",
+        "Qual é o risco de triplicar o volume de entregas sem acompanhar a estabilidade e a cobertura dos novos testes automáticos criados?",
+        "Que métrica de contra-peso deve ser monitorada para garantir que o tempo de execução da esteira (build time) não comece a inflar e travar o time no futuro?"
+      ]
+    },
+    "fase4_resolucao": {
+      "diagnostico_causa_efeito": "A automação de testes e deploys gerou ganhos exponenciais de velocidade e estabilidade. No entanto, o sucesso gerou a falsa impressão de que a velocidade de entrega é infinita. Se o time parar de manter os testes e otimizar os scripts de CI/CD, a esteira ficará lenta (testes instáveis/flaky tests), os deploys voltarão a falhar e o ganho será totalmente perdido.",
+      "acao_tatica": "Estabelecer uma cota protegida de 15% a 20% da capacidade da sprint dedicada à saúde da engenharia: manutenção de testes automatizados, atualização de dependências e monitoramento de testes instáveis (flaky tests).",
+      "acao_estrategica": "Institucionalizar o pipeline de CI/CD como 'Golden Path' oficial da organização, definindo tempos máximos aceitáveis de execução de esteira (ex.: build e testes em menos de 15 minutos) e critérios rigorosos de aceitação contínua.",
+      "metrica_oculta": "Taxa de testes instáveis (Flaky Tests Rate) e tempo de fila/execução da esteira de CI/CD, indicadores que antecipam a degradação da esteira antes que os deploys falhem.",
+      "nova_metrica_proposta": "Tempo de Execução do Pipeline de CI/CD (Pipeline Duration) e Taxa de Testes Intermitentes (Flaky Tests Rate).",
+      "argumento_executivo": "'O deploy diário é como uma rodovia de alta velocidade: ela só permite trafegar rápido e em segurança porque há manutenção constante no asfalto. Se cortarmos o tempo de manutenção da esteira para empurrar mais carros na pista, em três meses teremos acidentes e a estrada voltará a ficar engarrafada.'",
+      "ruidos_cenario": [
+        {
+          "item": "Exigência de triplicar funcionalidades imediatamente",
+          "motivo": "Ignora que a nova velocidade depende de manter o código modular e a esteira estável; sobrecarga imediata degrada os próprios testes que viabilizaram o ganho."
+        }
+      ],
+      "painel_pos_acao": {
+        "titulo": "Projeção de Sustentabilidade da Automação (6 Meses)",
+        "conclusao": "Com a governança ativa da esteira de CI/CD, a velocidade de entrega se consolida como padrão permanente da empresa, o tempo de build permanece controlado e a taxa de falha se estabiliza abaixo de 3%.",
+        "tabela": [
+          {
+            "metrica": "Lead Time para Mudanças",
+            "anterior": "2 horas",
+            "projetado": "1,5 hora",
+            "impacto": "Consolidado em regime diário",
+            "dimensao": "Processo"
+          },
+          {
+            "metrica": "Tempo de Execução da Esteira",
+            "anterior": "18 min",
+            "projetado": "12 min",
+            "impacto": "Otimizado com paralelização de testes",
+            "dimensao": "Recursos"
+          },
+          {
+            "metrica": "Taxa de Falha em Produção",
+            "anterior": "4%",
+            "projetado": "2%",
+            "impacto": "Qualidade mantida em nível World-Class",
+            "dimensao": "Processo"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 3,
     "titulo": "Checkout Expresso: Experimentação Científica e Validação A/B",
     "nivel": "Nível 2 • Fundamental: Validação de Hipótese e Tomada de Decisão Positiva",
     "fase1_cenario_inicial": {
@@ -376,7 +514,145 @@ export const techLeadCasesData: TechLeadCase[] = [
     }
   },
   {
-    "id": 3,
+    "id": 4,
+    "titulo": "FinOps & Nuvem: O Dividendo da Otimização em Microsserviços",
+    "nivel": "Nível 1 • Fundamental: Causa e Efeito Direta",
+    "fase1_cenario_inicial": {
+      "periodo": "Mês 1 (Abril) - Diagnóstico de Desperdício na Nuvem",
+      "contexto": "A fatura mensal da nuvem (AWS) da empresa atingiu a marca de R$ 85.000/mês, com os servidores de banco de dados e pods de Kubernetes operando com picos constantes de CPU em 90%. O tempo de resposta para os clientes (latência P99) batia 1.800ms em horários de pico. Você assumiu como Tech Lead com o desafio de sanear o consumo sem degradar o serviço.",
+      "metricas": [
+        {
+          "nome": "Custo mensal de infraestrutura na nuvem",
+          "valor": "R$ 85.000",
+          "dimensao": "Recursos",
+          "justificativa": "Valor total pago mensalmente ao provedor de nuvem para hospedar bancos de dados, servidores e tráfego de rede."
+        },
+        {
+          "nome": "Latência P99 das APIs (tempo de resposta)",
+          "valor": "1.800 ms",
+          "dimensao": "Produto",
+          "justificativa": "Mede o tempo que 99% das requisições mais lentas demoram para responder aos clientes."
+        },
+        {
+          "nome": "Consumo médio de CPU nos bancos de dados",
+          "valor": "88%",
+          "dimensao": "Recursos",
+          "justificativa": "Percentual de capacidade de processamento consumida em consultas ao banco."
+        },
+        {
+          "nome": "Requisições com erro 504 (Gateway Timeout)",
+          "valor": "2,8%",
+          "dimensao": "Produto",
+          "justificativa": "Requisições que travaram e expiraram antes de retornar uma resposta ao usuário."
+        }
+      ],
+      "diagnostico_inicial": "O sistema sofre com ineficiência arquitetural grave: consultas de banco sem índices adequados (N+1 queries) e ausência de cache forçam a máquina a trabalhar no limite, inflando a fatura financeira."
+    },
+    "fase2_dilema": {
+      "periodo": "Mês 3 (Junho) - O Resultado da Otimização e o Conflito com o Financeiro",
+      "dilema_texto": "Você liderou uma força-tarefa de três semanas de profiling técnico: adicionou índices estratégicos no banco, configurou cache distribuído em Redis para leituras repetitivas e redimensionou os clusters (rightsizing). O resultado foi impressionante: o custo caiu para R$ 29.500/mês e a latência despencou para 120ms. Porém, a diretoria financeira comemorou e enviou um memorando: 'Excelente! Como vocês reduziram a conta em R$ 55.000, estamos reduzindo o orçamento do departamento de tecnologia exatamente nesse valor e congelando novos treinamentos!'.",
+      "colunas_tabela": [
+        "Métrica",
+        "Antes (Abr)",
+        "Hoje (Jun)",
+        "Variação",
+        "Dimensão"
+      ],
+      "tabela_comparativa": [
+        {
+          "metrica": "Custo mensal de infraestrutura de nuvem",
+          "col1": "R$ 85.000",
+          "col2": "R$ 29.500",
+          "var": "-65%",
+          "dimensao": "Recursos",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Latência P99 das APIs",
+          "col1": "1.800 ms",
+          "col2": "120 ms",
+          "var": "-93%",
+          "dimensao": "Produto",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Consumo médio de CPU no banco",
+          "col1": "88%",
+          "col2": "24%",
+          "var": "-73%",
+          "dimensao": "Recursos",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Requisições com timeout (erro 504)",
+          "col1": "2,8%",
+          "col2": "0,02%",
+          "var": "-99%",
+          "dimensao": "Produto",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Taxa de acerto do cache (Cache Hit Ratio)",
+          "col1": "0%",
+          "col2": "91%",
+          "var": "Novo",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        }
+      ]
+    },
+    "fase3_desafio": {
+      "enunciado": "Diante de um caso exemplar de sucesso técnico e financeiro (FinOps), como Tech Lead você precisa defender a sustentabilidade do ecossistema e evitar que a vitória se torne uma punição orçamentária:",
+      "perguntas": [
+        "Como apresentar o cálculo de Custo por Transação (Unit Economics) para provar que a economia gerada foi fruto de engenharia e não de sorte?",
+        "De que forma negociar com o CFO para que uma fração da economia (ex.: 20%) seja reinvestida em ferramentas de observabilidade e capacitação da equipe?",
+        "Quais alertas preventivos devem ser criados para que novas consultas mal otimizadas em futuras sprints não façam a conta da nuvem explodir novamente?"
+      ]
+    },
+    "fase4_resolucao": {
+      "diagnostico_causa_efeito": "A otimização gerou mais de meio milhão de reais em economia anualizada e multiplicou a velocidade do sistema por 15. Contudo, se a empresa cortar o orçamento de tecnologia pelo valor exato da economia obtida, os desenvolvedores serão desincentivados a otimizar códigos no futuro, e a falta de ferramentas de observabilidade fará a ineficiência retornar silenciosamente conforme o tráfego crescer.",
+      "acao_tatica": "Implementar testes automatizados de performance e limites de consultas (query limits) nos pull requests, além de alertas de orçamento (AWS Budgets) que avisam o time sempre que um microsserviço ultrapassar o custo esperado.",
+      "acao_estrategica": "Pactuar um acordo de FinOps corporativo: transformar 25% da economia recorrente em verba dedicada para modernização tecnológica, certificações da equipe e contratação de ferramentas profissionais de monitoramento APM (ex.: Datadog/Grafana).",
+      "metrica_oculta": "Custo Médio de Infraestrutura por Transação de Usuário (Unit Cost), métrica que comprova que o sistema agora suporta 10x mais clientes com o mesmo dinheiro.",
+      "nova_metrica_proposta": "Custo por Transação Ativa (Unit Cost per Transaction) e Taxa de Invalidação de Cache.",
+      "argumento_executivo": "'Nossa otimização gerou mais de meio milhão de reais em economia direta por ano. Reinvestir 20% desse ganho em ferramentas de monitoramento garante que esse valor fique protegido nos próximos anos, permitindo que a empresa cresça 300% em clientes sem precisar gastar um único centavo a mais em servidores.'",
+      "ruidos_cenario": [
+        {
+          "item": "Tentativa de confiscar 100% da economia técnica",
+          "motivo": "Trata a eficiência como evento pontual e elimina a capacidade da engenharia de manter o sistema escalável para o próximo ciclo de crescimento."
+        }
+      ],
+      "painel_pos_acao": {
+        "titulo": "Projeção de Eficiência e Escala Sustentável (12 Meses)",
+        "conclusao": "Com a cultura de FinOps ativa e observabilidade implementada, o custo unitário por transação cai pela metade mesmo com o tráfego de clientes dobrando no final do ano.",
+        "tabela": [
+          {
+            "metrica": "Custo Unitário por 10.000 Requisições",
+            "anterior": "R$ 4,25",
+            "projetado": "R$ 0,85",
+            "impacto": "Redução estrutural de custo operacional",
+            "dimensao": "Recursos"
+          },
+          {
+            "metrica": "Capacidade Máxima Suportada (Req/s)",
+            "anterior": "450 req/s",
+            "projetado": "3.500 req/s",
+            "impacto": "Margem de crescimento sem saturação",
+            "dimensao": "Produto"
+          },
+          {
+            "metrica": "Disponibilidade da Aplicação (SLA)",
+            "anterior": "98,5%",
+            "projetado": "99,95%",
+            "impacto": "Zero quedas por sobrecarga de banco",
+            "dimensao": "Produto"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 5,
     "titulo": "Benchmarking Interno: O Custo Invisível da Ausência de Processo",
     "nivel": "Nível 3 • Intermediário: Desmistificando o Custo do Rigor Técnico",
     "fase1_cenario_inicial": {
@@ -516,7 +792,145 @@ export const techLeadCasesData: TechLeadCase[] = [
     }
   },
   {
-    "id": 4,
+    "id": 6,
+    "titulo": "Modernização de Legado: O Resgate do Monolito via Strangler Pattern",
+    "nivel": "Nível 2 • Intermediário: Métricas Ocultas e Efeitos Colaterais",
+    "fase1_cenario_inicial": {
+      "periodo": "Mês 1 (Julho) - O Ponto de Asfixia do Sistema Monolítico",
+      "contexto": "Você assumiu como Tech Lead de um sistema legado de faturamento com 12 anos de existência. O código possuía arquivos com mais de 7.000 linhas, complexidade ciclomática média de 45 e tempo de compilação/teste local de 45 minutos. Qualquer alteração exigia 'rezar para não quebrar outra parte', e novos desenvolvedores levavam 4 meses para conseguir fazer a primeira entrega sozinhos.",
+      "metricas": [
+        {
+          "nome": "Complexidade Ciclomática média dos módulos centrais",
+          "valor": "45",
+          "dimensao": "Produto",
+          "justificativa": "Mede a quantidade de caminhos independentes e estruturas de decisão; acima de 15 já é considerado de alto risco."
+        },
+        {
+          "nome": "Tempo de integração de novos desenvolvedores (Onboarding)",
+          "valor": "90 dias",
+          "dimensao": "Recursos",
+          "justificativa": "Tempo decorrido até um novo contratado conseguir entregar um pull request sem assistência direta de um sênior."
+        },
+        {
+          "nome": "Taxa de regressão de bugs (bugs que reabrem)",
+          "valor": "38%",
+          "dimensao": "Processo",
+          "justificativa": "Percentual de alterações que quebram comportamentos pré-existentes do sistema legado."
+        },
+        {
+          "nome": "Tempo para construir e testar localmente",
+          "valor": "45 minutos",
+          "dimensao": "Recursos",
+          "justificativa": "Tempo que o desenvolvedor perde esperando o código compilar a cada alteração."
+        }
+      ],
+      "diagnostico_inicial": "O débito técnico acumulado sufocou a capacidade de evolução do produto. A complexidade do monolito tornou as manutenções perigosas, demoradas e causadoras de medo no time."
+    },
+    "fase2_dilema": {
+      "periodo": "Mês 4 (Outubro) - O Avanço da Migração e o Impulso de Parar no Meio",
+      "dilema_texto": "Em vez de tentar reescrever tudo do zero, você aplicou a estratégia padrão do mercado: o Padrão Estrangulador (Strangler Fig Pattern). Você isolou o módulo de cálculo de impostos em um serviço moderno, limpo e testado com microsserviço dedicado e APIs bem documentadas. A complexidade caiu para 6, o onboarding do novo módulo caiu para 15 dias e os bugs sumiram. Vendo esse resultado excelente, a diretoria de operações sugeriu: 'O novo serviço está perfeito e o faturamento voltou a ser estável! Vamos suspender a migração dos outros módulos legados para focar 100% em lançar novas campanhas comerciais!'.",
+      "colunas_tabela": [
+        "Métrica",
+        "Antes (Jul)",
+        "Hoje (Out)",
+        "Variação",
+        "Dimensão"
+      ],
+      "tabela_comparativa": [
+        {
+          "metrica": "Complexidade ciclomática média (módulos modernizados)",
+          "col1": "45",
+          "col2": "6",
+          "var": "-86%",
+          "dimensao": "Produto",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Tempo de Onboarding de novos desenvolvedores",
+          "col1": "90 dias",
+          "col2": "15 dias",
+          "var": "-83%",
+          "dimensao": "Recursos",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Taxa de defeitos reabertos no módulo",
+          "col1": "38%",
+          "col2": "2%",
+          "var": "-94%",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Tempo de execução de testes locais",
+          "col1": "45 min",
+          "col2": "3 min",
+          "var": "-93%",
+          "dimensao": "Recursos",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Percentual do sistema total modernizado",
+          "col1": "0%",
+          "col2": "28%",
+          "var": "Em progresso",
+          "dimensao": "Produto",
+          "status_var": "neutral"
+        }
+      ]
+    },
+    "fase3_desafio": {
+      "enunciado": "Parar a modernização de um sistema legado após o primeiro sucesso é uma das maiores armadilhas da Engenharia de Software. Como Tech Lead, guie a estratégia:",
+      "perguntas": [
+        "Quais problemas de sustentação ocorrem quando um time é obrigado a manter para sempre dois ecossistemas paralelos (o legado antigo e o novo serviço moderno)?",
+        "Como usar os dados de produtividade conquistados no primeiro módulo para demonstrar o valor de continuar a migração dos módulos restantes?",
+        "Que indicador deve ser monitorado para evitar que novos débitos técnicos sejam introduzidos sorrateiramente no serviço recém-criado?"
+      ]
+    },
+    "fase4_resolucao": {
+      "diagnostico_causa_efeito": "O sucesso do primeiro módulo provou a eficácia da modernização. Porém, congelar o projeto com 28% do código modernizado cria a pior situação possível: 'arquitetura de duas cabeças', onde o time gasta o dobro de esforço mantendo integrações complexas entre o velho e o novo. O ganho de velocidade no novo módulo logo será anulado pelo atrito de sincronização com o restante do monolito.",
+      "acao_tatica": "Definir um roadmap contínuo de migração com metas trimestrais de percentual de desacoplamento do monolito (ex.: modernizar mais 15% do código a cada trimestre sem parar as features).",
+      "acao_estrategica": "Instituir portões de qualidade automatizados (Quality Gates com SonarQube/linter): nenhuma linha de código novo pode ser adicionada ao módulo legado antigo; todas as novas regras de negócio devem nascer nos serviços modernos desacoplados.",
+      "metrica_oculta": "Custo de Context Switching e Manutenção Dupla: o tempo que a equipe perde fazendo pontes manuais de dados entre o banco antigo e as APIs modernas.",
+      "nova_metrica_proposta": "Percentual de Código em Arquitetura Alvo (% Modernized Codebase) e Índice de Acoplamento Aferente/Eferente.",
+      "argumento_executivo": "'Concluímos com sucesso a fase mais difícil: provamos que a nova arquitetura funciona, é 10 vezes mais rápida e quase livre de bugs. Parar agora nos deixaria com o custo de manter dois sistemas diferentes. Continuar modernizando 1 módulo a cada dois meses pagará o investimento ao reduzir nosso custo de contratação e entrega pela metade nos próximos anos.'",
+      "ruidos_cenario": [
+        {
+          "item": "Pressão para abandonar a modernização com apenas 28% concluído",
+          "motivo": "Ilusão de economia que gera custo oculto permanente de manutenção de arquiteturas duplicadas e incompatíveis."
+        }
+      ],
+      "painel_pos_acao": {
+        "titulo": "Projeção do Ciclo Completo de Estrangulamento do Monolito (18 Meses)",
+        "conclusao": "Com a continuidade da estratégia, o monolito é 85% aposentado, o tempo de entrega de features complexas cai para 3 dias e a taxa de falhas atinge níveis mínimos históricos.",
+        "tabela": [
+          {
+            "metrica": "Percentual na Arquitetura Alvo",
+            "anterior": "28%",
+            "projetado": "85%",
+            "impacto": "Quase extinção dos componentes legados",
+            "dimensao": "Produto"
+          },
+          {
+            "metrica": "Lead Time de Novas Features",
+            "anterior": "28 dias",
+            "projetado": "3 dias",
+            "impacto": "Time ágil e com autonomia real",
+            "dimensao": "Processo"
+          },
+          {
+            "metrica": "Taxa de Rotatividade da Equipe (Turnover)",
+            "anterior": "35%/ano",
+            "projetado": "8%/ano",
+            "impacto": "Fim da frustração e cansaço com o legado",
+            "dimensao": "Recursos"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 7,
     "titulo": "Microsserviços sob Pressão: A Ilusão da Frequência de Deploy",
     "nivel": "Nível 4 • Intermediário: A Ilusão de Produtividade vs. Degradação Distribuída",
     "fase1_cenario_inicial": {
@@ -677,7 +1091,145 @@ export const techLeadCasesData: TechLeadCase[] = [
     }
   },
   {
-    "id": 5,
+    "id": 8,
+    "titulo": "Qualidade Proativa: A Transição Vitoriosa para o Shift-Left Testing",
+    "nivel": "Nível 2 • Intermediário: Métricas Ocultas e Efeitos Colaterais",
+    "fase1_cenario_inicial": {
+      "periodo": "Mês 1 (Setembro) - A Rotina Reativa de Encontrar Bugs Tarde Demais",
+      "contexto": "No seu squad de crédito bancário, 80% dos defeitos eram descobertos na fase final de homologação ou diretamente pelos clientes em produção. O ciclo era cansativo: desenvolvedores codificavam sem testes unitários, jogavam a versão para os analistas de QA, estes encontravam 40 bugs, e o código voltava para correção em um pingue-pongue de semanas. O custo para corrigir cada defeito era altíssimo.",
+      "metricas": [
+        {
+          "nome": "Defeitos encontrados na homologação/produção",
+          "valor": "82%",
+          "dimensao": "Processo",
+          "justificativa": "Percentual de bugs descobertos apenas nas últimas fases do ciclo ou por usuários reais."
+        },
+        {
+          "nome": "Custo médio de correção por defeito",
+          "valor": "R$ 3.400",
+          "dimensao": "Recursos",
+          "justificativa": "Mede o valor monetário das horas de retrabalho, testes adicionais e impacto operacional do bug."
+        },
+        {
+          "nome": "Tempo médio de ciclo de testes manuais de QA",
+          "valor": "9 dias",
+          "dimensao": "Processo",
+          "justificativa": "Dias que uma funcionalidade fica parada na fila aguardando validação manual dos analistas."
+        },
+        {
+          "nome": "Cobertura de testes automatizados de unidade",
+          "valor": "12%",
+          "dimensao": "Produto",
+          "justificativa": "Volume de código protegido por testes automáticos executados antes do envio."
+        }
+      ],
+      "diagnostico_inicial": "Processo clássico 'Shift-Right' com feedback tardio. O time utiliza a equipe de testes manuais como escudo final, tornando as entregas arrastadas, caras e com alto desgaste entre as pessoas."
+    },
+    "fase2_dilema": {
+      "periodo": "Mês 4 (Dezembro) - A Consolidação do Shift-Left e a Tentação do Relaxamento",
+      "dilema_texto": "Você liderou uma profunda transformação cultural: introduziu testes de unidade no início do desenvolvimento (TDD/Shift-Left), testes estáticos de segurança (SAST) pré-commit e testes de contrato entre APIs. A dinâmica mudou por completo: 88% dos problemas agora são detectados e corrigidos pelo próprio desenvolvedor em sua máquina em minutos. O custo de correção despencou e o tempo de QA caiu para 1 dia. Com tudo calmo e funcionando em harmonia, alguns desenvolvedores começaram a propor: 'Como nosso código nunca mais deu bug em homologação, podemos desativar a exigência de testes de unidade nas entregas mais simples para ganharmos ainda mais tempo!'.",
+      "colunas_tabela": [
+        "Métrica",
+        "Antes (Set)",
+        "Hoje (Dez)",
+        "Variação",
+        "Dimensão"
+      ],
+      "tabela_comparativa": [
+        {
+          "metrica": "Defeitos detectados em desenvolvimento (Shift-Left)",
+          "col1": "18%",
+          "col2": "88%",
+          "var": "+388%",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Custo médio de correção de defeito",
+          "col1": "R$ 3.400",
+          "col2": "R$ 420",
+          "var": "-87%",
+          "dimensao": "Recursos",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Tempo de ciclo em validação de QA",
+          "col1": "9 dias",
+          "col2": "1 dia",
+          "var": "-88%",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Incidentes em produção por sprint",
+          "col1": "14",
+          "col2": "1",
+          "var": "-92%",
+          "dimensao": "Produto",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Eficácia dos testes de mutação (Mutation Score)",
+          "col1": "Não medido",
+          "col2": "78%",
+          "var": "Novo",
+          "dimensao": "Produto",
+          "status_var": "positive"
+        }
+      ]
+    },
+    "fase3_desafio": {
+      "enunciado": "O sucesso na qualidade cria a falsa sensação de que a disciplina pode ser dispensada. Como Tech Lead, guie o time para consolidar a cultura de excelência:",
+      "perguntas": [
+        "Por que abrir exceções para 'entregas simples' sem testes unitários costuma ser a porta de entrada para a reincidência de débitos técnicos?",
+        "Como o papel dos analistas de QA evolui de 'testadores manuais de tela' para 'engenheiros de qualidade' que constroem testes de ponta a ponta e segurança?",
+        "Que métricas de robustez de testes (como testes de mutação) impedem que o time escreva testes 'de faz-de-conta' apenas para bater metas burocráticas?"
+      ]
+    },
+    "fase4_resolucao": {
+      "diagnostico_causa_efeito": "O Shift-Left transferiu a detecção de defeitos para o momento mais barato e rápido do ciclo. Contudo, a estabilidade gerou uma ilusão de segurança no time, fazendo surgir a tentação de relaxar nos padrões de teste. Se as exceções forem aceitas, a cobertura cairá gradualmente, o código voltará a quebrar em produção e o ciclo virtuoso será destruído.",
+      "acao_tatica": "Manter os Quality Gates automatizados intransponíveis no GitHub/GitLab: pull requests sem cobertura mínima correspondente e sem passar nos testes de mutação não podem ser mesclados, sem exceções manuais.",
+      "acao_estrategica": "Reposicionar os profissionais de QA como Especialistas em Garantia de Qualidade (Quality Advocates/SDET), atuando em testes de carga, testes de resiliência (Chaos Engineering) e testes de segurança da informação.",
+      "metrica_oculta": "Cobertura Real de Cenários Críticos vs. Cobertura Sintética de Linhas de Código: testes que passam pelas linhas mas não validam os cálculos de crédito.",
+      "nova_metrica_proposta": "Índice de Sobrevivência de Mutantes (Mutation Score) e Densidade de Defeitos por KLOC em Produção.",
+      "argumento_executivo": "'Nossa economia de R$ 3.000 por defeito corrigido só existe porque não deixamos o erro passar da máquina do desenvolvedor. Abrir mão dos testes nas tarefas simples é abrir a primeira rachadura na barragem. O teste não é uma burocracia, é o alicerce que nos permitiu entregar 5 vezes mais rápido hoje.'",
+      "ruidos_cenario": [
+        {
+          "item": "Proposta de flexibilizar testes nas 'tarefas menores'",
+          "motivo": "Falácia clássica da engenharia: a maioria das quebras graves em produção se origina em pequenas alterações que ninguém achou necessário testar."
+        }
+      ],
+      "painel_pos_acao": {
+        "titulo": "Projeção de Maturidade em Garantia de Qualidade (12 Meses)",
+        "conclusao": "Com os Quality Gates fixos e a equipe de QA atuando em testes avançados, a densidade de defeitos atinge níveis de classe mundial e a confiança nas entregas atinge 99%.",
+        "tabela": [
+          {
+            "metrica": "Escore de Testes de Mutação",
+            "anterior": "78%",
+            "projetado": "92%",
+            "impacto": "Testes comprovadamente testam as regras de negócio",
+            "dimensao": "Produto"
+          },
+          {
+            "metrica": "Defeitos Escapados para Produção",
+            "anterior": "1/sprint",
+            "projetado": "0,2/sprint",
+            "impacto": "Produção blindada e clientes satisfeitos",
+            "dimensao": "Processo"
+          },
+          {
+            "metrica": "Retrabalho de Engenharia",
+            "anterior": "8%",
+            "projetado": "2%",
+            "impacto": "Tempo 98% livre para criação de valor real",
+            "dimensao": "Recursos"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 9,
     "titulo": "FinOps: O Desperdício Silencioso do Autoscaling Desgovernado",
     "nivel": "Nível 5 • Avançado: Eficiência Econômica de Arquitetura em Nuvem",
     "fase1_cenario_inicial": {
@@ -838,7 +1390,145 @@ export const techLeadCasesData: TechLeadCase[] = [
     }
   },
   {
-    "id": 6,
+    "id": 10,
+    "titulo": "Maturidade DORA: Atingindo o Nível Elite com Governança de SLOs",
+    "nivel": "Nível 3 • Avançado: Trade-offs Sistêmicos e Governança",
+    "fase1_cenario_inicial": {
+      "periodo": "Mês 1 (Outubro) - O Diagnóstico das Métricas DORA",
+      "contexto": "Você assumiu como Tech Lead da plataforma core de e-commerce da organização durante a preparação para grandes datas sazonais. A liderança executiva adotou as métricas DORA (DevOps Research and Assessment) para medir o desempenho de engenharia. O time apresentava desempenho mediano: deploys semanais, tempo de recuperação em caso de falha de 12 horas e taxa de falhas em mudanças de 22%.",
+      "metricas": [
+        {
+          "nome": "Frequência de Implantação (Deployment Frequency)",
+          "valor": "1 vez por semana",
+          "dimensao": "Processo",
+          "justificativa": "Métrica DORA que avalia a frequência com que o código chega aos usuários finais."
+        },
+        {
+          "nome": "Tempo de Lead Time para Mudanças (Lead Time for Changes)",
+          "valor": "7 dias",
+          "dimensao": "Processo",
+          "justificativa": "Métrica DORA que mede o tempo entre o primeiro commit e a execução do código em produção."
+        },
+        {
+          "nome": "Tempo Médio para Restauração (Time to Restore Service - MTTR)",
+          "valor": "12 horas",
+          "dimensao": "Processo",
+          "justificativa": "Métrica DORA que mede quanto tempo o time leva para recuperar o sistema quando ocorre uma pane."
+        },
+        {
+          "nome": "Taxa de Falhas em Mudanças (Change Failure Rate - CFR)",
+          "valor": "22%",
+          "dimensao": "Processo",
+          "justificativa": "Métrica DORA que calcula a porcentagem de deploys que exigem hotfix emergencial ou rollback."
+        }
+      ],
+      "diagnostico_inicial": "Desempenho operacional mediano segundo o benchmark DORA. Entregas em lotes grandes aumentam o risco e retardam o tempo de recuperação em caso de incidente."
+    },
+    "fase2_dilema": {
+      "periodo": "Mês 6 (Abril) - Atingimento do Padrão 'Elite' e a Pressão do Negócio",
+      "dilema_texto": "Após seis meses implementando observabilidade profunda (OpenTelemetry), rollbacks automatizados (Canary Deployments) e decoupling arquitetural com Feature Flags, o time atingiu a faixa máxima: padrão ELITE em todas as 4 métricas DORA. Múltiplos deploys diários, MTTR de 15 minutos e taxa de falhas abaixo de 4%. Diante disso, a diretoria comercial ficou empolgada: 'Agora que temos o melhor time de engenharia da empresa, queremos lançar 12 integrações de novos parceiros de uma só vez na próxima semana, dispensando os testes de carga para não perder o prazo comercial!'.",
+      "colunas_tabela": [
+        "Métrica DORA / Engenharia",
+        "Antes (Out)",
+        "Hoje (Abr)",
+        "Status DORA",
+        "Dimensão"
+      ],
+      "tabela_comparativa": [
+        {
+          "metrica": "Frequência de Deploys",
+          "col1": "1x por semana",
+          "col2": "5x ao dia",
+          "var": "Padrão Elite",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Lead Time for Changes",
+          "col1": "7 dias",
+          "col2": "45 minutos",
+          "var": "Padrão Elite",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Time to Restore Service (MTTR)",
+          "col1": "12 horas",
+          "col2": "15 minutos",
+          "var": "Padrão Elite",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Change Failure Rate (CFR)",
+          "col1": "22%",
+          "col2": "3,5%",
+          "var": "Padrão Elite",
+          "dimensao": "Processo",
+          "status_var": "positive"
+        },
+        {
+          "metrica": "Orçamento de Erro Restante (Error Budget)",
+          "col1": "0%",
+          "col2": "82%",
+          "var": "Seguro",
+          "dimensao": "Produto",
+          "status_var": "positive"
+        }
+      ]
+    },
+    "fase3_desafio": {
+      "enunciado": "Estar no nível 'Elite' não significa que o sistema é invulnerável. Como Tech Lead, você deve usar métricas de governança para arbitrar o conflito entre inovação e confiabilidade:",
+      "perguntas": [
+        "Como utilizar o conceito de 'Orçamento de Erro' (Error Budget derivado de SLOs) como regra objetiva e neutra para frear ou autorizar lançamentos arriscados?",
+        "Por que lançar 12 integrações de terceiros de uma única vez viola os princípios fundamentais que levaram o time ao padrão Elite?",
+        "Como explicar para a liderança comercial que usar Feature Flags e lançamentos progressivos (Canary) protege as vendas em vez de atrasá-las?"
+      ]
+    },
+    "fase4_resolucao": {
+      "diagnostico_causa_efeito": "Atingir o nível Elite do DORA só foi possível porque o time adotou entregas em pequenos lotes e validação automatizada. Lançar 12 integrações pesadas de uma só vez, sem testes de carga, recria instantaneamente o modelo antigo de 'Big Bang Release', com risco real de derrubar a plataforma no momento de maior tráfego e queimar todo o Orçamento de Erro.",
+      "acao_tatica": "Adotar lançamento progressivo obrigatório: habilitar os parceiros individualmente atrás de Feature Flags, começando com 5% do tráfego para validar latência e taxas de erro antes de abrir 100%.",
+      "acao_estrategica": "Instituir a política contratual de Error Budget: se o consumo do orçamento de erro mensal ultrapassar 50%, todas as novas features de alto risco são pausadas automaticamente até que a confiabilidade seja restabelecida.",
+      "metrica_oculta": "Disponibilidade e Latência dos Serviços Terceiros (Dependency Health): falhas externas que poluem as métricas do seu sistema sem terem sido causadas pelo seu código.",
+      "nova_metrica_proposta": "Consumo do Orçamento de Erro (Error Budget Burn Rate) e Latência P99 por Parceiro Integrado.",
+      "argumento_executivo": "'Nosso time é de elite exatamente porque nunca colocamos todas as fichas em um único lançamento sem rede de segurança. Lançando os parceiros gradualmente com Feature Flags, colocamos as 12 integrações no ar em 3 dias com risco zero de queda nas vendas e mantendo nossa reputação de disponibilidade impecável.'",
+      "ruidos_cenario": [
+        {
+          "item": "Pressão para fazer deploy 'Big Bang' de 12 parceiros",
+          "motivo": "Contraria as práticas de engenharia moderna e destrói o isolamento de falhas, tornando impossível identificar qual parceiro gerou lentidão."
+        }
+      ],
+      "painel_pos_acao": {
+        "titulo": "Projeção de Governança DORA e Estabilidade em Alta Escala (12 Meses)",
+        "conclusao": "Com a gestão de SLOs e Feature Flags, a empresa lança 4 vezes mais integrações comerciais sem registrar um único minuto de indisponibilidade não programada.",
+        "tabela": [
+          {
+            "metrica": "Disponibilidade Geral (SLO)",
+            "anterior": "99,5%",
+            "projetado": "99,99%",
+            "impacto": "Alta confiabilidade e reputação no mercado",
+            "dimensao": "Produto"
+          },
+          {
+            "metrica": "Taxa de Reversão Automática (Canary Rollback)",
+            "anterior": "Manual",
+            "projetado": "< 2 min",
+            "impacto": "Zero impacto para mais de 95% dos clientes",
+            "dimensao": "Processo"
+          },
+          {
+            "metrica": "Tempo Médio de Onboarding de Integrações",
+            "anterior": "3 semanas",
+            "projetado": "2 dias",
+            "impacto": "Agilidade de negócio com governança técnica",
+            "dimensao": "Recursos"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": 11,
     "titulo": "DevSecOps: A Bomba-Relógio da Velocidade sem Conformidade",
     "nivel": "Nível 6 • Avançado: Gestão de Risco Operacional e Segurança Crítica",
     "fase1_cenario_inicial": {
@@ -999,7 +1689,7 @@ export const techLeadCasesData: TechLeadCase[] = [
     }
   },
   {
-    "id": 7,
+    "id": 12,
     "titulo": "A Armadilha do Burnout: A Produtividade que Destrói a Equipe",
     "nivel": "Nível 7 • Avançado: Sustentabilidade do Capital Humano e Conhecimento Tácito",
     "fase1_cenario_inicial": {
@@ -1160,7 +1850,7 @@ export const techLeadCasesData: TechLeadCase[] = [
     }
   },
   {
-    "id": 8,
+    "id": 13,
     "titulo": "O Monolito Asfixiado: O Débito Técnico que Paralisou a Inovação",
     "nivel": "Nível 8 • Mestre: Débito Técnico Estrutural vs. Custo de Oportunidade",
     "fase1_cenario_inicial": {
@@ -1321,7 +2011,7 @@ export const techLeadCasesData: TechLeadCase[] = [
     }
   },
   {
-    "id": 9,
+    "id": 14,
     "titulo": "SRE e Error Budget: O Conflito entre Inovação Agressiva e Confiabilidade",
     "nivel": "Nível 9 • Mestre: Confiabilidade de Sistemas e Equilíbrio de Risco",
     "fase1_cenario_inicial": {
@@ -1482,7 +2172,7 @@ export const techLeadCasesData: TechLeadCase[] = [
     }
   },
   {
-    "id": 10,
+    "id": 15,
     "titulo": "Engenharia de Plataforma: Destravando o Atrito Cognitivo e o Tempo de Espera",
     "nivel": "Nível 10 • Mestre: Eficiência Organizacional e Redução de Atrito Cognitivo",
     "fase1_cenario_inicial": {
