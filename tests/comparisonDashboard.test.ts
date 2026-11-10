@@ -53,3 +53,4 @@ describe('Componente ComparisonDashboard - Painel Consolidado Tridimensional', (
     printSpy.mockRestore();
   });
 });
+

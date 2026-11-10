@@ -137,3 +137,4 @@ export const BLANK_TEMPLATE: Omit<PricingTemplate, 'id' | 'nome' | 'categoria' |
     percentualCaptura: 20
   }
 };
+
