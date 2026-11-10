@@ -55,6 +55,19 @@ export function createNavbar(onToggleSidebar: () => void): HTMLElement {
             </a>
           </li>
           <li>
+            <a href="#/precificacao" class="nav-link" data-route="/precificacao">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                <line x1="8" y1="6" x2="16" y2="6"></line>
+                <line x1="16" y1="14" x2="16" y2="18"></line>
+                <path d="M12 10h.01"></path>
+                <path d="M12 14h.01"></path>
+                <path d="M12 18h.01"></path>
+              </svg>
+              Precificação
+            </a>
+          </li>
+          <li>
             <a href="#/sobre" class="nav-link" data-route="/sobre">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10"></circle>

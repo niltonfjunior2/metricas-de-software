@@ -11,7 +11,8 @@ describe('Layout Shell Components', () => {
     expect(navbar.querySelector('.navbar-brand')).not.toBeNull();
     expect(navbar.querySelector('.navbar-brand')?.textContent).toContain('MétricaLab');
     expect(navbar.querySelector('img[src="/logo.png"]')).not.toBeNull();
-    expect(navbar.querySelectorAll('.nav-link').length).toBe(4);
+    expect(navbar.querySelectorAll('.nav-link').length).toBe(5);
+    expect(navbar.querySelector('a[href="#/precificacao"]')).not.toBeNull();
 
     const toggleBtn = navbar.querySelector<HTMLButtonElement>('#menu-toggle');
     expect(toggleBtn).not.toBeNull();

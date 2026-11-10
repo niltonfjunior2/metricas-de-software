@@ -1,0 +1,78 @@
+/* Estilos para Impressão e Exportação em PDF (A4) */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    font-size: 11pt;
+  }
+
+  /* Ocultar elementos de navegação e controles interativos */
+  .navbar,
+  .sidebar,
+  .sidebar-expand-btn,
+  .sidebar-backdrop,
+  .footer,
+  .pricing-btn-add,
+  .btn-remove-member,
+  #btn-copy-proposal,
+  #btn-print-proposal,
+  #btn-save-draft,
+  .tax-preset-btn,
+  .templates-bar-container {
+    display: none !important;
+  }
+
+  /* Expandir a área de conteúdo */
+  .shell-body {
+    display: block !important;
+  }
+
+  .main-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .pricing-tier-card {
+    background: #FFFFFF !important;
+    border: 1px solid #D1D5DB !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .pricing-input {
+    border: none !important;
+    background: transparent !important;
+    color: #111827 !important;
+    padding: 0 !important;
+  }
+
+  .pricing-table th {
+    background: #F3F4F6 !important;
+    color: #374151 !important;
+    border-bottom: 2px solid #D1D5DB !important;
+  }
+
+  .pricing-table td {
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+
+  .pricing-summary-box {
+    background: #F9FAFB !important;
+    border: 1px solid #E5E7EB !important;
+  }
+
+  .pricing-value-piso,
+  .pricing-value-mono {
+    color: #111827 !important;
+    font-weight: 700 !important;
+  }
+}

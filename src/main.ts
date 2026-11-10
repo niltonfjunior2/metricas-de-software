@@ -4,12 +4,14 @@ import { createSidebar } from './components/Sidebar';
 import { createFooter } from './components/Footer';
 import { router } from './utils/router';
 import { initTheme, toggleTheme } from './utils/theme';
+import { renderWelcomeView } from './views/WelcomeView';
 import { renderHomeView } from './views/HomeView';
 import { renderTheoryView } from './views/TheoryView';
 import { renderActivitiesView } from './views/ActivitiesView';
 import { renderAboutView } from './views/AboutView';
 import { renderTermsView } from './views/TermsView';
 import { renderPrivacyView } from './views/PrivacyView';
+import { renderPricingView } from './views/pricing/PricingView';
 
 function initializeApp(): void {
   // Initialize Theme from localStorage or system preference
@@ -126,7 +128,13 @@ function initializeApp(): void {
   // Register SPA Routes
   router
     .on('/', () => {
+      setView(renderWelcomeView());
+    })
+    .on('/metricas', () => {
       setView(renderHomeView());
+    })
+    .on('/precificacao', () => {
+      setView(renderPricingView());
     })
     .on('/teoria', () => {
       setView(renderTheoryView());

@@ -5,6 +5,9 @@
 @import './activities.css';
 @import './audit.css';
 @import './techlead.css';
+@import './welcome.css';
+@import './pricing.css';
+@import './print.css';
 
 *,
 *::before,

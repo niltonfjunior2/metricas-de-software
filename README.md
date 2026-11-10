@@ -2,11 +2,11 @@
 
 [![Vite](https://img.shields.io/badge/Vite-6.4-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vitest](https://img.shields.io/badge/Vitest-3.2%20(33%20passed)-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-3.2%20(60%20passed)-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![Deploy Vercel](https://img.shields.io/badge/Deploy-Vercel%20Edge-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-Plataforma web moderna, aberta, auto-instrucional e de alto impacto visual voltada para o aprendizado prático de **Métricas de Software** em Engenharia de Software. O projeto combina teoria concisa estruturada em **acordeões dinâmicos** com **três simuladores interativos** focados na classificação, auditoria de cenários reais e tomada de decisão estratégica como Tech Lead.
+Plataforma web moderna, aberta, auto-instrucional e de alto impacto visual voltada para o aprendizado prático de **Métricas de Software** em Engenharia de Software e sua aplicação direta na **Precificação de Serviços e Produtos de TI**. O ecossistema é bimodal, integrado por uma tela de boas-vindas (**Welcome Gateway**) que conecta o **MétricaLab** analítico à **Calculadora de Precificação Comercial**.
 
 ---
 
@@ -15,7 +15,39 @@ Plataforma web moderna, aberta, auto-instrucional e de alto impacto visual volta
 * **Ensino Prático e Imersivo:** Permitir que estudantes universitários, desenvolvedores em capacitação e líderes técnicos assimilem fundamentos de medição através de experimentação direta, superando o modelo passivo de leitura tradicional.
 * **Visão Sistêmica de Engenharia:** Demonstrar como as três grandes lentes de medição (**Recursos**, **Processo** e **Produto**) formam uma cadeia de causa e efeito interligada: alterações em insumos e equipe afetam a cadência de entrega, que por sua vez determinam a qualidade intrínseca do software final.
 * **Tomada de Decisão do Tech Lead:** Desenvolver pensamento crítico para distinguir indicadores de alto valor de **métricas de vaidade** e ruídos de projeto, capacitando o profissional a formular ações táticas imediatas e soluções estratégicas de longo prazo.
-* **Acesso Aberto e Sustentabilidade:** Custo zero de infraestrutura ($0/mês), sem necessidade de login ou cadastro, processamento 100% *client-side* e entrega contínua em Edge CDN global via Vercel.
+* **Formação de Preço Fundamentada (Módulos 10 e 11):** Capacitar os estudantes a calcular o piso mínimo de sobrevivência em Recursos, apurar a eficiência competitiva em Processo (DORA/Scrum) e alcançar o teto de captura de valor em Produto, com governança tributária compulsória.
+* **Acesso Aberto e Sustentabilidade:** Custo zero de infraestrutura ($0/mês), sem necessidade de login ou cadastro, processamento 100% *client-side*, persistência local no `localStorage` e entrega contínua em Edge CDN global via Vercel.
+
+---
+
+## 🚪 Welcome Gateway (Portal de Entrada Bimodal)
+
+A raiz da aplicação (`#/`) apresenta um portal moderno que divide a experiência em dois caminhos complementares:
+1. **Portal MétricaLab (`#/metricas`):** Trilha conceitual completa em acordeões dinâmicos e os 3 simuladores de medição técnica.
+2. **Portal Calculadora de Precificação (`#/precificacao`):** Ferramenta financeira e de orçamentação com modelagem em 3 faixas cumulativas, governança tributária compulsória e exportação para PDF/impressão.
+
+---
+
+## 💰 Calculadora de Precificação de Software com Base em Métricas
+
+Fundamentada nos conceitos acadêmicos de valoração de software e no princípio de Warren Buffett (*"O preço é o que você paga. Valor é o que você recebe"*), a calculadora opera em 3 faixas comparativas simultâneas:
+
+* **Faixa 1 • O Piso de Sobrevivência (Recursos):**
+  * Tabela dinâmica de equipe técnica (Devs Sr, Pl, Jr, UX, QA, GP, DevOps), infraestrutura de nuvem, ferramentas e overhead administrativo (20-40%).
+  * Aplicação de margem de lucro bruta desejada para definir o custo real de produção e o preço mínimo sem prejuízo.
+* **Faixa 2 • Eficiência Competitiva (Processo):**
+  * Derivada cumulativamente da base de Recursos, adiciona bônus por metas operacionais ativas baseadas no framework **DORA**: *Velocity Estável*, *Lead Time Reduzido (< 2 semanas)*, *Zero Bugs Críticos* e *Deploy Diário Automatizado*.
+* **Faixa 3 • O Teto de Valor (Produto):**
+  * Ancorada no impacto financeiro real gerado para o cliente via *Revenue Share* (% do faturamento/GMV gerado), *Cost Savings* (% da economia de custos operacionais/nuvem) ou *Value-Based* (metas de conversão).
+  * Demonstração transparente da relação ganha-ganha (*Win-Win*) com retenção de valor pelo cliente e ROI.
+* **Módulo Tributário Compulsório (Governança Fiscal):**
+  * Nenhuma proposta é formada sem a presença de impostos (validação estrita contra alíquota $\le 0\%$).
+  * Presets rápidos para regimes de TI no Brasil: **MEI (~6%)**, **Simples Nacional TI (~15.5%)** e **Lucro Presumido (~16.33%)**.
+  * Cálculo por dentro (*Gross-Up*): $PreçoBruto = \frac{PreçoLíquido}{1 - \text{Alíquota}/100}$.
+* **Modelos Didáticos Prontos & Exportação:**
+  * Templates de mercado pré-carregados: *E-commerce de Varejo (GMV)*, *FinOps & Nuvem (Cost Savings)*, *SaaS B2B (DORA & Leads)* e *Modo em Branco*.
+  * Gerenciador de rascunhos no `localStorage` do navegador para salvar, retomar e excluir simulações.
+  * Botão de cópia da proposta comercial formatada para a Área de Transferência e folha de estilo de impressão limpa (`@media print`) para geração de PDF A4.
 
 ---
 
