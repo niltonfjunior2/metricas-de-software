@@ -91,6 +91,15 @@
   box-shadow: 0 12px 32px rgba(16, 185, 129, 0.15);
 }
 
+.gateway-card.portal-contracts {
+  border-top: 4px solid var(--color-produto);
+}
+
+.gateway-card.portal-contracts:hover {
+  border-color: var(--color-produto);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+}
+
 .gateway-header {
   display: flex;
   justify-content: space-between;
@@ -116,6 +125,11 @@
 .portal-pricing .gateway-icon {
   background-color: rgba(16, 185, 129, 0.12);
   color: var(--color-processo);
+}
+
+.portal-contracts .gateway-icon {
+  background-color: rgba(59, 130, 246, 0.12);
+  color: var(--color-produto);
 }
 
 .gateway-card-title {
@@ -170,6 +184,10 @@
   color: var(--color-processo);
 }
 
+.portal-contracts .gateway-feature-item svg {
+  color: var(--color-produto);
+}
+
 .gateway-card-footer {
   margin-top: auto;
   padding-top: 1.25rem;
@@ -206,6 +224,15 @@
 
 .portal-pricing:hover .gateway-cta-btn {
   background-color: #059669;
+}
+
+.portal-contracts .gateway-cta-btn {
+  background-color: var(--color-produto);
+  color: #FFFFFF;
+}
+
+.portal-contracts:hover .gateway-cta-btn {
+  background-color: #2563EB;
 }
 
 .welcome-pillars-grid {

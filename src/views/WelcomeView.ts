@@ -118,6 +118,50 @@ export function renderWelcomeView(): HTMLElement {
         </div>
       </a>
 
+      <!-- Card 3: Portal Assistente de Contratos -->
+      <a href="#/contratos" class="gateway-card portal-contracts" id="portal-contracts-link">
+        <div class="gateway-header">
+          <div class="gateway-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <span class="badge badge-produto" style="font-size: 0.72rem;">Segurança Jurídica</span>
+        </div>
+
+        <h2 class="gateway-card-title">Assistente de Contratos</h2>
+        <div class="gateway-card-role">Segurança Jurídica & Boas Práticas em TI</div>
+        <p class="gateway-card-desc">
+          Estruture minutas contratuais equilibradas entre desenvolvedor e cliente com base na Lei do Software (9.609/98), Código Civil e LGPD, prevenindo litígios e escopo infinito.
+        </p>
+
+        <ul class="gateway-features-list">
+          <li class="gateway-feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Prevenção ao Scope Creep:</strong> Escopo, Exclusões e Change Request</span>
+          </li>
+          <li class="gateway-feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Propriedade Intelectual & LGPD:</strong> Cessão, Licença e Papéis Legais</span>
+          </li>
+          <li class="gateway-feature-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Termômetro de Risco & Minuta:</strong> Diagnóstico e exportação A4</span>
+          </li>
+        </ul>
+
+        <div class="gateway-card-footer">
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Guia Informativo para ADS</span>
+          <span class="gateway-cta-btn">
+            Abrir Assistente
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </span>
+        </div>
+      </a>
+
     </section>
 
     <!-- Pilares Metodológicos -->

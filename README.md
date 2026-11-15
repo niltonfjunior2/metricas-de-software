@@ -2,7 +2,7 @@
 
 [![Vite](https://img.shields.io/badge/Vite-6.4-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vitest](https://img.shields.io/badge/Vitest-3.2%20(70%20passed)-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-3.2%20(78%20passed)-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![Deploy Vercel](https://img.shields.io/badge/Deploy-Vercel%20Edge-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
@@ -20,11 +20,12 @@ Plataforma web moderna, aberta, auto-instrucional e de alto impacto visual volta
 
 ---
 
-## 🚪 Welcome Gateway (Portal de Entrada Bimodal)
+## 🚪 Welcome Gateway (Portal de Entrada do Ecossistema)
 
-A raiz da aplicação (`#/`) apresenta um portal moderno que divide a experiência em dois caminhos complementares:
+A raiz da aplicação (`#/`) apresenta um portal moderno que divide a experiência em três grandes ambientes complementares:
 1. **Portal MétricaLab (`#/metricas`):** Trilha conceitual completa em acordeões dinâmicos e os 3 simuladores de medição técnica.
 2. **Portal Calculadora de Precificação (`#/precificacao`):** Ferramenta financeira e de orçamentação com modelagem em 3 faixas cumulativas, governança tributária compulsória e exportação para PDF/impressão.
+3. **Portal Assistente de Contratos (`#/contratos`):** Guia interativo de segurança jurídica para profissionais e estudantes de Análise e Desenvolvimento de Sistemas estruturarem minutas contratuais equilibradas entre desenvolvedor e cliente.
 
 ---
 
@@ -48,6 +49,22 @@ Fundamentada nos conceitos acadêmicos de valoração de software e no princípi
   * Templates de mercado pré-carregados: *E-commerce de Varejo (GMV)*, *FinOps & Nuvem (Cost Savings)*, *SaaS B2B (Performance & Conversão)* e *Modo em Branco*.
   * Gerenciador de rascunhos no `localStorage` do navegador para salvar, retomar e excluir simulações.
   * Botão de cópia da proposta comercial formatada para a Área de Transferência e folha de estilo de impressão limpa (`@media print`) para geração de PDF A4.
+
+---
+
+## ⚖️ Assistente de Construção de Contratos de Software & Segurança Jurídica
+
+Alinhado à legislação brasileira (**Lei do Software nº 9.609/1998**, **Código Civil** e **LGPD nº 13.709/2018**), o assistente (`#/contratos`) orienta profissionais e estudantes sobre como estabelecer acordos justos e transparentes:
+
+* **Os 6 Pilares da Segurança Contratual em TI:**
+  1. *Delimitação de Escopo, Exclusões ("Não-Escopo") e Prevenção ao Scope Creep (Change Request via Termo Aditivo).*
+  2. *Homologação com Prazo Definido e Cláusula de Aceite Tácito (proteção contra paralisação do aceite pelo cliente).*
+  3. *Propriedade Intelectual (Cessão após quitação vs. Licença de Uso SaaS) e Salvaguarda de Background IP.*
+  4. *Garantia Técnica contra Bugs de Escopo vs. Manutenção Evolutiva e SLA por criticidade.*
+  5. *Conformidade com a LGPD (Cliente como Controlador e Desenvolvedor como Operador) e Sigilo Bilateral (NDA).*
+  6. *Limitação de Responsabilidade Civil (teto indenizatório e isenção por quedas de nuvem/APIs de terceiros) e Rescisão Proporcional.*
+* **Termômetro de Cobertura Contratual em Tempo Real:** Avalia a configuração escolhida (`0%` a `100%`) e alerta imediatamente caso alguma cláusula deixe o desenvolvedor ou o cliente vulnerável.
+* **Caráter Estritamente Educativo e Informativo:** Apresenta aviso de governança destacado na interface e no documento gerado esclarecendo que a minuta referencial não substitui a consultoria e revisão de um(a) advogado(a) habilitado(a) na OAB.
 
 ---
 

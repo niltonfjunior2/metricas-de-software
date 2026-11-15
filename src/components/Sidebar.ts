@@ -66,6 +66,24 @@ export function createSidebar(
       </ul>
     </div>
 
+    <div>
+      <div class="sidebar-section-title">Gestão & Contratos</div>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#/precificacao" class="sidebar-link" data-route="/precificacao">
+            <span class="badge badge-processo" style="font-size: 0.65rem; padding: 0.15rem 0.45rem;">P1</span>
+            <span>Calculadora de Preços</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/contratos" class="sidebar-link" data-route="/contratos">
+            <span class="badge badge-produto" style="font-size: 0.65rem; padding: 0.15rem 0.45rem;">C1</span>
+            <span>Assistente de Contratos</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
     <div style="margin-top: auto; padding: 1rem 0.5rem; border-top: 1px solid var(--border-color);">
       <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
         Engenharia de Software<br />

@@ -12,6 +12,7 @@ import { renderAboutView } from './views/AboutView';
 import { renderTermsView } from './views/TermsView';
 import { renderPrivacyView } from './views/PrivacyView';
 import { renderPricingView } from './views/pricing/PricingView';
+import { renderContractsView } from './views/contracts/ContractsView';
 
 function initializeApp(): void {
   // Initialize Theme from localStorage or system preference
@@ -135,6 +136,9 @@ function initializeApp(): void {
     })
     .on('/precificacao', () => {
       setView(renderPricingView());
+    })
+    .on('/contratos', () => {
+      setView(renderContractsView());
     })
     .on('/teoria', () => {
       setView(renderTheoryView());

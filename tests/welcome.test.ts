@@ -14,18 +14,22 @@ describe('Welcome Gateway View', () => {
     expect(title?.textContent).toContain('Aprenda Métricas');
     expect(title?.textContent).toContain('Precifique com Consciência Técnica');
 
-    // Dois grandes portais de acesso
+    // Portais de acesso
     const metricasPortal = welcome.querySelector<HTMLAnchorElement>('#portal-metricas-link');
     const pricingPortal = welcome.querySelector<HTMLAnchorElement>('#portal-pricing-link');
+    const contractsPortal = welcome.querySelector<HTMLAnchorElement>('#portal-contracts-link');
 
     expect(metricasPortal).not.toBeNull();
     expect(pricingPortal).not.toBeNull();
+    expect(contractsPortal).not.toBeNull();
 
     expect(metricasPortal?.getAttribute('href')).toBe('#/metricas');
     expect(pricingPortal?.getAttribute('href')).toBe('#/precificacao');
+    expect(contractsPortal?.getAttribute('href')).toBe('#/contratos');
 
     expect(metricasPortal?.textContent).toContain('MétricaLab');
     expect(pricingPortal?.textContent).toContain('Calculadora de Precificação');
+    expect(contractsPortal?.textContent).toContain('Assistente de Contratos');
 
     // Destaque de 3 faixas e governança tributária no portal de precificação
     expect(pricingPortal?.textContent).toContain('Comparação em 3 Faixas');

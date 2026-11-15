@@ -24,8 +24,24 @@
   #btn-print-proposal,
   #btn-save-draft,
   .tax-preset-btn,
-  .templates-bar-container {
+  .templates-bar-container,
+  .no-print {
     display: none !important;
+  }
+
+  #contract-preview-card {
+    background: #FFFFFF !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  #contract-document-output {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 10pt !important;
   }
 
   /* Expandir a área de conteúdo */
