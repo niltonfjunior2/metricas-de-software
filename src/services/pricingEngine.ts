@@ -17,9 +17,9 @@ export interface TeamMemberInput {
 
 export interface ResourceTierInput {
   equipe: TeamMemberInput[];
-  infraestrutura: number;
-  ferramentas: number;
-  overheadPercentual: number; // Sugestão 20% a 40%
+  infraestrutura?: number;
+  ferramentas?: number;
+  overheadPercentual?: number; // Opcional (suporte a dados legados)
   margemLucroPercentual: number; // Ex: 20% a 35%
 }
 
@@ -35,8 +35,8 @@ export interface ResourceTierResult {
 export interface ProcessMetricGoal {
   id: string;
   nome: string;
-  descricao: string;
-  bonusValor: number; // Valor adicional em R$
+  descricao?: string;
+  bonusValor: number; // Valor em R$ ou percentual (%)
   tipoBonus: 'fixo' | 'percentual';
   atingida: boolean;
 }
@@ -55,7 +55,7 @@ export interface ProcessTierResult {
 export type ProductCaptureModel = 'revenue_share' | 'cost_savings' | 'value_based';
 
 export interface ProductTierInput {
-  modeloCaptura: ProductCaptureModel;
+  modeloCaptura?: ProductCaptureModel; // Opcional (informativo)
   resultadoClienteEstimado: number; // R$ gerados em receita ou economizados
   percentualCaptura: number; // Ex: 3% a 30%
   manutencaoBaseMensal?: number; // Fee fixo opcional derivado de recursos
@@ -101,47 +101,47 @@ export interface FullPricingComparisonResult {
 export const DEFAULT_TEAM_ROLES: Omit<TeamMemberInput, 'id'>[] = [
   { funcao: 'Desenvolvedor Sênior', quantidade: 1, custoHora: 150, horas: 160 },
   { funcao: 'Desenvolvedor Pleno', quantidade: 2, custoHora: 100, horas: 160 },
-  { funcao: 'Desenvolvedor Júnior', quantidade: 1, custoHora: 60, horas: 160 },
-  { funcao: 'Designer UX/UI', quantidade: 1, custoHora: 120, horas: 80 },
-  { funcao: 'Gerente de Projetos / Scrum Master', quantidade: 1, custoHora: 130, horas: 80 },
+  { funcao: 'Infraestrutura Cloud & Servidores', quantidade: 1, custoHora: 2500, horas: 1 },
+  { funcao: 'Licenças de Software & Ferramentas', quantidade: 1, custoHora: 800, horas: 1 },
   { funcao: 'Analista de QA / Tester', quantidade: 1, custoHora: 80, horas: 120 },
-  { funcao: 'Engenheiro de DevOps / Cloud', quantidade: 1, custoHora: 140, horas: 60 }
+  { funcao: 'Designer UX/UI', quantidade: 1, custoHora: 120, horas: 80 },
+  { funcao: 'Overhead Administrativo / Jurídico', quantidade: 1, custoHora: 1500, horas: 1 }
 ];
 
 /**
- * Metas de processo e métricas DORA pré-configuradas (baseadas no PDF p. 5)
+ * Métricas e metas de processo pré-configuradas para demonstração
  */
 export const DEFAULT_PROCESS_GOALS: ProcessMetricGoal[] = [
   {
-    id: 'goal-velocity',
-    nome: 'Velocity Estável (> 40 pts)',
-    descricao: 'Capacidade preditiva alta e entregas ágeis consistentes a cada sprint.',
+    id: 'goal-previsibilidade',
+    nome: 'Alta Previsibilidade e Aderência a Prazos',
+    descricao: 'Capacidade de cumprir cronogramas com desvio mínimo entre o planejado e o realizado.',
     bonusValor: 8000,
     tipoBonus: 'fixo',
     atingida: true
   },
   {
     id: 'goal-leadtime',
-    nome: 'Lead Time Reduzido (< 2 semanas)',
-    descricao: 'Agilidade organizacional para transformar demanda em código rodando em produção.',
+    nome: 'Redução do Tempo de Ciclo (Cycle Time)',
+    descricao: 'Fluxo contínuo e rápido desde a especificação da demanda até a entrega final.',
     bonusValor: 5000,
     tipoBonus: 'fixo',
     atingida: true
   },
   {
-    id: 'goal-zerobugs',
-    nome: 'Zero Bugs Críticos em Produção',
-    descricao: 'Garantia de qualidade contínua e ausência de incidentes graves de severidade 1.',
+    id: 'goal-qualidade',
+    nome: 'Baixa Densidade de Defeitos e Menor Retrabalho',
+    descricao: 'Detecção antecipada de inconformidades com estabilidade da solução.',
     bonusValor: 7000,
     tipoBonus: 'fixo',
     atingida: true
   },
   {
-    id: 'goal-deploy',
-    nome: 'Deployment Diário Automatizado (DORA Elite)',
-    descricao: 'Esteira de CI/CD robusta que permite deploys diários sob demanda sem atrito.',
-    bonusValor: 5000,
-    tipoBonus: 'fixo',
+    id: 'goal-automacao',
+    nome: 'Automação de Testes e Entrega Contínua',
+    descricao: 'Esteira técnica automatizada que reduz o esforço manual e riscos de execução.',
+    bonusValor: 10,
+    tipoBonus: 'percentual',
     atingida: false
   }
 ];
@@ -184,7 +184,7 @@ export function calculateResourceTier(input: ResourceTierInput): ResourceTierRes
 
 /**
  * Calcula a Faixa de Eficiência de Processo
- * Preço = Base de Recursos + Bônus por Metas de Agilidade e DORA
+ * Preço = Base de Recursos + Acréscimos por Eficiência de Processo
  */
 export function calculateProcessTier(
   precoBaseRecursos: number,
@@ -243,7 +243,7 @@ export function calculateProductTier(
 
   return {
     precoBaseRecursos: base,
-    modeloCaptura: input.modeloCaptura,
+    modeloCaptura: input.modeloCaptura ?? 'value_based',
     resultadoClienteEstimado: resultado,
     percentualCaptura: pctCaptura,
     valorCapturadoProduto: valorCapturado,

@@ -60,5 +60,17 @@ describe('Componente TaxModule - Governança Fiscal Obrigatória', () => {
     presetBtns[2].click();
     expect(comp.getAliquota()).toBe(16.33);
   });
+
+  it('deve renderizar a explicação didática estruturada do cálculo por dentro (Gross-Up)', () => {
+    const comp = createTaxModuleComponent({
+      valoresLiquidos: { piso: 10000, processo: 15000, produto: 25000 }
+    });
+
+    const textContent = comp.element.textContent || '';
+    expect(textContent).toContain('Gross-Up');
+    expect(textContent).toContain('A Armadilha do Cálculo "Por Fora"');
+    expect(textContent).toContain('A Fórmula Profissional ("Por Dentro")');
+    expect(textContent).toContain('Prova Real na Prática');
+  });
 });
 

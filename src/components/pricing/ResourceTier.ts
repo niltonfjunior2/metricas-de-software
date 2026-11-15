@@ -8,20 +8,24 @@ import {
 
 export interface ResourceTierProps {
   initialData?: Partial<ResourceTierInput>;
+  isBlankMode?: boolean;
   onChange?: (result: ResourceTierResult, input: ResourceTierInput) => void;
 }
 
 export function createResourceTierComponent(props: ResourceTierProps = {}): {
   element: HTMLElement;
   getState: () => { input: ResourceTierInput; result: ResourceTierResult };
-  setState: (data: Partial<ResourceTierInput>) => void;
+  setState: (data: Partial<ResourceTierInput>, isBlank?: boolean) => void;
+  setBlankMode: (blank: boolean) => void;
 } {
   const container = document.createElement('div');
   container.className = 'pricing-tier-card tier-recursos';
 
+  let isBlankMode = props.isBlankMode ?? false;
+
   // Internal state
   let state: ResourceTierInput = {
-    equipe: props.initialData?.equipe && props.initialData.equipe.length > 0
+    equipe: props.initialData?.equipe !== undefined
       ? JSON.parse(JSON.stringify(props.initialData.equipe))
       : [
           { id: 'role-1', funcao: 'Desenvolvedor Sênior', quantidade: 1, custoHora: 150, horas: 160 },
@@ -48,23 +52,11 @@ export function createResourceTierComponent(props: ResourceTierProps = {}): {
 
     summaryEl.innerHTML = `
       <div class="pricing-summary-row">
-        <span>Custo de Recursos Humanos (Pessoal):</span>
-        <span class="pricing-value-mono">${formatCurrencyBRL(result.custoPessoal)}</span>
-      </div>
-      <div class="pricing-summary-row">
-        <span>Custos Diretos (Pessoal + Infra + Ferramentas):</span>
-        <span class="pricing-value-mono">${formatCurrencyBRL(result.custoDiretoTotal)}</span>
-      </div>
-      <div class="pricing-summary-row">
-        <span>Overhead Administrativo (${state.overheadPercentual}%):</span>
-        <span class="pricing-value-mono" style="color: var(--text-desc);">+ ${formatCurrencyBRL(result.valorOverhead)}</span>
-      </div>
-      <div class="pricing-summary-row" style="font-weight: 700; color: var(--text-title);">
-        <span>Custo Total de Produção (Break-even):</span>
+        <span>Custo Total de Recursos & Insumos:</span>
         <span class="pricing-value-mono">${formatCurrencyBRL(result.custoTotalProducao)}</span>
       </div>
       <div class="pricing-summary-row">
-        <span>Margem de Lucro Bruta (${state.margemLucroPercentual}%):</span>
+        <span>Margem de Lucro Desejada (${state.margemLucroPercentual}%):</span>
         <span class="pricing-value-mono" style="color: var(--accent-cyan);">+ ${formatCurrencyBRL(result.valorMargemLucro)}</span>
       </div>
       <div class="pricing-summary-row total-piso">
@@ -87,19 +79,23 @@ export function createResourceTierComponent(props: ResourceTierProps = {}): {
 
     state.equipe.forEach((member, index) => {
       const subtotal = Math.max(0, member.quantidade) * Math.max(0, member.custoHora) * Math.max(0, member.horas);
+      const qtdVal = member.quantidade > 0 ? member.quantidade : '';
+      const custoVal = member.custoHora > 0 ? member.custoHora : '';
+      const horasVal = member.horas > 0 ? member.horas : '';
+
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>
           <input type="text" class="pricing-input member-funcao" value="${member.funcao}" data-index="${index}" placeholder="Ex: Desenvolvedor Pleno" />
         </td>
         <td style="width: 80px;">
-          <input type="number" min="1" step="1" class="pricing-input pricing-input-num member-qtd" value="${member.quantidade}" data-index="${index}" />
+          <input type="number" min="0" step="1" class="pricing-input pricing-input-num member-qtd" value="${qtdVal}" data-index="${index}" placeholder="0" />
         </td>
         <td style="width: 120px;">
-          <input type="number" min="0" step="5" class="pricing-input pricing-input-num member-valor-hora" value="${member.custoHora}" data-index="${index}" />
+          <input type="number" min="0" step="5" class="pricing-input pricing-input-num member-valor-hora" value="${custoVal}" data-index="${index}" placeholder="0" />
         </td>
         <td style="width: 110px;">
-          <input type="number" min="1" step="8" class="pricing-input pricing-input-num member-horas" value="${member.horas}" data-index="${index}" />
+          <input type="number" min="0" step="8" class="pricing-input pricing-input-num member-horas" value="${horasVal}" data-index="${index}" placeholder="0" />
         </td>
         <td style="width: 130px; text-align: right; font-weight: 700; font-family: var(--font-mono); color: var(--text-title);">
           ${formatCurrencyBRL(subtotal)}
@@ -179,12 +175,12 @@ export function createResourceTierComponent(props: ResourceTierProps = {}): {
       </div>
     </div>
 
-    <!-- Tabela Dinâmica de Recursos Humanos -->
+    <!-- Tabela Dinâmica de Recursos do Projeto -->
     <div style="margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-      <span style="font-weight: 700; font-size: 0.95rem; color: var(--text-title);">1. Equipe Técnica & Horas de Trabalho</span>
+      <span style="font-weight: 700; font-size: 0.95rem; color: var(--text-title);">1. Métricas de Recursos & Insumos do Projeto</span>
       <button class="pricing-btn-add" id="btn-add-member">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-        Adicionar Função
+        Adicionar Recurso
       </button>
     </div>
 
@@ -192,10 +188,10 @@ export function createResourceTierComponent(props: ResourceTierProps = {}): {
       <table class="pricing-table">
         <thead>
           <tr>
-            <th>Função / Perfil Técnico</th>
+            <th>Item / Métrica de Recurso</th>
             <th style="text-align: right;">Qtd</th>
-            <th style="text-align: right;">Custo/h (R$)</th>
-            <th style="text-align: right;">Horas</th>
+            <th style="text-align: right;">Custo Unitário (R$)</th>
+            <th style="text-align: right;">Unidades / Horas</th>
             <th style="text-align: right;">Total (R$)</th>
             <th></th>
           </tr>
@@ -204,30 +200,37 @@ export function createResourceTierComponent(props: ResourceTierProps = {}): {
       </table>
     </div>
 
-    <!-- Custos de Infraestrutura, Overhead e Margem -->
-    <div class="pricing-params-grid">
-      <div class="pricing-field-group">
-        <label class="pricing-field-label" for="input-infra">Infraestrutura & Nuvem (R$)</label>
-        <input type="number" min="0" step="100" class="pricing-input pricing-input-num" id="input-infra" value="${state.infraestrutura}" />
-        <span class="pricing-field-hint">Servidores, banco de dados, storage, tráfego</span>
+    <!-- Card Didático: Sugestões de Recursos a Considerar -->
+    <div style="margin: 1.25rem 0; padding: 1.1rem 1.25rem; background: var(--bg-card-inner); border-radius: 8px; border: 1px solid var(--border-inner); font-size: 0.84rem; line-height: 1.6;">
+      <div style="font-weight: 700; color: var(--accent-cyan); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        💡 Lembrete Didático: Quais métricas de recursos considerar?
       </div>
-
-      <div class="pricing-field-group">
-        <label class="pricing-field-label" for="input-ferr">Ferramentas & Licenças (R$)</label>
-        <input type="number" min="0" step="50" class="pricing-input pricing-input-num" id="input-ferr" value="${state.ferramentas}" />
-        <span class="pricing-field-hint">IDEs, CI/CD, monitoramento, SaaS</span>
+      <div style="color: var(--text-secondary); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-top: 0.5rem;">
+        <div>
+          <strong style="color: var(--text-title);">• Pessoas & Equipe:</strong> Horas de desenvolvimento, QA/testes, design UX/UI, gestão, DevOps e liderança técnica.
+        </div>
+        <div>
+          <strong style="color: var(--text-title);">• Infraestrutura & Nuvem:</strong> Servidores (AWS/Azure/GCP), banco de dados gerenciado, storage, tráfego e domínios.
+        </div>
+        <div>
+          <strong style="color: var(--text-title);">• Ferramentas & Licenças:</strong> IDEs pagas, esteira de CI/CD, monitoramento/APM, ferramentas de prototipação e APIs pagas.
+        </div>
+        <div>
+          <strong style="color: var(--text-title);">• Overhead & Administrativo:</strong> Custos de assessoria contábil, jurídica, instalações físicas, energia e telecomunicações.
+        </div>
       </div>
-
-      <div class="pricing-field-group">
-        <label class="pricing-field-label" for="input-overhead">Overhead Administrativo (%)</label>
-        <input type="number" min="0" max="100" step="5" class="pricing-input pricing-input-num" id="input-overhead" value="${state.overheadPercentual}" />
-        <span class="pricing-field-hint">Financeiro, jurídico, comercial (sugestão: 20-40%)</span>
+      <div style="margin-top: 0.6rem; font-size: 0.78rem; color: var(--text-muted); border-top: 1px dashed var(--border-inner); padding-top: 0.4rem;">
+        Dica: Para incluir custos fixos ou mensais na tabela acima, informe <strong>Qtd = 1</strong>, <strong>Custo Unitário</strong> = valor do item e <strong>Unidades / Horas</strong> = 1 (ou número de meses).
       </div>
+    </div>
 
+    <!-- Margem de Lucro Desejada -->
+    <div style="margin-bottom: 1.25rem; max-width: 320px;">
       <div class="pricing-field-group">
         <label class="pricing-field-label" for="input-margem">Margem de Lucro Desejada (%)</label>
-        <input type="number" min="0" max="200" step="5" class="pricing-input pricing-input-num" id="input-margem" value="${state.margemLucroPercentual}" />
-        <span class="pricing-field-hint">Margem bruta antes dos impostos</span>
+        <input type="number" min="0" max="200" step="5" class="pricing-input pricing-input-num" id="input-margem" value="${state.margemLucroPercentual > 0 ? state.margemLucroPercentual : ''}" placeholder="0" />
+        <span class="pricing-field-hint">Margem bruta sobre o total de recursos e insumos</span>
       </div>
     </div>
 
@@ -236,25 +239,7 @@ export function createResourceTierComponent(props: ResourceTierProps = {}): {
   `;
 
   // Bind fixed inputs
-  const inputInfra = container.querySelector<HTMLInputElement>('#input-infra');
-  const inputFerr = container.querySelector<HTMLInputElement>('#input-ferr');
-  const inputOverhead = container.querySelector<HTMLInputElement>('#input-overhead');
   const inputMargem = container.querySelector<HTMLInputElement>('#input-margem');
-
-  inputInfra?.addEventListener('input', (e) => {
-    state.infraestrutura = Math.max(0, Number((e.target as HTMLInputElement).value) || 0);
-    updateAndNotify();
-  });
-
-  inputFerr?.addEventListener('input', (e) => {
-    state.ferramentas = Math.max(0, Number((e.target as HTMLInputElement).value) || 0);
-    updateAndNotify();
-  });
-
-  inputOverhead?.addEventListener('input', (e) => {
-    state.overheadPercentual = Math.max(0, Number((e.target as HTMLInputElement).value) || 0);
-    updateAndNotify();
-  });
 
   inputMargem?.addEventListener('input', (e) => {
     state.margemLucroPercentual = Math.max(0, Number((e.target as HTMLInputElement).value) || 0);
@@ -264,14 +249,24 @@ export function createResourceTierComponent(props: ResourceTierProps = {}): {
   // Add member button
   const btnAdd = container.querySelector<HTMLButtonElement>('#btn-add-member');
   btnAdd?.addEventListener('click', () => {
-    const rolePreset = DEFAULT_TEAM_ROLES[state.equipe.length % DEFAULT_TEAM_ROLES.length];
-    state.equipe.push({
-      id: `role-${Date.now()}`,
-      funcao: rolePreset.funcao,
-      quantidade: rolePreset.quantidade,
-      custoHora: rolePreset.custoHora,
-      horas: rolePreset.horas
-    });
+    if (isBlankMode || state.equipe.length === 0) {
+      state.equipe.push({
+        id: `role-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        funcao: '',
+        quantidade: 0,
+        custoHora: 0,
+        horas: 0
+      });
+    } else {
+      const rolePreset = DEFAULT_TEAM_ROLES[state.equipe.length % DEFAULT_TEAM_ROLES.length];
+      state.equipe.push({
+        id: `role-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+        funcao: rolePreset.funcao,
+        quantidade: rolePreset.quantidade,
+        custoHora: rolePreset.custoHora,
+        horas: rolePreset.horas
+      });
+    }
     renderRows();
     updateAndNotify();
   });
@@ -286,18 +281,19 @@ export function createResourceTierComponent(props: ResourceTierProps = {}): {
       input: JSON.parse(JSON.stringify(state)),
       result: calculateResourceTier(state)
     }),
-    setState: (newData: Partial<ResourceTierInput>) => {
+    setState: (newData: Partial<ResourceTierInput>, isBlank: boolean = false) => {
+      isBlankMode = isBlank;
       state = {
         ...state,
         ...newData,
-        equipe: newData.equipe ? JSON.parse(JSON.stringify(newData.equipe)) : state.equipe
+        equipe: newData.equipe !== undefined ? JSON.parse(JSON.stringify(newData.equipe)) : state.equipe
       };
-      if (inputInfra) inputInfra.value = String(state.infraestrutura);
-      if (inputFerr) inputFerr.value = String(state.ferramentas);
-      if (inputOverhead) inputOverhead.value = String(state.overheadPercentual);
-      if (inputMargem) inputMargem.value = String(state.margemLucroPercentual);
+      if (inputMargem) inputMargem.value = state.margemLucroPercentual > 0 ? String(state.margemLucroPercentual) : '';
       renderRows();
       updateAndNotify();
+    },
+    setBlankMode: (blank: boolean) => {
+      isBlankMode = blank;
     }
   };
 }

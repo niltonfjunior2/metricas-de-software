@@ -10,21 +10,14 @@ import {
 } from '../src/services/pricingEngine';
 
 describe('Pricing Engine - Camadas Avançadas & Governança Fiscal', () => {
-  describe('Camada de Processo (Eficiência e Bônus DORA)', () => {
-    it('deve somar a base de Recursos aos bônus de eficiência de processo ativos', () => {
-      // Exemplo real do PDF página 5:
-      // Preço Base = R$ 80.000
-      // Bônus Velocity (> 40 pts): +R$ 8.000
-      // Bônus Lead Time (< 2 sem): +R$ 5.000
-      // Bônus Zero bugs críticos: +R$ 7.000
-      // Bônus Deploy diário (desmarcado): +R$ 5.000
-      // Total Esperado = 80.000 + 8.000 + 5.000 + 7.000 = R$ 100.000 (Sprint 2 do PDF)
+  describe('Camada de Processo (Eficiência Operacional)', () => {
+    it('deve somar a base de Recursos aos acréscimos de eficiência de processo ativos', () => {
       const input: ProcessTierInput = {
         metasEficiencia: [
-          { id: '1', nome: 'Velocity', descricao: '', bonusValor: 8000, tipoBonus: 'fixo', atingida: true },
-          { id: '2', nome: 'Lead Time', descricao: '', bonusValor: 5000, tipoBonus: 'fixo', atingida: true },
-          { id: '3', nome: 'Zero Bugs', descricao: '', bonusValor: 7000, tipoBonus: 'fixo', atingida: true },
-          { id: '4', nome: 'Deploy Diário', descricao: '', bonusValor: 5000, tipoBonus: 'fixo', atingida: false }
+          { id: '1', nome: 'Previsibilidade', descricao: '', bonusValor: 8000, tipoBonus: 'fixo', atingida: true },
+          { id: '2', nome: 'Tempo de Ciclo', descricao: '', bonusValor: 5000, tipoBonus: 'fixo', atingida: true },
+          { id: '3', nome: 'Baixa Densidade de Defeitos', descricao: '', bonusValor: 7000, tipoBonus: 'fixo', atingida: true },
+          { id: '4', nome: 'Automação Contínua', descricao: '', bonusValor: 5000, tipoBonus: 'fixo', atingida: false }
         ]
       };
 
@@ -33,6 +26,23 @@ describe('Pricing Engine - Camadas Avançadas & Governança Fiscal', () => {
       expect(res.totalBonusProcesso).toBe(20000);
       expect(res.precoProcessoSemImpostos).toBe(100000);
       expect(res.metasAtingidasCount).toBe(3);
+    });
+
+    it('deve calcular corretamente acréscimos de processo expressos em porcentagem sobre a base de recursos', () => {
+      const input: ProcessTierInput = {
+        metasEficiencia: [
+          { id: '1', nome: 'Alta Eficiência Operacional', descricao: '', bonusValor: 15, tipoBonus: 'percentual', atingida: true },
+          { id: '2', nome: 'Redução de Retrabalho', descricao: '', bonusValor: 10, tipoBonus: 'percentual', atingida: true },
+          { id: '3', nome: 'Meta Inativa', descricao: '', bonusValor: 20, tipoBonus: 'percentual', atingida: false }
+        ]
+      };
+
+      // Base: R$ 50.000. 15% = 7.500; 10% = 5.000; Total bônus = 12.500. Preço = 62.500
+      const res = calculateProcessTier(50000, input);
+      expect(res.precoBaseRecursos).toBe(50000);
+      expect(res.totalBonusProcesso).toBe(12500);
+      expect(res.precoProcessoSemImpostos).toBe(62500);
+      expect(res.metasAtingidasCount).toBe(2);
     });
   });
 

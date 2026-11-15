@@ -92,7 +92,7 @@ export function createTaxModuleComponent(props: TaxModuleProps): {
                 <td style="text-align: right; font-family: var(--font-mono); font-weight: 800; font-size: 1rem; color: var(--text-title);">${formatCurrencyBRL(taxPiso.precoBrutoFinal)}</td>
               </tr>
               <tr>
-                <td><strong style="color: var(--color-processo);">Faixa de Processo</strong> (Eficiência Ágil)</td>
+                <td><strong style="color: var(--color-processo);">Faixa de Processo</strong> (Eficiência do Processo)</td>
                 <td style="text-align: right; font-family: var(--font-mono);">${formatCurrencyBRL(taxProcesso.precoLiquido)}</td>
                 <td style="text-align: right; font-family: var(--font-mono); color: #F59E0B;">+ ${formatCurrencyBRL(taxProcesso.valorImpostos)}</td>
                 <td style="text-align: right; font-family: var(--font-mono); font-weight: 800; font-size: 1rem; color: var(--color-processo);">${formatCurrencyBRL(taxProcesso.precoBrutoFinal)}</td>
@@ -128,7 +128,7 @@ export function createTaxModuleComponent(props: TaxModuleProps): {
     <div class="pricing-params-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
       <div class="pricing-field-group">
         <label class="pricing-field-label" for="tax-input-aliquota">Alíquota Percentual Efetiva (%) *</label>
-        <input type="number" min="0.1" max="99" step="0.5" class="pricing-input pricing-input-num" id="tax-input-aliquota" value="${aliquota}" />
+        <input type="number" min="0.1" max="99" step="0.5" class="pricing-input pricing-input-num" id="tax-input-aliquota" value="${aliquota > 0 ? aliquota : ''}" placeholder="0" />
         <span class="pricing-field-hint">Percentual obrigatório retido para o fisco</span>
       </div>
 
@@ -153,9 +153,46 @@ export function createTaxModuleComponent(props: TaxModuleProps): {
     <div id="tax-breakdown-table"></div>
 
     <!-- Explicação didática do cálculo por dentro -->
-    <div style="margin-top: 1.25rem; padding: 1rem; background: var(--bg-card-inner); border-radius: 8px; border: 1px solid var(--border-inner); font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
-      <strong style="color: var(--text-title);">💡 Por que calculamos os impostos "por dentro"?</strong><br />
-      Se você precisa receber R$ 10.000 líquidos e seu imposto é de 15,5%, somar apenas 15,5% resultaria em R$ 11.550. Porém, ao emitir a nota de R$ 11.550, o governo reterá 15,5% do total (R$ 1.790,25), restando apenas R$ 9.759,75 (gerando prejuízo!). O cálculo profissional por dentro divide o valor líquido por $(1 - 0.155) = 0.845$, gerando a nota exata de R$ 11.834,32, onde após pagar o imposto restam exatamente os seus R$ 10.000 líquidos.
+    <div style="margin-top: 1.5rem; padding: 1.25rem; background: var(--bg-card-inner); border-radius: 10px; border: 1px solid var(--border-inner); font-size: 0.85rem; line-height: 1.6;">
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <span style="font-size: 1.2rem;">💡</span>
+        <strong style="color: var(--text-title); font-size: 0.95rem;">Por que calculamos os impostos "por dentro" (Gross-Up)?</strong>
+      </div>
+      <p style="color: var(--text-secondary); margin: 0 0 1rem 0;">
+        No Brasil, os tributos sobre serviços (ISS, PIS, COFINS, etc.) incidem sobre o <strong>valor total faturado na Nota Fiscal</strong> e não apenas sobre o custo do projeto. Se você somar o imposto de forma simples ("por fora"), você perderá dinheiro ao emitir a nota. Entenda o porquê:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+        <!-- Card 1: A Armadilha -->
+        <div style="padding: 0.9rem; background: rgba(239, 68, 68, 0.06); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 8px;">
+          <strong style="color: #ef4444; display: block; margin-bottom: 0.4rem;">❌ 1. A Armadilha do Cálculo "Por Fora"</strong>
+          <span style="color: var(--text-secondary); font-size: 0.82rem;">
+            Imagine que seu projeto custa <strong>R$ 10.000</strong> líquidos e sua alíquota de impostos é <strong>15,5%</strong>:<br />
+            • Soma simples: 10.000 + 15,5% = <strong>R$ 11.550,00</strong>.<br />
+            • Na emissão da NF, o fisco recolhe 15,5% sobre o total faturado (R$ 11.550 × 15,5% = <strong>R$ 1.790,25</strong>).<br />
+            • <strong>Resultado:</strong> Você recebe apenas <strong>R$ 9.759,75</strong>.<br />
+            <span style="color: #ef4444; font-weight: 600;">Prejuízo de R$ 240,25</span> consumido diretamente do seu lucro!
+          </span>
+        </div>
+
+        <!-- Card 2: A Solução Gross-Up -->
+        <div style="padding: 0.9rem; background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px;">
+          <strong style="color: #10b981; display: block; margin-bottom: 0.4rem;">✔️ 2. A Fórmula Profissional ("Por Dentro")</strong>
+          <span style="color: var(--text-secondary); font-size: 0.82rem;">
+            Para que sobrem exatamente os R$ 10.000, dividimos o valor pelo fator complementar da alíquota:<br />
+            • <code>Preço Bruto = Preço Líquido ÷ (1 - Alíquota/100)</code><br />
+            • Exemplo: <code>10.000 ÷ (1 - 0,155) = 10.000 ÷ 0,845</code><br />
+            • <strong>Nota Fiscal Gerada:</strong> <strong>R$ 11.834,32</strong>.<br />
+            <span style="color: #10b981; font-weight: 600;">Garante que a alíquota incida sobre o montante integral sem corroer a margem.</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 3: Prova Real -->
+      <div style="padding: 0.75rem 1rem; background: rgba(59, 130, 246, 0.06); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 8px; font-size: 0.82rem; color: var(--text-secondary);">
+        <strong style="color: #3b82f6;">🔍 3. Prova Real na Prática:</strong><br />
+        Valor Faturado na NF (R$ 11.834,32) − Imposto Retido (15,5% = R$ 1.834,32) = <strong>R$ 10.000,00 Líquidos na sua conta bancária</strong>. Sua operação e margem de lucro permanecem 100% blindadas!
+      </div>
     </div>
   `;
 
@@ -186,7 +223,7 @@ export function createTaxModuleComponent(props: TaxModuleProps): {
     isValido: () => !isNaN(aliquota) && aliquota > 0 && aliquota < 100,
     setAliquota: (novaAliquota: number) => {
       aliquota = novaAliquota;
-      if (inputAliquota) inputAliquota.value = String(novaAliquota);
+      if (inputAliquota) inputAliquota.value = novaAliquota > 0 ? String(novaAliquota) : '';
       updateAndNotify();
     }
   };

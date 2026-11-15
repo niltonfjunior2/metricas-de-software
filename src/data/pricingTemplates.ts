@@ -30,19 +30,22 @@ export const PRICING_TEMPLATES: PricingTemplate[] = [
         { id: 'dev-pl', funcao: 'Desenvolvedor Pleno', quantidade: 2, custoHora: 100, horas: 320 },
         { id: 'ux-ds', funcao: 'Designer UX/UI', quantidade: 1, custoHora: 120, horas: 80 },
         { id: 'gp-sm', funcao: 'Gerente de Projetos', quantidade: 1, custoHora: 130, horas: 160 },
-        { id: 'qa-ts', funcao: 'Analista de QA / Tester', quantidade: 1, custoHora: 80, horas: 120 }
+        { id: 'qa-ts', funcao: 'Analista de QA / Tester', quantidade: 1, custoHora: 80, horas: 120 },
+        { id: 'infra-cloud', funcao: 'Infraestrutura Cloud & Nuvem', quantidade: 1, custoHora: 5000, horas: 1 },
+        { id: 'ferr-tools', funcao: 'Ferramentas de CI/CD & Licenças', quantidade: 1, custoHora: 3000, horas: 1 },
+        { id: 'overhead-adm', funcao: 'Overhead Administrativo & Contábil', quantidade: 1, custoHora: 4000, horas: 1 }
       ],
-      infraestrutura: 5000,
-      ferramentas: 3000,
-      overheadPercentual: 25,
+      infraestrutura: 0,
+      ferramentas: 0,
+      overheadPercentual: 0,
       margemLucroPercentual: 30
     },
     processo: {
       metasEficiencia: [
-        { id: 'p1', nome: 'Velocity Estável (> 40 pts)', descricao: 'Capacidade preditiva alta em sprints quinzenais.', bonusValor: 8000, tipoBonus: 'fixo', atingida: true },
-        { id: 'p2', nome: 'Lead Time Reduzido (< 2 semanas)', descricao: 'Fluxo rápido desde a especificação até produção.', bonusValor: 5000, tipoBonus: 'fixo', atingida: true },
-        { id: 'p3', nome: 'Zero Bugs Críticos em Produção', descricao: 'Estabilidade sem quedas no checkout.', bonusValor: 7000, tipoBonus: 'fixo', atingida: true },
-        { id: 'p4', nome: 'Deployment Diário Automatizado', descricao: 'Esteira de CI/CD contínua.', bonusValor: 5000, tipoBonus: 'fixo', atingida: false }
+        { id: 'p1', nome: 'Previsibilidade e Aderência a Prazos', descricao: 'Capacidade preditiva alta no cumprimento de cronogramas.', bonusValor: 8000, tipoBonus: 'fixo', atingida: true },
+        { id: 'p2', nome: 'Redução do Tempo de Ciclo (< 2 semanas)', descricao: 'Fluxo rápido desde a especificação da demanda até a produção.', bonusValor: 5000, tipoBonus: 'fixo', atingida: true },
+        { id: 'p3', nome: 'Baixa Densidade de Defeitos no Processo', descricao: 'Estabilidade da entrega sem incidentes críticos.', bonusValor: 7000, tipoBonus: 'fixo', atingida: true },
+        { id: 'p4', nome: 'Automação Contínua de Publicação', descricao: 'Esteira técnica de integração e testes automatizados.', bonusValor: 5000, tipoBonus: 'fixo', atingida: false }
       ]
     },
     produto: {
@@ -61,17 +64,19 @@ export const PRICING_TEMPLATES: PricingTemplate[] = [
     recursos: {
       equipe: [
         { id: 'devops-sr', funcao: 'Especialista Cloud / FinOps', quantidade: 1, custoHora: 160, horas: 80 },
-        { id: 'dev-sr', funcao: 'Engenheiro de Backend Sênior', quantidade: 1, custoHora: 140, horas: 60 }
+        { id: 'dev-sr', funcao: 'Engenheiro de Backend Sênior', quantidade: 1, custoHora: 140, horas: 60 },
+        { id: 'infra-mon', funcao: 'Telemetria & Infra de Nuvem', quantidade: 1, custoHora: 1200, horas: 1 },
+        { id: 'ferr-apm', funcao: 'Licenças APM / Profiling FinOps', quantidade: 1, custoHora: 800, horas: 1 }
       ],
-      infraestrutura: 1200,
-      ferramentas: 800,
-      overheadPercentual: 20,
+      infraestrutura: 0,
+      ferramentas: 0,
+      overheadPercentual: 0,
       margemLucroPercentual: 35
     },
     processo: {
       metasEficiencia: [
-        { id: 'f1', nome: 'Lead Time de Migração < 3 semanas', descricao: 'Aplicação rápida de profiling e rightsizing.', bonusValor: 4000, tipoBonus: 'fixo', atingida: true },
-        { id: 'f2', nome: 'Zero Downtime durante as alterações', descricao: 'Migração transparente sem indisponibilidade de APIs.', bonusValor: 6000, tipoBonus: 'fixo', atingida: true }
+        { id: 'f1', nome: 'Tempo de Ciclo de Otimização < 3 semanas', descricao: 'Aplicação rápida de diagnóstico, profiling e rightsizing.', bonusValor: 4000, tipoBonus: 'fixo', atingida: true },
+        { id: 'f2', nome: 'Continuidade Operacional e Zero Indisponibilidade', descricao: 'Execução transparente sem interrupção de serviços.', bonusValor: 6000, tipoBonus: 'fixo', atingida: true }
       ]
     },
     produto: {
@@ -82,28 +87,30 @@ export const PRICING_TEMPLATES: PricingTemplate[] = [
   },
   {
     id: 'template-saas',
-    nome: 'SaaS B2B & Squad Ágil (Performance)',
+    nome: 'Plataforma SaaS B2B (Performance & Conversão)',
     categoria: 'Produto Digital / Value-Based',
-    descricao: 'Baseado no estudo de caso da página 5 e 7 do PDF: desenvolvimento de software com squad dedicada e remuneração mista (sprint base + leads convertidos).',
+    descricao: 'Baseado no estudo de caso da página 5 e 7 do PDF: desenvolvimento de software com equipe dedicada e remuneração mista (piso base + metas de processo + receita gerada).',
     icone: '🚀',
     aliquotaImposto: 16.33, // Lucro Presumido
     recursos: {
       equipe: [
         { id: 's-dev1', funcao: 'Desenvolvedor Fullstack Sênior', quantidade: 2, custoHora: 130, horas: 160 },
         { id: 's-qa', funcao: 'Engenheiro de Qualidade (SDET)', quantidade: 1, custoHora: 90, horas: 160 },
-        { id: 's-po', funcao: 'Product Owner / Agilista', quantidade: 1, custoHora: 110, horas: 80 }
+        { id: 's-po', funcao: 'Product Owner / Coordenador', quantidade: 1, custoHora: 110, horas: 80 },
+        { id: 's-infra', funcao: 'Infraestrutura Cloud & Nuvem', quantidade: 1, custoHora: 4000, horas: 1 },
+        { id: 's-ferr', funcao: 'Ferramentas de CI/CD & Automação', quantidade: 1, custoHora: 2500, horas: 1 }
       ],
-      infraestrutura: 4000,
-      ferramentas: 2500,
-      overheadPercentual: 30,
+      infraestrutura: 0,
+      ferramentas: 0,
+      overheadPercentual: 0,
       margemLucroPercentual: 25
     },
     processo: {
       metasEficiencia: [
-        { id: 's1', nome: 'Velocity > 40 pontos por sprint', descricao: 'Entregas previsíveis e consistentes.', bonusValor: 8000, tipoBonus: 'fixo', atingida: true },
-        { id: 's2', nome: 'Lead Time < 10 dias', descricao: 'Ciclo curto de feedback do usuário.', bonusValor: 5000, tipoBonus: 'fixo', atingida: true },
-        { id: 's3', nome: 'Zero Bugs Críticos', descricao: 'Garantia de retenção e estabilidade do SaaS.', bonusValor: 7000, tipoBonus: 'fixo', atingida: true },
-        { id: 's4', nome: 'Deployment Diário Automatizado', descricao: 'Releases contínuas com Canary Deployments.', bonusValor: 5000, tipoBonus: 'fixo', atingida: true }
+        { id: 's1', nome: 'Alta Cadência e Previsibilidade de Entregas', descricao: 'Entregas regulares e consistentes a cada ciclo planejado.', bonusValor: 8000, tipoBonus: 'fixo', atingida: true },
+        { id: 's2', nome: 'Tempo de Ciclo Otimizado (< 10 dias)', descricao: 'Ciclo curto de validação e feedback do usuário final.', bonusValor: 5000, tipoBonus: 'fixo', atingida: true },
+        { id: 's3', nome: 'Baixa Taxa de Retrabalho (< 5%)', descricao: 'Garantia de estabilidade do processo e confiabilidade do sistema.', bonusValor: 7000, tipoBonus: 'fixo', atingida: true },
+        { id: 's4', nome: 'Automação Contínua de Testes e Publicação', descricao: 'Homologação e publicação contínua sem esforço manual.', bonusValor: 5000, tipoBonus: 'fixo', atingida: true }
       ]
     },
     produto: {
@@ -115,26 +122,21 @@ export const PRICING_TEMPLATES: PricingTemplate[] = [
 ];
 
 export const BLANK_TEMPLATE: Omit<PricingTemplate, 'id' | 'nome' | 'categoria' | 'descricao' | 'icone'> = {
-  aliquotaImposto: 15.5,
+  aliquotaImposto: 0,
   recursos: {
-    equipe: [
-      { id: 'custom-1', funcao: 'Desenvolvedor Pleno', quantidade: 1, custoHora: 100, horas: 160 }
-    ],
-    infraestrutura: 1000,
-    ferramentas: 500,
-    overheadPercentual: 20,
-    margemLucroPercentual: 25
+    equipe: [],
+    infraestrutura: 0,
+    ferramentas: 0,
+    overheadPercentual: 0,
+    margemLucroPercentual: 0
   },
   processo: {
-    metasEficiencia: [
-      { id: 'c1', nome: 'Velocity Estável', descricao: 'Entregas ágeis consistentes.', bonusValor: 3000, tipoBonus: 'fixo', atingida: true },
-      { id: 'c2', nome: 'Zero Bugs Críticos', descricao: 'Qualidade assegurada em produção.', bonusValor: 4000, tipoBonus: 'fixo', atingida: true }
-    ]
+    metasEficiencia: []
   },
   produto: {
     modeloCaptura: 'cost_savings',
-    resultadoClienteEstimado: 50000,
-    percentualCaptura: 20
+    resultadoClienteEstimado: 0,
+    percentualCaptura: 0
   }
 };
 

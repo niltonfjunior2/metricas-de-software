@@ -152,6 +152,8 @@ export function renderPricingView(): HTMLElement {
 
     // Wiring callbacks
     resourceTier.element.addEventListener('input', syncAll);
+    processTier.element.addEventListener('input', syncAll);
+    processTier.element.addEventListener('change', syncAll);
     processTier.element.addEventListener('click', syncAll);
     productTier.element.addEventListener('input', syncAll);
     taxModule.element.addEventListener('input', syncAll);
@@ -162,14 +164,14 @@ export function renderPricingView(): HTMLElement {
       btn.addEventListener('click', (e) => {
         const id = (e.target as HTMLElement).dataset.id;
         if (id === 'template-blank') {
-          resourceTier.setState(BLANK_TEMPLATE.recursos);
+          resourceTier.setState(BLANK_TEMPLATE.recursos, true);
           processTier.setState(BLANK_TEMPLATE.processo);
           productTier.setState(BLANK_TEMPLATE.produto);
           taxModule.setAliquota(BLANK_TEMPLATE.aliquotaImposto);
         } else {
           const tmpl = PRICING_TEMPLATES.find((t) => t.id === id);
           if (tmpl) {
-            resourceTier.setState(tmpl.recursos);
+            resourceTier.setState(tmpl.recursos, false);
             processTier.setState(tmpl.processo);
             productTier.setState(tmpl.produto);
             taxModule.setAliquota(tmpl.aliquotaImposto);
@@ -219,7 +221,7 @@ export function renderPricingView(): HTMLElement {
         chip.querySelector('.btn-load-draft')?.addEventListener('click', () => {
           const d = getPricingDraftById(draft.id);
           if (d) {
-            resourceTier.setState(d.recursos);
+            resourceTier.setState(d.recursos, false);
             processTier.setState(d.processo);
             productTier.setState(d.produto);
             taxModule.setAliquota(d.aliquotaImposto);

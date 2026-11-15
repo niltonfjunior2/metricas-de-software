@@ -93,7 +93,7 @@ export function createComparisonDashboardComponent(props: ComparisonDashboardPro
           <div style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; color: var(--color-processo); margin-bottom: 0.25rem;">
             Faixa 2 • Preço Competitivo
           </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-title); margin-bottom: 0.5rem;">Processo (Ágil & DORA)</h3>
+          <h3 style="font-size: 1.15rem; color: var(--text-title); margin-bottom: 0.5rem;">Processo (Eficiência Operacional)</h3>
           
           <div style="margin: 1rem 0;">
             <div style="font-size: 0.78rem; color: var(--text-muted);">Preço Final (com impostos):</div>
@@ -106,7 +106,7 @@ export function createComparisonDashboardComponent(props: ComparisonDashboardPro
             <div>Líquido: <strong>${formatCurrencyBRL(eficienciaProcesso.precoLiquido)}</strong></div>
             <div>Impostos: <strong style="color: #F59E0B;">+ ${formatCurrencyBRL(eficienciaProcesso.valorImpostos)}</strong></div>
             <div style="margin-top: 0.5rem; color: var(--text-desc); font-size: 0.75rem;">
-              Remunera o time pela velocidade comprovada e zero incidentes em produção.
+              Remunera o processo pela maturidade de execução e redução de desperdícios.
             </div>
           </div>
         </div>

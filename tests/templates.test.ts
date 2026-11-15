@@ -28,5 +28,18 @@ describe('Templates Didáticos de Precificação', () => {
       expect(res.tetoProduto.precoFinalComImpostos).toBeGreaterThan(0);
     });
   });
+
+  it('o template em branco (BLANK_TEMPLATE) deve conter campos totalmente limpos e zerados', () => {
+    expect(BLANK_TEMPLATE.aliquotaImposto).toBe(0);
+    expect(BLANK_TEMPLATE.recursos.equipe).toEqual([]);
+    expect(BLANK_TEMPLATE.recursos.infraestrutura).toBe(0);
+    expect(BLANK_TEMPLATE.recursos.ferramentas).toBe(0);
+    expect(BLANK_TEMPLATE.recursos.overheadPercentual).toBe(0);
+    expect(BLANK_TEMPLATE.recursos.margemLucroPercentual).toBe(0);
+
+    expect(BLANK_TEMPLATE.processo.metasEficiencia).toEqual([]);
+    expect(BLANK_TEMPLATE.produto.resultadoClienteEstimado).toBe(0);
+    expect(BLANK_TEMPLATE.produto.percentualCaptura).toBe(0);
+  });
 });
 

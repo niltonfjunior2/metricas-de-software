@@ -13,7 +13,7 @@ describe('Componente ResourceTier - Camada de Recursos', () => {
 
     const summaryBox = comp.element.querySelector('#resource-summary-box');
     expect(summaryBox).not.toBeNull();
-    expect(summaryBox?.textContent).toContain('Custo de Recursos Humanos');
+    expect(summaryBox?.textContent).toContain('Custo Total de Recursos');
     expect(summaryBox?.textContent).toContain('Preço Piso de Recursos');
   });
 
@@ -72,6 +72,43 @@ describe('Componente ResourceTier - Camada de Recursos', () => {
     expect(state.input.infraestrutura).toBe(10000);
     expect(state.input.overheadPercentual).toBe(30);
     expect(state.input.margemLucroPercentual).toBe(40);
+  });
+
+  it('no modo em branco, deve iniciar sem funções e o botão "Adicionar Função" deve adicionar campos limpos', () => {
+    const comp = createResourceTierComponent({
+      initialData: {
+        equipe: [],
+        infraestrutura: 0,
+        ferramentas: 0,
+        overheadPercentual: 0,
+        margemLucroPercentual: 0
+      },
+      isBlankMode: true
+    });
+
+    // Tabela deve iniciar vazia sem linhas
+    expect(comp.element.querySelectorAll('#team-table-body tr').length).toBe(0);
+
+    // Input de margem deve estar vazio (placeholder "0")
+    const inputMargem = comp.element.querySelector<HTMLInputElement>('#input-margem');
+    expect(inputMargem?.value).toBe('');
+
+    // Clicar em "Adicionar Função" deve adicionar um membro com campos limpos
+    const btnAdd = comp.element.querySelector<HTMLButtonElement>('#btn-add-member');
+    btnAdd?.click();
+
+    const rows = comp.element.querySelectorAll('#team-table-body tr');
+    expect(rows.length).toBe(1);
+
+    const inputFuncao = rows[0].querySelector<HTMLInputElement>('.member-funcao');
+    const inputQtd = rows[0].querySelector<HTMLInputElement>('.member-qtd');
+    const inputValor = rows[0].querySelector<HTMLInputElement>('.member-valor-hora');
+    const inputHoras = rows[0].querySelector<HTMLInputElement>('.member-horas');
+
+    expect(inputFuncao?.value).toBe('');
+    expect(inputQtd?.value).toBe('');
+    expect(inputValor?.value).toBe('');
+    expect(inputHoras?.value).toBe('');
   });
 });
 

@@ -2,7 +2,7 @@
 
 [![Vite](https://img.shields.io/badge/Vite-6.4-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vitest](https://img.shields.io/badge/Vitest-3.2%20(60%20passed)-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Vitest](https://img.shields.io/badge/Vitest-3.2%20(70%20passed)-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![Deploy Vercel](https://img.shields.io/badge/Deploy-Vercel%20Edge-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
@@ -32,11 +32,11 @@ A raiz da aplicação (`#/`) apresenta um portal moderno que divide a experiênc
 
 Fundamentada nos conceitos acadêmicos de valoração de software e no princípio de Warren Buffett (*"O preço é o que você paga. Valor é o que você recebe"*), a calculadora opera em 3 faixas comparativas simultâneas:
 
-* **Faixa 1 • O Piso de Sobrevivência (Recursos):**
-  * Tabela dinâmica de equipe técnica (Devs Sr, Pl, Jr, UX, QA, GP, DevOps), infraestrutura de nuvem, ferramentas e overhead administrativo (20-40%).
-  * Aplicação de margem de lucro bruta desejada para definir o custo real de produção e o preço mínimo sem prejuízo.
-* **Faixa 2 • Eficiência Competitiva (Processo):**
-  * Derivada cumulativamente da base de Recursos, adiciona bônus por metas operacionais ativas baseadas no framework **DORA**: *Velocity Estável*, *Lead Time Reduzido (< 2 semanas)*, *Zero Bugs Críticos* e *Deploy Diário Automatizado*.
+* **Faixa 1 • O Piso de Sobrevivência (Recursos & Insumos):**
+  * Tabela dinâmica universal de métricas de recursos (capital humano, infraestrutura cloud/servidores, licenças de ferramentas e overhead administrativo), com guia didático e cálculo direto de custo unitário × unidades.
+  * Aplicação de margem de lucro bruta desejada para definir o custo real total de produção e o preço mínimo sem prejuízo.
+* **Faixa 2 • Eficiência do Processo (Maturidade & Execução):**
+  * Derivada cumulativamente da base de Recursos, permite ao usuário adicionar livremente métricas de processo expressas como porcentagem (%) sobre o piso ou como valores financeiros fixos (R$), refletindo tempo de ciclo, taxa de retrabalho, densidade de defeitos e previsibilidade de entrega.
 * **Faixa 3 • O Teto de Valor (Produto):**
   * Ancorada no impacto financeiro real gerado para o cliente via *Revenue Share* (% do faturamento/GMV gerado), *Cost Savings* (% da economia de custos operacionais/nuvem) ou *Value-Based* (metas de conversão).
   * Demonstração transparente da relação ganha-ganha (*Win-Win*) com retenção de valor pelo cliente e ROI.
@@ -45,7 +45,7 @@ Fundamentada nos conceitos acadêmicos de valoração de software e no princípi
   * Presets rápidos para regimes de TI no Brasil: **MEI (~6%)**, **Simples Nacional TI (~15.5%)** e **Lucro Presumido (~16.33%)**.
   * Cálculo por dentro (*Gross-Up*): $PreçoBruto = \frac{PreçoLíquido}{1 - \text{Alíquota}/100}$.
 * **Modelos Didáticos Prontos & Exportação:**
-  * Templates de mercado pré-carregados: *E-commerce de Varejo (GMV)*, *FinOps & Nuvem (Cost Savings)*, *SaaS B2B (DORA & Leads)* e *Modo em Branco*.
+  * Templates de mercado pré-carregados: *E-commerce de Varejo (GMV)*, *FinOps & Nuvem (Cost Savings)*, *SaaS B2B (Performance & Conversão)* e *Modo em Branco*.
   * Gerenciador de rascunhos no `localStorage` do navegador para salvar, retomar e excluir simulações.
   * Botão de cópia da proposta comercial formatada para a Área de Transferência e folha de estilo de impressão limpa (`@media print`) para geração de PDF A4.
 

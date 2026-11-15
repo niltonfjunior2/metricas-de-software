@@ -3,8 +3,7 @@ import {
   formatCurrencyBRL,
   formatPercent,
   type ProductTierInput,
-  type ProductTierResult,
-  type ProductCaptureModel
+  type ProductTierResult
 } from '../../services/pricingEngine';
 
 export interface ProductTierProps {
@@ -25,7 +24,7 @@ export function createProductTierComponent(props: ProductTierProps): {
   let currentBase = props.precoBaseRecursos;
 
   let state: ProductTierInput = {
-    modeloCaptura: props.initialData?.modeloCaptura ?? 'cost_savings',
+    modeloCaptura: props.initialData?.modeloCaptura ?? 'value_based',
     resultadoClienteEstimado: props.initialData?.resultadoClienteEstimado ?? 200000,
     percentualCaptura: props.initialData?.percentualCaptura ?? 20
   };
@@ -84,33 +83,48 @@ export function createProductTierComponent(props: ProductTierProps): {
         </span>
         <h2 class="pricing-tier-name">Métricas de Produto (Outcome & Impacto)</h2>
         <p class="pricing-tier-desc">
-          Responde à pergunta: <em>"Qual impacto positivo o software gerou para o cliente?"</em>. O preço é atrelado aos resultados mensuráveis de negócio (aumento de vendas ou economia de custos).
+          Responde à pergunta: <em>"Qual impacto positivo o software gerou para o cliente?"</em>. O preço é atrelado aos resultados mensuráveis de negócio (aumento de vendas, ganho de conversão ou economia de custos).
         </p>
       </div>
     </div>
 
-    <!-- Seletor de Modelo de Captura -->
-    <div class="pricing-params-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-      <div class="pricing-field-group">
-        <label class="pricing-field-label" for="select-capture-model">Modelo de Captura de Valor</label>
-        <select class="pricing-input" id="select-capture-model" style="cursor: pointer;">
-          <option value="cost_savings" ${state.modeloCaptura === 'cost_savings' ? 'selected' : ''}>Economia de Custos (Cost Savings)</option>
-          <option value="revenue_share" ${state.modeloCaptura === 'revenue_share' ? 'selected' : ''}>Participação na Receita (Revenue Share)</option>
-          <option value="value_based" ${state.modeloCaptura === 'value_based' ? 'selected' : ''}>Baseado em Performance / Conversão</option>
-        </select>
-        <span class="pricing-field-hint" id="capture-model-hint">Comum em automações, otimizações e migrações de nuvem</span>
-      </div>
-
+    <!-- Inputs de Impacto Financeiro e Percentual de Captura -->
+    <div class="pricing-params-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 1.25rem;">
       <div class="pricing-field-group">
         <label class="pricing-field-label" for="input-outcome-value">Impacto Financeiro Estimado do Cliente (R$)</label>
-        <input type="number" min="0" step="5000" class="pricing-input pricing-input-num" id="input-outcome-value" value="${state.resultadoClienteEstimado}" />
-        <span class="pricing-field-hint">Economia gerada ou receita extra conquistada</span>
+        <input type="number" min="0" step="5000" class="pricing-input pricing-input-num" id="input-outcome-value" value="${state.resultadoClienteEstimado > 0 ? state.resultadoClienteEstimado : ''}" placeholder="0" />
+        <span class="pricing-field-hint">Economia gerada ou receita extra conquistada pelo cliente com o software</span>
       </div>
 
       <div class="pricing-field-group">
         <label class="pricing-field-label" for="input-capture-pct">Percentual de Captura do Fornecedor (%)</label>
-        <input type="number" min="0" max="50" step="1" class="pricing-input pricing-input-num" id="input-capture-pct" value="${state.percentualCaptura}" />
-        <span class="pricing-field-hint">Fração justa do resultado retida pela TI (sugestão: 10% a 30%)</span>
+        <input type="number" min="0" max="100" step="1" class="pricing-input pricing-input-num" id="input-capture-pct" value="${state.percentualCaptura > 0 ? state.percentualCaptura : ''}" placeholder="0" />
+        <span class="pricing-field-hint">Fração justa do resultado retida pela TI (sugestão de mercado: 10% a 30%)</span>
+      </div>
+    </div>
+
+    <!-- Card Didático: Modelos de Captura de Valor no Mercado de Software -->
+    <div style="margin: 1.25rem 0; padding: 1.1rem 1.25rem; background: var(--bg-card-inner); border-radius: 8px; border: 1px solid var(--border-inner); font-size: 0.84rem; line-height: 1.6;">
+      <div style="font-weight: 700; color: var(--color-produto); display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        💡 Modelos de Captura de Valor no Mercado de Software
+      </div>
+      <div style="color: var(--text-secondary); display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.85rem; margin-top: 0.5rem;">
+        <div>
+          <strong style="color: var(--text-title);">• Economia de Custos (Cost Savings):</strong><br />
+          O impacto financeiro é mensurado pela redução de despesas operacionais, custos de infraestrutura ou eliminação de desperdícios (ex.: automações de processos repetitivos, otimização e governança de nuvem/FinOps).
+        </div>
+        <div>
+          <strong style="color: var(--text-title);">• Participação na Receita (Revenue Share):</strong><br />
+          O valor é ancorado no volume de receita bruta adicional, vendas ou transações diretamente viabilizadas pelo software (ex.: plataformas de e-commerce, gateways de pagamento, marketplaces).
+        </div>
+        <div>
+          <strong style="color: var(--text-title);">• Baseado em Performance (Value-Based):</strong><br />
+          Remuneração vinculada ao alcance de indicadores-chave de desempenho comercial ou operacional (ex.: aumento na taxa de conversão de leads, redução de cancelamentos/churn, retenção de clientes).
+        </div>
+      </div>
+      <div style="margin-top: 0.6rem; font-size: 0.78rem; color: var(--text-muted); border-top: 1px dashed var(--border-inner); padding-top: 0.4rem;">
+        Nota: Em todos os modelos acima, a formação do preço teto calcula a fração percentual de captura sobre o resultado projetado somada ao piso de sustentação da TI.
       </div>
     </div>
 
@@ -119,22 +133,8 @@ export function createProductTierComponent(props: ProductTierProps): {
   `;
 
   // Bind inputs
-  const selectModel = container.querySelector<HTMLSelectElement>('#select-capture-model');
   const inputOutcome = container.querySelector<HTMLInputElement>('#input-outcome-value');
   const inputPct = container.querySelector<HTMLInputElement>('#input-capture-pct');
-  const hintEl = container.querySelector<HTMLElement>('#capture-model-hint');
-
-  const hintsMap: Record<ProductCaptureModel, string> = {
-    cost_savings: 'Comum em automações, otimizações de processo e FinOps de nuvem.',
-    revenue_share: 'Comum em plataformas de e-commerce, marketplaces e SaaS B2B.',
-    value_based: 'Comum em captação de leads qualificados e aumento de conversão.'
-  };
-
-  selectModel?.addEventListener('change', (e) => {
-    state.modeloCaptura = (e.target as HTMLSelectElement).value as ProductCaptureModel;
-    if (hintEl) hintEl.textContent = hintsMap[state.modeloCaptura];
-    updateAndNotify();
-  });
 
   inputOutcome?.addEventListener('input', (e) => {
     state.resultadoClienteEstimado = Math.max(0, Number((e.target as HTMLInputElement).value) || 0);
@@ -160,12 +160,9 @@ export function createProductTierComponent(props: ProductTierProps): {
     }),
     setState: (newData: Partial<ProductTierInput>) => {
       state = { ...state, ...newData };
-      if (selectModel) selectModel.value = state.modeloCaptura;
-      if (inputOutcome) inputOutcome.value = String(state.resultadoClienteEstimado);
-      if (inputPct) inputPct.value = String(state.percentualCaptura);
-      if (hintEl) hintEl.textContent = hintsMap[state.modeloCaptura];
+      if (inputOutcome) inputOutcome.value = state.resultadoClienteEstimado > 0 ? String(state.resultadoClienteEstimado) : '';
+      if (inputPct) inputPct.value = state.percentualCaptura > 0 ? String(state.percentualCaptura) : '';
       updateAndNotify();
     }
   };
 }
-
