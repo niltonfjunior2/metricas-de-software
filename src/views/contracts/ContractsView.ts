@@ -45,7 +45,7 @@ export function renderContractsView(): HTMLElement {
           <strong style="color: #ef4444;">⚠️ Armadilha Comum:</strong> ${p.riscoPratico}
         </div>
         <div style="font-size: 0.81rem; color: var(--text-secondary); background: rgba(16, 185, 129, 0.06); border-left: 3px solid #10b981; padding: 0.55rem 0.75rem; border-radius: 4px;">
-          <strong style="color: #10b981;">⚖️ Contrato Justo (Win-Win):</strong> ${p.equilibrioJusto}
+          <strong style="color: #10b981;">⚖️ Equilíbrio Justo (Ganha-Ganha):</strong> ${p.equilibrioJusto}
         </div>
       </div>
     `
@@ -68,11 +68,11 @@ export function renderContractsView(): HTMLElement {
         Assistente de Construção de Contratos de Software
       </h1>
       <p style="color: var(--text-secondary); max-width: 850px; font-size: 0.98rem; line-height: 1.6;">
-        Estruture minutas contratuais claras, éticas e equilibradas entre <strong>desenvolvedor</strong> e <strong>cliente</strong>. Compreenda na prática como prevenir o escopo infinito (<em>scope creep</em>), resguardar a propriedade intelectual, estabelecer critérios justos de homologação e adequar o projeto à LGPD.
+        Estruture minutas contratuais claras, éticas e equilibradas entre <strong>desenvolvedor</strong> e <strong>cliente</strong>. Compreenda na prática como prevenir o crescimento descontrolado de demandas ("escopo infinito"), resguardar a propriedade intelectual, estabelecer critérios justos de homologação e adequar o projeto à Lei Geral de Proteção de Dados (LGPD).
       </p>
     </div>
 
-    <!-- Aviso Legal Obrigatório (Disclaimer de Governança) -->
+    <!-- Aviso Legal Obrigatório -->
     <div id="legal-disclaimer-banner" class="card" style="border-left: 4px solid #f59e0b; background: rgba(245, 158, 11, 0.07); border-color: rgba(245, 158, 11, 0.35); margin-bottom: 2rem; padding: 1.25rem;">
       <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
         <span style="font-size: 1.5rem; line-height: 1;">⚖️</span>
@@ -87,10 +87,10 @@ export function renderContractsView(): HTMLElement {
       </div>
     </div>
 
-    <!-- Guia Didático dos 6 Pilares de Segurança Jurídica em ADS -->
+    <!-- Guia Didático dos 6 Pilares de Segurança Jurídica -->
     <div class="card no-print" style="margin-bottom: 2rem;">
       <div style="margin-bottom: 1.15rem;">
-        <span class="badge badge-recursos" style="margin-bottom: 0.4rem;">Fundamentos para Profissionais de ADS</span>
+        <span class="badge badge-recursos" style="margin-bottom: 0.4rem;">Fundamentos para Profissionais de Sistemas</span>
         <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-title); margin-bottom: 0.3rem;">
           Os 6 Pilares de um Contrato Justo de Desenvolvimento de Software
         </h2>
@@ -103,7 +103,7 @@ export function renderContractsView(): HTMLElement {
       </div>
     </div>
 
-    <!-- Barra de Cenários / Templates Contratuais -->
+    <!-- Barra de Cenários / Modelos Contratuais -->
     <div class="card templates-bar-container no-print" style="background: var(--bg-card-inner); border: 1px solid var(--border-inner); margin-bottom: 2rem; padding: 1.25rem;">
       <div style="margin-bottom: 0.85rem;">
         <span style="font-weight: 700; font-size: 0.95rem; color: var(--text-title);">Cenários Contratuais de Referência</span>
@@ -170,7 +170,7 @@ export function renderContractsView(): HTMLElement {
             <span class="pricing-tier-badge badge-tier-recursos">Etapa 1 • Identificação e Modalidade</span>
             <h3 class="pricing-tier-name">Qualificação das Partes & Natureza do Contrato</h3>
             <p class="pricing-tier-desc">
-              Se preferir não digitar dados reais agora, deixe em branco: o assistente preencherá placeholders padronizados na minuta.
+              Se preferir não digitar dados reais agora, deixe em branco: o assistente preencherá campos de marcação padronizados na minuta.
             </p>
           </div>
         </div>
@@ -185,7 +185,7 @@ export function renderContractsView(): HTMLElement {
           </div>
           <div class="pricing-field-group">
             <label class="pricing-field-label" for="ct-contratada-nome">Nome / Razão Social do Desenvolvedor (Contratada)</label>
-            <input type="text" id="ct-contratada-nome" class="pricing-input" value="${escapeHtml(state.contratadaNome)}" placeholder="Ex: DevStudio Engenharia Ltda." />
+            <input type="text" id="ct-contratada-nome" class="pricing-input" value="${escapeHtml(state.contratadaNome)}" placeholder="Ex: Estúdio de Engenharia de Software Ltda." />
           </div>
           <div class="pricing-field-group">
             <label class="pricing-field-label" for="ct-contratada-doc">CNPJ / CPF do Desenvolvedor</label>
@@ -199,38 +199,38 @@ export function renderContractsView(): HTMLElement {
             <label class="pricing-field-label" for="ct-modelo">Modalidade Jurídica da Contratação</label>
             <select id="ct-modelo" class="pricing-input">
               <option value="escopo_fechado" ${state.modeloContratual === 'escopo_fechado' ? 'selected' : ''}>Desenvolvimento por Escopo Fechado (Sob Encomenda)</option>
-              <option value="alocacao_horas" ${state.modeloContratual === 'alocacao_horas' ? 'selected' : ''}>Sustentação / Alocação Mensal de Horas (Day 2)</option>
-              <option value="saas_licenca" ${state.modeloContratual === 'saas_licenca' ? 'selected' : ''}>Licenciamento de Uso de Software (SaaS)</option>
+              <option value="alocacao_horas" ${state.modeloContratual === 'alocacao_horas' ? 'selected' : ''}>Sustentação Contínua / Alocação Mensal de Horas</option>
+              <option value="saas_licenca" ${state.modeloContratual === 'saas_licenca' ? 'selected' : ''}>Licenciamento de Uso de Software em Nuvem (Assinatura)</option>
             </select>
           </div>
         </div>
       </div>
 
-      <!-- Bloco 2: Escopo, Exclusões e Change Request -->
+      <!-- Bloco 2: Escopo, Exclusões e Gestão de Mudanças -->
       <div class="pricing-tier-card tier-processo">
         <div class="pricing-tier-header">
           <div class="pricing-tier-title-box">
             <span class="pricing-tier-badge" style="background: rgba(16, 185, 129, 0.12); color: var(--color-processo); border: 1px solid rgba(16, 185, 129, 0.25);">Etapa 2 • Delimitação de Escopo</span>
-            <h3 class="pricing-tier-name">Objeto Técnico, "Não-Escopo" e Gestão de Mudanças</h3>
+            <h3 class="pricing-tier-name">Objeto Técnico, Itens Não Inclusos e Gestão de Mudanças</h3>
             <p class="pricing-tier-desc">
-              A maior causa de litígios e prejuízos em projetos de software é a falta de clareza sobre o que está e o que NÃO está incluído no preço.
+              A maior causa de conflitos e prejuízos em projetos de software é a falta de clareza sobre o que está e o que NÃO está incluído no preço.
             </p>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
           <div class="pricing-field-group">
-            <label class="pricing-field-label" for="ct-escopo">Resumo dos Entregáveis e Módulos (Vinculado ao SOW / Anexo Técnico)</label>
-            <textarea id="ct-escopo" class="pricing-input" rows="3" placeholder="Descreva os módulos principais, plataformas (Web/Mobile), integrações e entregáveis do projeto...">${escapeHtml(state.escopoResumo)}</textarea>
+            <label class="pricing-field-label" for="ct-escopo">Resumo dos Entregáveis e Módulos (Vinculado ao Anexo de Especificação Técnica)</label>
+            <textarea id="ct-escopo" class="pricing-input" rows="3" placeholder="Descreva os módulos principais, plataformas (Web ou Celular), integrações e entregáveis do projeto...">${escapeHtml(state.escopoResumo)}</textarea>
           </div>
           <div class="pricing-field-group">
-            <label class="pricing-field-label" for="ct-exclusoes">Exclusões Explícitas (O que NÃO faz parte do orçamento do desenvolvedor)</label>
-            <textarea id="ct-exclusoes" class="pricing-input" rows="2" placeholder="Ex: Faturas de servidores cloud (AWS/Azure), taxas da Apple Store/Google Play, compra de domínio, alimentação manual de cadastros...">${escapeHtml(state.exclusoesEscopo)}</textarea>
+            <label class="pricing-field-label" for="ct-exclusoes">Exclusões Explícitas (Itens que NÃO fazem parte do orçamento do desenvolvedor)</label>
+            <textarea id="ct-exclusoes" class="pricing-input" rows="2" placeholder="Ex: Faturas de servidores em nuvem, taxas das lojas de aplicativos (Apple e Google), compra de domínio, digitação manual de cadastros...">${escapeHtml(state.exclusoesEscopo)}</textarea>
           </div>
           <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.75rem; background: var(--bg-card-inner); border: 1px solid var(--border-inner); border-radius: 8px;">
             <input type="checkbox" id="ct-change-request" ${state.exigirChangeRequest ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: var(--color-processo);" />
             <span style="font-size: 0.86rem; color: var(--text-primary);">
-              <strong>Exigir Termo Aditivo (Change Request) para demandas extras:</strong> Blinda o projeto contra o <em>Scope Creep</em>, exigindo repactuação formal de prazo e preço para qualquer funcionalidade nova pedida durante o desenvolvimento.
+              <strong>Exigir Termo Aditivo Formal para solicitações de mudança de escopo:</strong> Protege o projeto contra o crescimento descontrolado de tarefas ("escopo infinito"), exigindo repactuação formal de prazo e preço para qualquer funcionalidade nova pedida durante o desenvolvimento.
             </span>
           </label>
         </div>
@@ -265,7 +265,7 @@ export function renderContractsView(): HTMLElement {
             <label class="pricing-field-label" for="ct-estrutura-pgto">Estrutura de Faturamento</label>
             <select id="ct-estrutura-pgto" class="pricing-input">
               <option value="sinal_parcelas" ${state.estruturaPagamento === 'sinal_parcelas' ? 'selected' : ''}>Sinal na Assinatura + Saldo nas Entregas</option>
-              <option value="mensal_recorrente" ${state.estruturaPagamento === 'mensal_recorrente' ? 'selected' : ''}>Mensalidade Recorrente (Sustentação / SaaS)</option>
+              <option value="mensal_recorrente" ${state.estruturaPagamento === 'mensal_recorrente' ? 'selected' : ''}>Mensalidade Recorrente (Sustentação / Assinatura)</option>
               <option value="vista_homologacao" ${state.estruturaPagamento === 'vista_homologacao' ? 'selected' : ''}>Parcela Única na Homologação Final</option>
             </select>
           </div>
@@ -282,19 +282,19 @@ export function renderContractsView(): HTMLElement {
         <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; margin-top: 1rem; padding: 0.75rem; background: var(--bg-card-inner); border: 1px solid var(--border-inner); border-radius: 8px;">
           <input type="checkbox" id="ct-aceite-tacito" ${state.aceiteTacitoAtivo ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: var(--color-produto);" />
           <span style="font-size: 0.86rem; color: var(--text-primary);">
-            <strong>Ativar Cláusula de Aceite Tácito na Homologação:</strong> Se o cliente não apontar falhas objetivas dentro do prazo de homologação ou colocar o sistema em produção, a entrega é considerada aprovada.
+            <strong>Ativar Cláusula de Aceite Tácito na Homologação:</strong> Se o cliente não apontar falhas objetivas dentro do prazo de homologação ou colocar o sistema em uso comercial, a entrega é considerada aprovada.
           </span>
         </label>
       </div>
 
-      <!-- Bloco 4: Propriedade Intelectual, Garantia Técnica e SLA -->
+      <!-- Bloco 4: Propriedade Intelectual, Garantia Técnica e Prazo de Atendimento -->
       <div class="pricing-tier-card tier-recursos">
         <div class="pricing-tier-header">
           <div class="pricing-tier-title-box">
             <span class="pricing-tier-badge badge-tier-recursos">Etapa 4 • Propriedade Intelectual & Garantia</span>
-            <h3 class="pricing-tier-name">Titularidade do Código-Fonte (Lei 9.609/98), Garantia e SLA</h3>
+            <h3 class="pricing-tier-name">Titularidade do Código-Fonte (Lei 9.609/98), Garantia e Atendimento</h3>
             <p class="pricing-tier-desc">
-              Defina quem será dono do código-fonte ao final e separe claramente correção gratuita de bugs vs. evolução cobrada à parte.
+              Defina quem será dono do código-fonte ao final e separe claramente correção gratuita de erros de programação vs. evolução cobrada à parte.
             </p>
           </div>
         </div>
@@ -308,11 +308,11 @@ export function renderContractsView(): HTMLElement {
             </select>
           </div>
           <div class="pricing-field-group">
-            <label class="pricing-field-label" for="ct-garantia-dias">Prazo de Garantia Técnica contra Bugs (Dias)</label>
+            <label class="pricing-field-label" for="ct-garantia-dias">Prazo de Garantia Técnica contra Falhas (Dias)</label>
             <input type="number" id="ct-garantia-dias" class="pricing-input pricing-input-num" min="0" value="${formatNumVal(state.prazoGarantiaDias)}" placeholder="90" />
           </div>
           <div class="pricing-field-group">
-            <label class="pricing-field-label" for="ct-sla-horas">SLA de 1ª Resposta para Incidente Crítico (Horas Úteis)</label>
+            <label class="pricing-field-label" for="ct-sla-horas">Prazo Máximo de 1º Atendimento Crítico (Horas Úteis)</label>
             <input type="number" id="ct-sla-horas" class="pricing-input pricing-input-num" min="0" value="${formatNumVal(state.slaRespostaCriticoHoras)}" placeholder="4" />
           </div>
         </div>
@@ -321,19 +321,19 @@ export function renderContractsView(): HTMLElement {
           <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.7rem; background: var(--bg-card-inner); border: 1px solid var(--border-inner); border-radius: 8px;">
             <input type="checkbox" id="ct-bg-ip" ${state.protegerBackgroundIP ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: var(--accent-cyan);" />
             <span style="font-size: 0.85rem; color: var(--text-primary);">
-              <strong>Proteger <em>Background IP</em> (Bibliotecas Próprias e Componentes Reutilizáveis):</strong> Garante que você continue dono de seus frameworks e estruturas base para usar em outros projetos.
+              <strong>Preservar Propriedade Intelectual Pré-Existente (Acervo Técnico e Bibliotecas Reutilizáveis):</strong> Garante que você continue titular de suas próprias estruturas base e componentes genéricos para utilizar em outros projetos.
             </span>
           </label>
           <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.7rem; background: var(--bg-card-inner); border: 1px solid var(--border-inner); border-radius: 8px;">
             <input type="checkbox" id="ct-garantia-terceiros" ${state.perdaGarantiaPorAlteracaoTerceiros ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: var(--accent-cyan);" />
             <span style="font-size: 0.85rem; color: var(--text-primary);">
-              <strong>Extinguir garantia em módulos alterados por terceiros sem anuência:</strong> Evita que você seja obrigado a consertar gratuitamente erros inseridos por outra equipe no código.
+              <strong>Extinguir garantia em módulos alterados por terceiros sem autorização:</strong> Evita que você seja obrigado a consertar gratuitamente falhas inseridas por outra equipe no código.
             </span>
           </label>
           <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.7rem; background: var(--bg-card-inner); border: 1px solid var(--border-inner); border-radius: 8px;">
             <input type="checkbox" id="ct-portfolio" ${state.permitirPortfolio ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: var(--accent-cyan);" />
             <span style="font-size: 0.85rem; color: var(--text-primary);">
-              <strong>Autorizar divulgação em Portfólio Comercial:</strong> Permite citar o projeto e exibir a marca do cliente como case técnico.
+              <strong>Autorizar divulgação em Portfólio Profissional:</strong> Permite citar a realização do projeto e exibir a marca do cliente como referência comercial.
             </span>
           </label>
         </div>
@@ -344,9 +344,9 @@ export function renderContractsView(): HTMLElement {
         <div class="pricing-tier-header">
           <div class="pricing-tier-title-box">
             <span class="pricing-tier-badge" style="background: rgba(16, 185, 129, 0.12); color: var(--color-processo); border: 1px solid rgba(16, 185, 129, 0.25);">Etapa 5 • Governança, Riscos & Rescisão</span>
-            <h3 class="pricing-tier-name">LGPD, Sigilo (NDA), Teto de Responsabilidade e Foro</h3>
+            <h3 class="pricing-tier-name">Proteção de Dados (LGPD), Dever de Sigilo, Teto de Responsabilidade e Foro</h3>
             <p class="pricing-tier-desc">
-              Proteja o patrimônio das partes contra riscos desproporcionais, defina os papéis da LGPD e estabeleça uma saída justa em caso de distrato.
+              Proteja o patrimônio das partes contra riscos desproporcionais, defina os papéis da Lei Geral de Proteção de Dados e estabeleça uma saída justa em caso de encerramento antecipado.
             </p>
           </div>
         </div>
@@ -355,19 +355,19 @@ export function renderContractsView(): HTMLElement {
           <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.7rem; background: var(--bg-card-inner); border: 1px solid var(--border-inner); border-radius: 8px;">
             <input type="checkbox" id="ct-lgpd" ${state.conformidadeLGPD ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: var(--color-processo);" />
             <span style="font-size: 0.85rem; color: var(--text-primary);">
-              <strong>Delimitação de Papéis na LGPD (Lei 13.709/18):</strong> Define o Cliente como <em>Controlador</em> e o Desenvolvedor como <em>Operador</em> técnico, prevendo uso de dados fictícios em testes.
+              <strong>Delimitação de Papéis na LGPD (Lei 13.709/18):</strong> Define o Cliente como <em>Controlador</em> (quem toma decisões sobre os dados) e o Desenvolvedor como <em>Operador</em> técnico, prevendo uso de dados fictícios em testes.
             </span>
           </label>
           <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.7rem; background: var(--bg-card-inner); border: 1px solid var(--border-inner); border-radius: 8px;">
             <input type="checkbox" id="ct-nda" ${state.clausulaConfidencialidadeNDA ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: var(--color-processo);" />
             <span style="font-size: 0.85rem; color: var(--text-primary);">
-              <strong>Cláusula de Confidencialidade Bilateral (NDA):</strong> Protege segredos de negócio, chaves de API, regras operacionais e algoritmos de ambas as partes.
+              <strong>Compromisso de Confidencialidade e Sigilo Bilateral:</strong> Protege segredos de negócio, senhas, chaves de integração, regras operacionais e códigos de ambas as partes.
             </span>
           </label>
           <label style="display: flex; align-items: center; gap: 0.65rem; cursor: pointer; padding: 0.7rem; background: var(--bg-card-inner); border: 1px solid var(--border-inner); border-radius: 8px;">
             <input type="checkbox" id="ct-limit-resp" ${state.limitarResponsabilidadeCivil ? 'checked' : ''} style="width: 18px; height: 18px; accent-color: var(--color-processo);" />
             <span style="font-size: 0.85rem; color: var(--text-primary);">
-              <strong>Limitação de Responsabilidade Civil (Teto Indenizatório):</strong> Limita indenizações por danos diretos ao valor pago no contrato e isenta quedas de nuvem/APIs de terceiros e lucros cessantes.
+              <strong>Limitação de Responsabilidade Civil (Teto Indenizatório):</strong> Limita indenizações por danos diretos ao valor pago no contrato e isenta quedas de servidores externos de terceiros e lucros cessantes.
             </span>
           </label>
         </div>
@@ -401,7 +401,7 @@ export function renderContractsView(): HTMLElement {
       diag.alertasRisco.length > 0
         ? `
           <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.65rem;">
-            <strong style="font-size: 0.85rem; color: #ef4444;">⚠️Pontos de Atenção e Vulnerabilidades Detectadas (${diag.alertasRisco.length}):</strong>
+            <strong style="font-size: 0.85rem; color: #ef4444;">⚠️ Pontos de Atenção e Vulnerabilidades Detectadas (${diag.alertasRisco.length}):</strong>
             ${diag.alertasRisco
               .map(
                 (a) => `
@@ -416,7 +416,7 @@ export function renderContractsView(): HTMLElement {
         `
         : `
           <div style="margin-top: 1rem; padding: 0.75rem 1rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; font-size: 0.83rem; color: #10b981; font-weight: 600;">
-            ✔️ Excelente! Todas as salvaguardas essenciais de escopo, aceite tácito, propriedade intelectual, LGPD e limitação de responsabilidade estão ativas.
+            ✔️ Excelente! Todas as salvaguardas essenciais de escopo, aceite tácito, propriedade intelectual, proteção de dados (LGPD) e limitação de responsabilidade estão ativas.
           </div>
         `;
 

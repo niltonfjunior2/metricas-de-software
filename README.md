@@ -54,15 +54,15 @@ Fundamentada nos conceitos acadêmicos de valoração de software e no princípi
 
 ## ⚖️ Assistente de Construção de Contratos de Software & Segurança Jurídica
 
-Alinhado à legislação brasileira (**Lei do Software nº 9.609/1998**, **Código Civil** e **LGPD nº 13.709/2018**), o assistente (`#/contratos`) orienta profissionais e estudantes sobre como estabelecer acordos justos e transparentes:
+Alinhado à legislação brasileira (**Lei do Software nº 9.609/1998**, **Código Civil** e **LGPD nº 13.709/2018**), o assistente (`#/contratos`) orienta profissionais e estudantes sobre como estabelecer acordos justos e transparentes em português claro:
 
-* **Os 6 Pilares da Segurança Contratual em TI:**
-  1. *Delimitação de Escopo, Exclusões ("Não-Escopo") e Prevenção ao Scope Creep (Change Request via Termo Aditivo).*
+* **Os 6 Pilares da Segurança Contratual em Tecnologia da Informação:**
+  1. *Delimitação de Escopo, Exclusões ("Itens Não Inclusos") e Prevenção ao Crescimento Descontrolado de Demandas (via Termo Aditivo).*
   2. *Homologação com Prazo Definido e Cláusula de Aceite Tácito (proteção contra paralisação do aceite pelo cliente).*
-  3. *Propriedade Intelectual (Cessão após quitação vs. Licença de Uso SaaS) e Salvaguarda de Background IP.*
-  4. *Garantia Técnica contra Bugs de Escopo vs. Manutenção Evolutiva e SLA por criticidade.*
-  5. *Conformidade com a LGPD (Cliente como Controlador e Desenvolvedor como Operador) e Sigilo Bilateral (NDA).*
-  6. *Limitação de Responsabilidade Civil (teto indenizatório e isenção por quedas de nuvem/APIs de terceiros) e Rescisão Proporcional.*
+  3. *Propriedade Intelectual (Cessão após quitação vs. Licença de Uso em Nuvem) e Salvaguarda do Acervo Técnico Pré-Existente.*
+  4. *Garantia Técnica contra Erros de Programação vs. Manutenção Evolutiva e Prazos Máximos de Atendimento.*
+  5. *Conformidade com a LGPD (Cliente como Controlador e Desenvolvedor como Operador) e Compromisso de Sigilo Bilateral.*
+  6. *Limitação de Responsabilidade Civil (teto indenizatório e isenção por quedas de servidores de terceiros) e Rescisão Proporcional.*
 * **Termômetro de Cobertura Contratual em Tempo Real:** Avalia a configuração escolhida (`0%` a `100%`) e alerta imediatamente caso alguma cláusula deixe o desenvolvedor ou o cliente vulnerável.
 * **Caráter Estritamente Educativo e Informativo:** Apresenta aviso de governança destacado na interface e no documento gerado esclarecendo que a minuta referencial não substitui a consultoria e revisão de um(a) advogado(a) habilitado(a) na OAB.
 

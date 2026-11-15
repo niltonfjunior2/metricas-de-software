@@ -141,11 +141,11 @@ export function renderWelcomeView(): HTMLElement {
         <ul class="gateway-features-list">
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>Prevenção ao Scope Creep:</strong> Escopo, Exclusões e Change Request</span>
+            <span><strong>Proteção de Escopo:</strong> Entregáveis, Exclusões e Termo Aditivo</span>
           </li>
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>Propriedade Intelectual & LGPD:</strong> Cessão, Licença e Papéis Legais</span>
+            <span><strong>Propriedade Intelectual & LGPD:</strong> Cessão, Licença e Sigilo</span>
           </li>
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -154,7 +154,7 @@ export function renderWelcomeView(): HTMLElement {
         </ul>
 
         <div class="gateway-card-footer">
-          <span style="font-size: 0.82rem; color: var(--text-muted);">Guia Informativo para ADS</span>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Guia Informativo de Contratos</span>
           <span class="gateway-cta-btn">
             Abrir Assistente
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
