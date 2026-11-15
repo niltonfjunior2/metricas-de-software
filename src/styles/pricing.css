@@ -176,6 +176,7 @@
 .pricing-params-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: end;
   gap: 1.25rem;
   margin-top: 1.5rem;
   background-color: var(--bg-card-inner);
@@ -187,7 +188,13 @@
 .pricing-field-group {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   gap: 0.35rem;
+}
+
+.pricing-field-group .pricing-input {
+  margin-top: auto;
+  min-height: 38px;
 }
 
 .pricing-field-label {
