@@ -14,14 +14,14 @@ export function renderWelcomeView(): HTMLElement {
       </div>
       <h1 class="welcome-title">
         Aprenda Métricas. Domine a Qualidade.<br />
-        <span class="hero-title-gradient">Precifique com Consciência Técnica.</span>
+        <span class="hero-title-gradient">Precifique com Consciência Técnica e Segurança Jurídica.</span>
       </h1>
       <p class="welcome-subtitle">
-        Uma plataforma integrada para o ensino dinâmico de Engenharia de Software: explore a teoria e os simuladores de medição no <strong>MétricaLab</strong> ou aplique métricas na <strong>Calculadora de Precificação Comercial</strong>.
+        Uma plataforma aberta e auto-instrucional que conecta toda a jornada profissional de Engenharia de Software: domine os fundamentos e simuladores de medição no <strong>MétricaLab</strong>, estruture orçamentos sustentáveis na <strong>Calculadora de Precificação</strong> e proteja a relação com o cliente no <strong>Assistente de Contratos</strong>.
       </p>
     </section>
 
-    <!-- Two Main Gateway Cards -->
+    <!-- Three Main Gateway Cards -->
     <section class="welcome-grid" aria-label="Portais de Acesso">
       
       <!-- Card 1: Portal MétricaLab -->
@@ -47,7 +47,7 @@ export function renderWelcomeView(): HTMLElement {
         <ul class="gateway-features-list">
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>3 Módulos de Teoria:</strong> Acordeões dinâmicos e framework SMART</span>
+            <span><strong>3 Módulos de Teoria:</strong> Acordeões dinâmicos e critérios de qualidade</span>
           </li>
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -55,7 +55,7 @@ export function renderWelcomeView(): HTMLElement {
           </li>
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>Simulador de Tech Lead:</strong> 15 estudos de caso (crise e governança)</span>
+            <span><strong>Simulador de Liderança Técnica:</strong> 15 estudos de caso práticos</span>
           </li>
         </ul>
 
@@ -97,15 +97,15 @@ export function renderWelcomeView(): HTMLElement {
         <ul class="gateway-features-list">
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>Comparação em 3 Faixas:</strong> Piso (Recursos), Faixa Ágil e Teto de Valor</span>
+            <span><strong>Comparação em 3 Faixas:</strong> Piso (Recursos), Eficiência (Processo) e Teto de Valor</span>
           </li>
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>Governança Tributária:</strong> Aplicação compulsória de alíquota de impostos</span>
+            <span><strong>Governança Tributária:</strong> Cálculo obrigatório de impostos por dentro</span>
           </li>
           <li class="gateway-feature-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>Templates Prontos & Exportação:</strong> E-commerce, SaaS, FinOps e PDF</span>
+            <span><strong>Cenários Prontos & Exportação:</strong> Modelos de mercado, rascunhos e PDF</span>
           </li>
         </ul>
 
@@ -173,19 +173,19 @@ export function renderWelcomeView(): HTMLElement {
         <div class="welcome-pillar-box">
           <div class="welcome-pillar-title" style="color: var(--accent-cyan);">Piso, Eficiência e Valor</div>
           <div class="welcome-pillar-desc">
-            Recursos pagam a conta, Processo entrega com previsibilidade e Produto define o teto do valor percebido pelo cliente.
+            Recursos cobrem os custos operacionais, Processo entrega com maturidade e Produto define o teto do valor gerado para o cliente.
           </div>
         </div>
         <div class="welcome-pillar-box">
           <div class="welcome-pillar-title" style="color: var(--color-processo);">Zero Custo & Client-Side</div>
           <div class="welcome-pillar-desc">
-            Execução 100% no navegador, sem banco de dados, sem envio de informações telemétricas e com carregamento instantâneo.
+            Execução 100% local no navegador do usuário, sem banco de dados externo, sem coleta de dados pessoais e com privacidade absoluta.
           </div>
         </div>
         <div class="welcome-pillar-box">
-          <div class="welcome-pillar-title" style="color: var(--color-produto);">Consciência Fiscal</div>
+          <div class="welcome-pillar-title" style="color: var(--color-produto);">Consciência Fiscal & Jurídica</div>
           <div class="welcome-pillar-desc">
-            Formação de preço profissional com cálculo obrigatório de carga tributária para prevenir a inadimplência tributária no mercado.
+            Formação de preço profissional com cálculo obrigatório de tributos por dentro e diretrizes de segurança contratual equilibrada.
           </div>
         </div>
       </div>
@@ -194,4 +194,3 @@ export function renderWelcomeView(): HTMLElement {
 
   return container;
 }
-
